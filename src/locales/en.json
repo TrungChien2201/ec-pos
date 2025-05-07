@@ -1,0 +1,133 @@
+{
+  "common": {
+    "banner": "banner",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "create": "Create",
+    "save": "Save",
+    "validation": {
+      "required": "{{name}} is required.",
+      "phone": "Phone number format is incorrect."
+    },
+    "no_data": "There is no data"
+  },
+  "Welcome to React": "Welcome to React and react-i18next",
+  "login": {
+    "title": "Les’t Sing you in.",
+    "description": "Please log in to use the service",
+    "email": "Email",
+    "email_placeholder": "Your email",
+    "password": "Password",
+    "forgot_password": "Forgot password?",
+    "login_button": "Login",
+    "dont_have_account": "Don't have an account?",
+    "not_account": "Don't have an account?",
+    "form": {
+      "email_required": "Email is required.",
+      "password_required": "Password is required."
+    }
+  },
+  "register": {
+    "register_button": "Register",
+    "title": "Sign up",
+    "name": "FullName",
+    "last_name": "Last Name",
+    "first_name": "First Name",
+    "name_placeholder": "Yamada Taro",
+    "email_placeholder": "example@gmail.com",
+    "password_placeholder": "Enter password",
+    "agree_with_policy": "Agree to the privacy policy and register",
+    "policy": "Agree to the privacy policy and register",
+    "back_to_login": "Return to login screen",
+    "form": {
+      "email_required": "Email is required.",
+      "password_required": "Password is required.",
+      "name_required": "Name is required."
+    }
+  },
+  "forgotPassword": {
+    "stepOne": {
+      "title": "Change password",
+      "descOne": "Please enter your e-mail address.<br/> Reset your password.",
+      "sub_desc": "",
+      "form": {
+        "email": "Email address",
+        "email_placeholder": "Email",
+        "button_text": "Send",
+        "back_text": "Return to login screen"
+      }
+    },
+    "stepTwo": {
+      "title": "OTP authentication",
+      "descOne": "Sending OTP to Hun*****im@gmail.com.",
+      "sub_desc": "Registered destination",
+      "form": {
+        "text_desc": "I didn't receive my verification number!",
+        "text_resend": "If so, resend",
+        "button_text": "Certification",
+        "back_text": "Return to login screen",
+        "resended_text": "Retransmission"
+      }
+    },
+    "stepThree": {
+      "title": "Resetting a password",
+      "descOne": "Passwords include lowercase letters, uppercase letters, numbers, and special characters (!@#$%^&*)",
+      "sub_desc": "",
+      "form": {
+        "new_password": "New password",
+        "new_password_placeholder": "Enter new password",
+        "new_password_confirm": "New password (for confirmation)",
+        "new_password_confirm_placeholder": "New password confirm",
+        "button_text": "Change",
+        "back_text": "Return to login screen",
+        "email_not_match": "The new password that you entered do not match."
+      }
+    },
+    "successReset": {
+      "title": "Resetting a password",
+      "descOne": "",
+      "sub_desc": "",
+      "form": {
+        "notify_message": "A new password has been set. Please enter your new password on the login screen.",
+        "button_text": "Go to login screen"
+      }
+    }
+  },
+  "user_profile": {
+    "shipping_address": "Shipping address",
+    "register_new_address": "Register new address",
+    "order_history": "Order History",
+    "choosing": "choosing",
+    "my_profile": "My profile",
+    "profile": "Profile",
+    "logout": "Logout",
+    "order": {
+      "orderDate": "Order Date",
+      "amount": "Quantity",
+      "soldAmount": "Units Sold",
+      "earnedPoint": "Earned Points",
+      "total": "Total",
+      "Reorder": "Reorder"
+    }
+  },
+  "search": {
+    "result_search_en": "Search Results",
+    "result_search_jp": "検索結果"
+  },
+  "modal": {
+    "address": {
+      "add_new_address": "Add new address",
+      "edit_address": "Edit address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "phone": "Telephone number",
+      "post_code": "Post code",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "prefectures": "Prefectures",
+      "default_address": "Set as default address"
+    }
+  }
+}

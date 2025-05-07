@@ -1,0 +1,73 @@
+.modal-gallery {
+  z-index: 99999999 !important;
+
+  .slick-slider {
+    position: inherit !important;
+    .slick-list {
+      margin: 0 -10px;
+    }
+    .slick-slide {
+      padding: 0 10px;
+    }
+  }
+
+  .slick-track {
+    margin-left: initial !important;
+    margin-right: initial !important;
+  }
+
+  .image-thumbnail.active {
+    border-color: #fff !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .slick-prev,
+    .slick-next {
+      width: 32px !important;
+      height: 32px !important;
+      padding: 8px !important;
+      &:hover {
+        cursor: pointer;
+        background: #fff;
+      }
+    }
+
+    .slick-prev {
+      left: 5px !important;
+    }
+
+    .slick-next {
+      right: 5px !important;
+    }
+
+    .slick-slider {
+      .slick-list {
+        margin: 0 -10px;
+      }
+      .slick-slide {
+        padding: 0 5px;
+      }
+    }
+  }
+}
+
+.prev-btn-slider,
+.next-btn-slider {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  &.disable {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .prev-btn-slider,
+  .next-btn-slider {
+    display: none !important;
+  }
+}

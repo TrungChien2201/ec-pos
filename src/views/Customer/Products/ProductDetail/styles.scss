@@ -1,0 +1,25 @@
+@media screen and (max-width: 600px) {
+  .product-detail {
+    .container {
+      &.content-wrapper {
+        padding: 0 !important;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .product-detail__images {
+    width: calc((540) / 1280 * 100%) !important;
+  }
+
+  .product-detail__contents {
+    width: calc(((1440 - 540)) / 1280 * 100%) !important;
+  }
+}
+
+.border-wrapper {
+  border-color: rgba(0, 0, 0, 0.15);
+  border-style: solid;
+  box-sizing: border-box;
+}

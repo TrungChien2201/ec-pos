@@ -1,0 +1,100 @@
+build-develop:
+    stage: build
+    before_script:
+        - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+        - eval $(ssh-agent -s)
+    script:
+        - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build.sh --branch=develop --docker-f=deploy/Dockerfile --time-period=15 --host-port=3055 --container-port=80'
+    only:
+        - develop
+
+# build-develop-2:
+#     stage: build
+#     before_script:
+#         - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+#         - eval $(ssh-agent -s)
+#     script:
+#         - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build2.sh --branch=develop --docker-f=deploy/Dockerfile2 --time-period=15 --host-port=3056 --container-port=80'
+#     only:
+#         - develop
+
+deploy-develop:
+    stage: deploy
+    before_script:
+        - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+        - eval $(ssh-agent -s)
+    script:
+        - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy.sh --branch=develop --docker-f=deploy/Dockerfile --time-period=15 --host-port=3055 --container-port=80'
+    only:
+        - develop
+
+# deploy-develop-2:
+#     stage: deploy
+#     before_script:
+#         - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+#         - eval $(ssh-agent -s)
+#     script:
+#         - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy2.sh --branch=develop --docker-f=deploy/Dockerfile2 --time-period=15 --host-port=3056 --container-port=80'
+#     only:
+#         - develop
+
+build-staging:
+  stage: build
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+  script:
+    - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build.sh --docker-f=deploy/Dockerfile.stg --deploy-ssh-host=115.146.123.30 --deploy-ssh-port=2041 --time-period=20 --host-port=3055 --container-port=80'
+  only:
+    - staging
+
+deploy-staing:
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+  script:
+    - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy.sh --docker-f=deploy/Dockerfile.stg --deploy-ssh-host=115.146.123.30 --deploy-ssh-port=2041 --time-period=20 --host-port=3055 --container-port=80'
+  only:
+    - staging
+
+build-prod:
+  stage: build
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+  script:
+    - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build.sh --docker-f=deploy/Dockerfile.prod --deploy-ssh-host=57.180.66.26 --deploy-ssh-port=22 --time-period=20 --host-port=3055 --container-port=80'
+  only:
+    - master
+
+# build-prod-2:
+#   stage: build
+#   before_script:
+#     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+#     - eval $(ssh-agent -s)
+#   script:
+#     - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build2.sh --docker-f=deploy/Dockerfile2.prod --deploy-ssh-host=57.180.66.26 --deploy-ssh-port=22 --time-period=20 --host-port=3056 --container-port=80'
+#   only:
+#     - master
+
+deploy-prod:
+  stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+  script:
+    - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy.sh --docker-f=deploy/Dockerfile.prod --deploy-ssh-host=57.180.66.26 --deploy-ssh-port=22 --host-port=3055 --time-period=20 --container-port=80'
+  only:
+    - master
+
+# deploy-prod-2:
+#   stage: deploy
+#   before_script:
+#     - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+#     - eval $(ssh-agent -s)
+#   script:
+#     - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy2.sh --docker-f=deploy/Dockerfile2.prod --deploy-ssh-host=57.180.66.26 --deploy-ssh-port=22 --host-port=3056 --time-period=20 --container-port=80'
+#   only:
+#     - master
+

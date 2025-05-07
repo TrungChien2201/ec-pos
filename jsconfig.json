@@ -1,7 +1,36 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
-    }
-  }
+      "@/*": ["./*"],
+      "common/*": ["./src/common/*"],
+      "services/*": ["./src/services/*"],
+      "utils/*": ["./src/utils/*"],
+      "components/*": ["./src/components/*"],
+      "store/*": ["./src/store/*"],
+      "provider/*": ["./src/provider/*"],
+      "layouts/*": ["./src/layouts/*"],
+      "resourse/*": ["./src/resourse/*"],
+      "views/*": ["./src/views/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "modules/*": ["./src/modules/*"],
+      "assets/*": ["./src/assets/*"],
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": ["**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
 }

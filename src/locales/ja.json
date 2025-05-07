@@ -1,0 +1,466 @@
+{
+  "common": {
+    "banner": "バナー",
+    "cancel": "キャンセル",
+    "edit": "編集",
+    "create": "登録",
+    "save": "保存",
+    "validation": {
+      "required": "{{name}}を入力してください。",
+      "phone": "電話番号の形式が正しくありません。",
+      "email": "メールの形式が正しくありません。"
+    },
+    "last_name": "姓",
+    "first_name": "名",
+    "name": "お名前",
+    "phone": "電話番号",
+    "input": "入力",
+    "email": "メール",
+    "no_data": "データがありません",
+    "back": "戻る",
+    "add_to_cart": "カートに入れる",
+    "buy_now": "すぐ購入"
+  },
+  "Welcome to React": "反応へようこそ",
+  "login": {
+    "title": "ログイン",
+    "description": "サービスを利用するため、\nログインしてください。",
+    "email": "メールアドレス",
+    "email_placeholder": "あなたのメールアドレス",
+    "password": "パスワード",
+    "forgot_password": "パスワードをお忘れですか？",
+    "login_button": "ログイン",
+    "dont_have_account": "新規登録は",
+    "form": {
+      "email_required": "メールは必須です.",
+      "password_required": "パスワードが必要です."
+    }
+  },
+  "register": {
+    "register_button": "ログイン",
+    "title": "新規登録",
+    "name": "お名前",
+    "last_name": "姓",
+    "first_name": "名",
+    "name_placeholder": "山田太郎",
+    "email": "メールアドレス",
+    "email_placeholder": "example@gmail.com",
+    "password": "パスワード",
+    "password_placeholder": "******",
+    "agree_with_policy": "プライバシー ポリシーを同意して登録する",
+    "back_to_login": "ログイン画面に戻る",
+    "form": {
+      "email_required": "メールアドレスを入力してください。",
+      "email_format": "メールの形式が正しくありません。",
+      "password_required": "パスワードが入力してください。",
+      "password_length": "パスワード が短すぎます (最低でも6文字以上です)",
+      "name_required": "お名前を入力してください。"
+    }
+  },
+  "forgotPassword": {
+    "stepOne": {
+      "title": "パスワードを変更",
+      "descOne": "メールアドレスを入力してください。<br/>あなたのパスワードをリセットします。",
+      "sub_desc": "",
+      "form": {
+        "email": "メールアドレス",
+        "email_placeholder": "メール",
+        "email_required": "メールアドレスを入力してください。",
+        "button_text": "送信",
+        "back_text": "ログイン画面に戻る"
+      }
+    },
+    "stepTwo": {
+      "title": "OTP認証",
+      "descOne": "{{email}}ま<br/>でOTPを送信しています。",
+      "sub_desc": "登録されている送信先",
+      "form": {
+        "text_desc": "認証番号が届かなかった!",
+        "text_resend": "場合は再送信",
+        "button_text": "認証",
+        "back_text": "ログイン画面に戻る",
+        "resended_text": "再送信"
+      }
+    },
+    "stepThree": {
+      "title": "パスワード再設定",
+      "descOne": "パスワードは英小文字・英大文字・数字・特殊文字(!@#$%^&*)",
+      "sub_desc": "",
+      "form": {
+        "new_password": "新パスワード!",
+        "new_password_placeholder": "モット・カウ・モイ",
+        "new_password_confirm": "新パスワード（確認用）",
+        "new_password_confirm_placeholder": "新しいパスワードを入力",
+        "button_text": "変更",
+        "back_text": "ログイン画面に戻る",
+        "email_not_match": "入力した新しいパスワードが一致しません。"
+      }
+    },
+    "successReset": {
+      "title": "パスワード再設定",
+      "descOne": "",
+      "descTwo": "",
+      "sub_desc": "",
+      "form": {
+        "notify_message": "新しいパスワードを設定しました。<br/>ログイン画面で新しいパスワードを入力してください。",
+        "button_text": "ログイン画面へ"
+      }
+    }
+  },
+  "user_profile": {
+    "shipping_address": "お届け先住所",
+    "register_new_address": "新しい住所を登録する",
+    "register_your_address": "住所を登録する",
+    "order_history": "注文履歴",
+    "choosing": "選択中",
+    "my_profile": "マイページ",
+    "profile": "プロフィール",
+    "logout": "ログアウト",
+    "update_success": "プロフィールが更新されました。",
+    "order": {
+      "orderDate": "注文日付",
+      "amount": "数量",
+      "soldAmount": "個売れた",
+      "earnedPoint": "獲得ポイント",
+      "total": "合計",
+      "Reorder": "再度注文"
+    },
+    "info": {
+      "order": "注文",
+      "point": "ポイント",
+      "work_with_line": "ラインと連携する",
+      "line_linked": "ライン連携済み"
+    }
+  },
+  "search": {
+    "result_search_en": "Search Results",
+    "result_search_jp": "検索結果"
+  },
+  "product": {
+    "gift_wrapping": "ギフトラッピング",
+    "price_TBA": "価格未定",
+    "gift_wrapping_description": {
+      "line1": "ギフトラッピングリボンについて",
+      "line2": "※特別に使用が許可された英国王室のロゴ入りリボンです。",
+      "line3": "※リボンのアレンジは季節によって変わります。"
+    }
+  },
+  "cart": {
+    "when_order": "注文すると、",
+    "earn_points": "ポイント獲得できます。",
+    "total_amount": "合計金額:",
+    "tax_included": "税込",
+    "tax_included_more": "税込（送料はチェックアウトの際に計算されます。）",
+    "please_check": "チェックを入れてください",
+    "proceed_to_payment": "決済へ進む"
+  },
+  "modal": {
+    "address": {
+      "add_new_address": "新しい住所の情報",
+      "edit_address": "登録情報の編集",
+      "first_name": "姓",
+      "first_name_pld": "山田",
+      "last_name": "名",
+      "last_name_pld": "太郎",
+      "company": "会社名",
+      "company_pld": "ABC株式会社",
+      "city": "市区町村",
+      "city_pld": "中央区銀座１丁目",
+      "phone": "電話番号",
+      "phone_pld": "08000000000",
+      "post_code": "郵便番号",
+      "post_code_pld": "1040000",
+      "address1": "番地・マンション名等",
+      "address1_pld": "1-1-1",
+      "prefectures": "都道府県",
+      "prefectures_pld": "選択してください",
+      "default_address": "デフォルトにする"
+    },
+    "add_to_cart": {
+      "message": "アイテムがカートに追加されました。",
+      "view_cart": "カートを見る (数量",
+      "continue_shopping": "お買い物を続ける"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "content": "コメント",
+    "submit_btn": "送 信",
+    "success_message": "お問い合わせいただき\nありがとうございます。"
+  },
+  "mushroom": {
+    "title": "Bhutan Premium 7 Matsutake",
+    "sub_title": "ブータン・プレミアム 7 松茸",
+    "heading_1": "ブータン王国へ、感謝を込めて",
+    "sub1_heading_1": "<span>幸せの人々が住むという、その国の太古の森が</span><span>育んだ美しき贈り物…「松茸」</span>",
+    "sub2_heading_1": "<span>その環境から最上級の品質を誇る品を、このた</span><span>び、ブータンの人々のご好意により分けて頂く</span><span>ことができました。</span>",
+    "sub_img_heading1": " <span>天光降り注ぐ、秘境とも言われる高地に</span><span>生き続けてきたブータン王国。</span><span>味・香り共に最高級なまつたけが育つ環境は</span><span>まさに天の恵です。</span><span>産地から飲食店まで</span><span>一貫したトレーサビリティ体制により</span><span>新鮮な状態でお届けします。</span>",
+    "heading_2": "ブータン・プレミアム7 松茸の発売は",
+    "sub1_heading_2": "<span>「幸せの国」ブータン王国～自然と人と</span><span>のハーモニー～プロジェクト</span>",
+    "sub2_heading_2": "を通じ実現しています。",
+    "paragraph1_heading_2": "<span>ブータン王国…そこは、</span><span>かつてシャングリラ（桃源郷）とも呼ばれ</span><span>山や川、湖には精霊が住んでいると信じ敬ってきた、</span><span>純粋で美しい人々が住む</span><span>地、水、空、風によって守られてきた聖地なのです。</span><span>高山は深く信仰されており、無闇にわけいることはなく、</span><span>未だに 20 ほどの高山は未踏峰です。</span><span>観光においても厳しく制限されています。</span><span>自然に満ちた美しい環境を保ち、</span><span>その地に育まれるものと共に生きていく</span><span>特別な癒しの気がめぐる「幸せの国」です。</span>",
+    "paragraph2_heading_2": " <span>私たちは、日本の皆様はじめ、世界中の人々に</span><span>美しいブータン王国に興味を持っていただき、</span><span>共に幸せを育てていきたいと</span><span>「幸せの国」ブータン王国</span><span>～自然と人とのハーモニー～</span><span>プロジェクトを推進しています。</span><span>このプロジェクトは、「幸せの国」としての</span><span>アイデンティティーを守っていくことです。</span><span>それは、遠くない未来に、</span><span>世界中の多くの人々の生き方を支えてくれるでしょう。</span>",
+    "paragraph3_heading_2": " <span>ブータン王国は日本から約 4,800 キロ、</span><span>南アジア・ヒマラヤ山脈東部にある</span><span>チベット仏教を国教とする小さな国です。</span><span>北は中国、南はインドと国境を接している内陸国で、</span><span>インド・シッキム州を挟んで西側にはネパールがあります。</span><span>人口は約 70 万人、首都はブータン西部に位置する</span><span>ティンプー（Thimphu）。</span><span>正式名称は「ドゥック・ユル（龍の国）」といい、</span><span>「ブータン」の呼称は英語やその他言語で使われています。</span><span>公用語はチベット語の派生言語であるゾンカ語ですが、</span><span>国内の学校教育はほぼ英語で行われているため</span><span>英語も一般的に利用されています</span><span>（公文書などはすべて英語で書かれています）。</span>",
+    "footer1_heading_2": "<span>ブータンの国花：メコノプシス・ホリドゥラ</span><span>（Meconopsis horridula）</span>",
+    "footer2_heading_2": "<span>ヒマヤラの青いケシ、天上の妖精と呼ばれるケ</span><span>シ科の高山植物です</span>",
+    "heading_3": " <span className='text-center'>「幸せの国」ブータン王国～自然と人と</span><span className='text-center'>のハーモニー～プロジェクト</span>",
+    "paragraph1_heading_3": "<span>私たちは、ブータン王国の聖地で採れる多様な食材で作られるお</span><span>料理や、伝統と技術を繋いできた美しい民芸品を楽しむ観光のサ</span><span>ポートを行っています。光と風が織りなす自然にふれたり、タクツァ</span><span>ン寺院の巡礼による癒しの体験を通じて、日本の皆様にブータン</span><span>王国の魅力を正しくお伝えしたいと思っています。</span><span>その願いは、</span>",
+    "paragraph2_heading_3": "<span className=''>●ブータン王国の若い人たちへの教育の支援、</span><span className=''>現地に職を作り雇用を進める。</span><span className=''>●自然や環境を守り、サステイナブルな組み立て</span><span className=''>による事業と人を育成していく。</span><span className=''>●子供たちにより良い環境を作り、美しい国を再</span><span className=''>認識してもらいたい。</span>",
+    "responsive_paragraph2_heading_3": "<span>●ブータン王国の若い人たちへの教育の</span><span>支援、 現地に職を作り雇用を進める。</span><span>●自然や環境を守り、サステイナブルな</span><span>組み立て による事業と人を育成してい</span><span>く。</span><span>●子供たちにより良い環境を作り、美し</span><span>い国を再 認識してもらいたい。</span>",
+    "sub_paragraph2_heading_3": "という取り組みにつながっています",
+    "paragraph3_heading_3": "<span>ブータン王国とのより良い交流が続くことの思いをお互いに確信</span><span>し、この 度、ブ ー タン 王 国と日 本 を 繋ぐ親 善 大 使として</span><span>Gyamtsho Tshering（ジャムソー）氏に、就任していただきま</span><span>した。ジャムソー氏は新たに NUBRI TRADING（ヌブリ・トレー</span><span>ディング）を設立し、豊かな食材や伝統ある品々を日本へ届けて</span><span>くださいます。</span><span>第一弾として、原生の峰と天光が育てた最高級松茸「ブータン・</span><span>プレミアム７」を提供して頂けることになりました。</span>",
+    "paragraph4_heading_3": "<span>松茸はゾンカ語で Sangay Shamu（サンゲ・シャモ）と呼ばれ、</span><span>その意味は「ブッダ・キノコ」です。ただのキノコではなくブー</span><span>タン人の心そのものであり、おもてなしであり、命であり、教え</span><span>の恵みでもあります。その意味は、松茸の売買はブータンの暮ら</span><span>しを豊かにするだけでなく、プロジェクトの中で自然の恵みに対す</span><span>る共通の感謝と願いを持ち、ブータンと日本の社会の間に有意義</span><span>な絆を生み出し両者を結び付けていきます。</span>",
+    "paragraph5_heading_3": "<span>私たちの自然と共にあり（SDGs）、支援（Charitable）を主体</span><span>とした活動に共感していただきご協力して頂ける皆様に、ブータ</span><span>ン王国からの恵み「ブータン・プレミアム７」最高級松茸をお届</span><span>けいたします。</span>",
+    "paragraph6_heading_3": " <span>「私たちはブータンの地域経済支援、</span><span>文化交流を通じてブータンの人々と</span><span>日本の絆を深めるための架け橋となれることを</span><span>嬉しく思っています。」</span>",
+    "paragraph7_heading_3": "<span>ブータンと日本をつなぐ、親善大使：</span><span>NUBRI TRADING（ヌブリ・トレーディング）代表</span><span>Gyamtsho Tshering（ジャムソー）氏</span>",
+    "heading_4": "<span>現地の人々や若者たちの雇用はすでに始められており、</span><span>  懸命に最上級のものをお届けしようという努力を怠らない姿を日々見守っていると</span><span>私たちは松茸のクオリティ以上のものを受け取っていると思えるのです。</span>",
+    "responsive_heading_4": " <span>現地の人々や若者たちの雇用はすでに始め</span><span>られており、</span><span>懸命に最上級のものをお届けしようという</span><span>努力を怠らない姿を日々見守っていると</span><span>私たちは松茸のクオリティ以上のものを受</span><span>け取っていると思えるのです。</span>",
+    "heading_5": "<span>ノーベル・サスティナビリティ・トラスト財 団 と</span><span>ノーベル・サスティナビリティ・トラスト子 供 親 善 大 使 は</span><span>  「幸 せ の 国」ブータン王 国～自然と人とのハーモニー～プロジェクトを 正 式 に 支 援  しています。</span>",
+    "contact": "Contact information: Tel: 0046708134588",
+    "email": "Email: tw@nobelsustainability.org",
+    "title_footer": "購入ページ",
+    "paragraph_footer": "ブータン・プレミアム７松茸",
+    "url_page": "©signature-ginza.com"
+  },
+  "hal_caviar": {
+    "title": " HAL CAVIAR",
+    "description": "ハルキャビア",
+    "heading_1": "日本の奇跡“ハルキャビア”",
+    "sub1_heading_1": "静岡県春野町、天竜川の源流のほとり、まるで",
+    "sub2_heading_1": "奇跡のように探しあてた、美味しい水が育んだ",
+    "sub3_heading_1": "生キャビアです。",
+    "paragraph_1": " <p> HAL CAVIAR は日本一綺麗でおいしい水で育てた</p><p>チョウザメから採卵した、我々自慢のキャビアです。</p><p>日本に流通するキャビアの 90%以上は、海外から輸入された熟成ものです。</p><p>一方 HAL CAVIAR はおいしさを引き出すための必要最低限の塩しか添加されていない</p><p>フレッシュキャビアなので、キャビア本来の濃厚な旨味をお楽しみ頂けます。</p><p>一番おいしい状態の商品をお客様にお届けしたいため</p><p>ご注文を頂いてから採卵加工し、瓶詰めしてお届けします。</p><p>  たとえお客様をお待たせしても、我々が味に納得できなければ商品をお届けすることは致しません。</p>",
+    "paragraph_2": "<p>HAL CAVIAR  のふるさとは、静岡県浜松市天竜区春野町にある春野キャビアヴァレーにあります。</p><p class='tracking-normal max-md:tracking-[-1px]'> 奇跡のようにたどり着いたこの地で育まれたキャビアは、ワインや日本酒、シャンパンとも、とても相性が良く</p><p class='tracking-normal max-md:tracking-[-2px]'>  楽しいひと時がさらに特別な時間となる事をお約束します。</p>",
+    "title_footer": "購入ページ"
+  },
+  "nova_caviar": {
+    "title": " NÖVA Caviar",
+    "description": "ノヴァキャビア",
+    "heading_1": " 世界初、エストニア産キャビア",
+    "sub_heading_1": "日本の経験豊かなキャビアマスター（ハルキャビアの匠）と2つの国を行き来しながら学び、経験を重ねエストニアの先進性と日本の伝統を融合した美しいキャビアが誕生しました。",
+    "paragraph1_heading_1": "<p>NÖVA（ノヴァ）キャビアは、ヨーロッパでも有数の澄んだ空気に包まれた</p><p>パルヌという手つかずの田園地帯、大いなる自然の畏怖を感じる美しい風景の中、</p><p>動植物が自然のまま息づく環境から清らかな水を得ています。</p><p >サステナブルな養殖場で、各種専門家による技術の粋を集め、自然と人の優しい関係を育む精神をモットーに、</p><p>のびのびとストレスを与えないシステムを構築し、育成されたプレミアムキャビアです。</p>",
+    "res_paragraph1_heading_1": "<p>  NÖVA（ノヴァ）キャビアは、ヨーロッパでも有数の澄んだ空気に包まれたパルヌという手つかずの田園地帯、大いなる自然の畏怖を感じる美しい風景の中、動植物が自然のまま息づく環境から清らかな水を得ています。</p><p class='tracking-tighter'>  サステナブルな養殖場で、各種専門家による技術の粋を集め、自然と人の優しい関係を育む精神をモットーに、のびのびとストレスを与えないシステムを構築し、育成されたプレミアムキャビアです。</p>",
+    "heading_2": "<span style='letter-spacing: -3px'>おいしい芸</span><span style='letter-spacing: -3px'>術、</span><span style='margin-left: -15px'> NÖVA<span style='margin-left: -9px;letter-spacing: -5px'>（ノヴァ）</span><span  style='letter-spacing: -6px'>キャビア</span></span>",
+    "res_heading_2": "<span style='letter-spacing: -3px'>おいしい芸</span><span style='letter-spacing: -3px'>術、</span><span style='margin-left: -15px'> NÖVA<span style='margin-left: -9px;letter-spacing: -5px'>（ノヴァ）</span><span class='block  ' style='letter-spacing: -6px'>キャビア</span></span>",
+    "paragraph1_heading_2": " <p>極限まで研ぎ澄まされた感性と命を削るほどの情熱、</p><p>完璧なキャビアを作ることは、芸術作品を作ることと同じです。</p><p>エストニアのクリエーターと養殖チームは、さらに美味しいキャビアを作るため、</p><p>  日々新しい発見を繰り返しチョウザメの成長からひとときも目を離さず、完成度を高めていきました  <span class='lg:hidden inline'>。</span></p><p class='text-[16px] leading-[10px] lg:inline-block hidden'>。</p><p>  そしてついに、エストニアのピュアな水からしか生まれない、至高の質と味が誕生したのです。</p><p>口の中でとろけるキャビア本来の食感を味わえば、</p><p>NÖVA が他のキャビアとは一味違うことがおわかりいただけるはずです。</p><p>その味わいは決して、忘れることが出来ないでしょう。</p>",
+    "paragraph1_heading_2_mobile": "<p>極限まで研ぎ澄まされた感性と命を削るほどの情熱、完璧なキャビアを作ることは、芸術作品を作ることと同じです。</p><p>エストニアのクリエーターと養殖チームは、さらに美味しいキャビアを作るため、日々新しい発見を繰り返しチョウザメの成長からひとときも目を離さず、完成度を高めていきました。</p><p>そしてついに、エストニアのピュアな水からしか生まれない、至高の質と味が誕生したのです。</p><p>口の中でとろけるキャビア本来の食感を味わえば、NÖVA が他のキャビアとは一味違うことがおわかりいただけるはずです。</p><p>その味わいは決して、忘れることが出来ないでしょう。</p>",
+    "heading_3": " 環境フットプリントを考える",
+    "paragraph1_heading_3": "<p>NÖVA（ノヴァ）キャビアは、芸術作品であると同時に、サステナブルな作品でもあります。</p><p>国連が目指す世界最大の、コーポレイト・サステナビリティの取り組みとなる、</p><p>「 国連グローバル・コンパクト」に賛同し、</p><p>環境問題などにも積極的に取り組んでいる特別配合した飼料を使用しており、</p><p>工程はすべて、エシカルで環境にやさしいものであるように設計されています。</p><p>  水質はもちろん、温度や餌、遠隔操作もできる独自の最新の養殖技術、モニタリング技術、</p><p>CO2を削減する技術が導入されています。</p><p>また、水の使用量を最小限に抑えながら、衛生的かつ健康的なキャビアを育てるために</p><p>  品質を向上させ、サステナブルな環境を作るために再循環式養殖システム（RAS）を使用しています。</p><p>  RASは、従来の陸上養殖システムに必要な水のわずか2％しか使用しない理想的な技術となります。</p><p>チョウザメは、キャビアを作るためだけでなく、身肉を加工し、商品を作り、</p><p>  新しいブランドとして、無駄をなくすために何ができるかを考えることはとても重要です。</p><p>  使用している水やエネルギー熱の再利用だけではなく、私たちは地元地域の方々とアイデアを出し合い、</p><p>協力し合い、リサイクルできるものは確実にリサイクルできるような関係を築き、</p><p>現地の方と協力をして、ゼロ・ウェイストを目指しています。</p>",
+    "paragraph1_heading_3_mobile": "<p>NÖVA（ノヴァ）キャビアは、芸術作品であると同時に、サステナブルな作品でもあります。</p><p>国連が目指す世界最大の、コーポレイト・サステナビリティの取り組みとなる、「国連グローバル・コンパクト」に賛同し、環境問題などにも積極的に取り組んでいる特別配合した飼料を使用しており、工程はすべて、エシカルで環境にやさしいものであるように設計されています。</p><p>水質はもちろん、温度や餌、遠隔操作もできる独自の最新の養殖技術、モニタリング技術、CO2を削減する技術が導入されています。</p><p>また、水の使用量を最小限に抑えながら、衛生的かつ健康的なキャビアを育てるために品質を向上させ、サステナブルな環境を作るために再循環式養殖システム（RAS）を使用しています。</p><p>RASは、従来の陸上養殖システムに必要な水のわずか2％しか使用しない理想的な技術となります。</p><p>チョウザメは、キャビアを作るためだけでなく、身肉を加工し、商品を作り、</p><p>新しいブランドとして、無駄をなくすために何ができるかを考えることはとても重要です。</p><p>使用している水やエネルギー熱の再利用だけではなく、私たちは地元地域の方々とアイデアを出し合い、協力し合い、リサイクルできるものは確実にリサイクルできるような関係を築き、現地の方と協力をして、ゼロ・ウェイストを目指しています。</p>",
+    "heading_4_mobile": "2018 年「ザ・ロイヤル・ウィンザー・カップ」にて",
+    "heading_4": "伝説との融合",
+    "paragraph1_heading_4": "<p>故エリザベス2 世女王と故HRH エディンバラ公フィリップ王配の、</p><p>大いなる遺産、「ザ・ロイヤル・ウィンザー・カップ」。</p><p>故エリザベス女王及び、クラブ理事長である故エディンバラ公フィリップ王配</p><p>が参加している事から分かるように、</p><p>このイベントは王室が特に愛情を持って、とても大切にしています。</p><p>おふたりは、大会をとても愛しまれ、女王は毎年、優勝杯、</p><p>および記念品を自ら授与を毎年行われており、プレゼンターを務められました。</p><p>大会を主催するのは、千年以上にわたり行われてきたガード・オブ・ポロ。</p><p>130 エーカーの広大なロイヤル・ランドスケープにあるグラウンドにて行われています。</p><p>  ガード・ポロ・クラブは1955 年、故HRH  エディンバラ公フィリップ王配により設立されました。</p><p>ご自身も優秀なポロ選手であり、</p><p>故エリザベス女王のお勧めにより、現在地が選ばれました。</p><p>  1970  年代初頭からガード・ポロ・クラブの理事長として、生涯勤められ、大きな功績を残しました。</p><p>ガード・ポロ・クラブは大きく成長し、現在は12 のポロ競技グラウンドを有しており、</p><p>グラウンド数と会員数においてヨーロッパで最大級のポロ・クラブになっています。</p><p>NÖVA（ノヴァ）キャビアは、そのガード・ポロ・クラブ から多大なる評価をいただき、</p><p>2023 年6 月、オフィシャルキャビアとして提供されました。</p>",
+    "paragraph1_heading_4_mobile": "<p>大いなる遺産、「ザ・ロイヤル・ウィンザー・カップ」。</p><p>故エリザベス女王及び、クラブ理事長である故エディンバラ公フィリップ王配</p><p></p><p></p><p>大会を主催するのは、千年以上にわたり行われてきたガード・オブ・ポロ。</p><p>130 エーカーの広大なロイヤル・ランドスケープにあるグラウンドにて行われています。</p><p></p><p></p><p>1970</p><p>ガード・ポロ・クラブは大きく成長し、現在は12</p><p>NÖVA（ノヴァ）キャビアは、そのガード・ポロ・クラブ から多大なる評価をいただき、2023 年6</p>",
+    "paragraph2_heading_4": " <p>日本、英国、EU、フランス、エストニアの数々のミシュランを受賞したレストランが</p><p>オフィシャルキャビアとして、NÖVAキャビアの名称でメニューに記載されています。</p><p>  さらに、世界各国からチームが集まる世界最大で、最も古く格式の高いポロクラブGPC においては</p><p>そのクラブハウスでの販売、そして</p><p>NOVA とザ・ロイヤル・ウィンザー・カップのために特別メニューを作りました。</p><p>  世界初のエストニア産キャビアは、EUで最もおいしいエストニアのシグネチャーと言えるでしょう。</p>",
+    "paragraph2_heading_4_mobile": "<p>日本、英国、EU、フランス、エストニアの数々のミシュランを受賞したレストランが0オフィシャルキャビアとして、NÖVAキャビアの名称でメニューに記載されています。</p><p>さらに、世界各国からチームが集まる世界最大で、最も古く格式の高いポロクラブGPCにおいてはそのクラブハウスでの販売、そしてNOVAとザ・ロイヤル・ウィンザー・カップのために特別メニューを作りました。</p><p>世界初のエストニア産キャビアは、EUで最もおいしいエストニアのシグネチャーと言えるでしょう。</p>",
+    "footer": "購入ページ",
+    "paragraph1_footer": "ノヴァキャビア"
+  },
+  "buckingham": {
+    "title": "Buckingham Palace Royal Collection",
+    "description": "バッキンガム・パレス・ロイヤルコレクション",
+    "heading_1": " 英国王室の素晴らしさを映したラグジュアリーな贈り物で、あなたの愛する人が",
+    "heading_2": " 最高の笑顔と幸福に包まれることを祈って、公式の品々をセレクトしています。",
+    "content1": "<p>バッキンガム・パレス・ロイヤルコレクションからお届けする品々は、</p><p>全てロイヤルコレクショントラストが制作しています。</p><p>ロイヤルコレクショントラストとは、世界最大で貴重なアートコレクションの１つである</p><p>英国王室にまつわるコレクションの管理を行っています。</p><p>100 万点以上の品物が収蔵されており、過去 500 年にわたるその時代の王と王妃の</p><p>個人的な好みを記録したユニークで貴重なコレクションです。</p><p>有名な絵画、図面、多くの芸術作品に加えて、すべての王宮のほぼすべての内容が含まれています。</p><p>公的資金の補助を受けずに実施され、この活動はロイヤルコレクション製品の販売利益などにより成り立っています。</p><p>活動の幅は展示会や学習プログラムから出版物や小売製品と広く</p><p>ロイヤルコレクションと宮殿の活動がすべての人に評価され、楽しんでいただけるようにすることを目指しています。</p>",
+    "content2": "<p>バッキンガム・パレスブランドの陶器は、１２世紀ごろから始まったといわれる</p><p>イギリスの陶器産業の里、ストーク＝オン＝トレントの伝統的な技術で作られています。</p><p>繊細なデザインはロイヤルコレクションに属するオリジナルの作品からインスピレーションを受けて、</p><p>新たなロイヤルの世界が生み出されています。</p><p>マグカップでホットミルクやコーヒーを淹れて、朝食や夕食後にカップ &amp; ソーサーと本場英国の紅茶で</p><p>伝統的な英国のティータイムを贅沢に楽しみましょう。</p><p>あなただけのロイヤルティーパーティーが華やかにはじまります。</p>",
+    "content3": {
+      "line1": "シグニチャー・ギンザのカフェではロイヤル・コレクションのカップ & ソーサーと紅茶で",
+      "line2": "アフタヌーンティーが楽しめます。",
+      "line3": "大変好評をいただいており、限定数のみとなっておりますのでご予約の上、ご来店ください。",
+      "line4": "ご予約はこちら→",
+      "line4_link": "lit.link/signatureginza",
+      "line5": "さらに、バッキンガム・パレス・ジンを使ったジントニックやカクテルをご提供しています。"
+    },
+    "heading_3": "“バッキンガム・パレス・ジン”",
+    "content4": "<p>私たちが、その美しい佇まいとストーリーに感動し、バッキンガムの品々を手にとるようになった</p><p>象徴とも言える作品・・・バッキンガム・パレス・ジン。</p><p>英国ロンドン、エリザベス女王陛下の邸宅の、美しい庭園よりインスピレーションを受け</p><p>バッキンガム宮殿のためだけに、心躍るドライ・ジンが造られました。</p>",
+    "footer_line1": "英国王室の公式商品です。2020 年当初、英国の国内のみで限定品として販売され、発売当初は瞬く間に売り切れました。",
+    "footer_line2": "海外販売としては日本が初めて許可されました。大量生産はされておリませんので、輸入数量も限られています。品切れの際はご了承ください。",
+    "footer_line3": "2024年7月より、特別に日本へ向けてのみ増産が決定されました。独占販売中です。"
+  },
+  "highgrove": {
+    "title": "Highgrove Selection",
+    "description": "ハイグローブセレクション",
+    "heading_1": "比類なき人々からイメージが生まれた、美しい品の数々は",
+    "heading_2": "日常の中に喜びの光が灯っているように心を込めた贈り物としてぴったりです。",
+    "content": {
+      "line1": "ハイグローブ商品や各種イベント、ハイグローブ・ガーデンツアーによる収益は、",
+      "line2": "2018 年にチャールズ III 国王殿下によって設立されたキングズ財団(旧プリンス財団)に全て寄付されます。",
+      "line3": "キングズ財団の活動は、国王チャールズ三世の「調和」の哲学にインスパイアされたもので、",
+      "line4": "私たち自身と自然界のバランス、秩序、関係を理解することで、",
+      "line5": "より持続可能な未来を創造することができるというものです。",
+      "line6": "キングズ・ファウンデーションは、今日世界が直面している課題に対して、",
+      "line7": "ホリスティックな解決策を提供し、生活やコミュニティーづくりに持続可能なアプローチを支援しています。",
+      "line8": "皆様から購入して頂く事で、大きな違いとなる足跡、貢献が生まれます。",
+      "line9": "皆様の支援に心から深く感謝致します。",
+      "line10": "www.kings-foundation.org",
+      "line11": "www.highgrovegardens.com",
+      "line12": "ホスピタリティーのためだけに作られた名酒と、プレステージ・キュヴェとして選ばれた土地で育ち",
+      "line13": "厳選された有機栽培の葡萄による特別なときにふさわしいワインとシャンパンを提供しています。",
+      "line14": "ハイグローブのワインやシャンパンが正式に独占輸入・販売の許可をされているのは海外では日本のみです。",
+      "line15": "ただし、日本全国でのボトル販売は許可されておらず、",
+      "line16": "味わう事が出来るのは、サービスのクオリティが認められた店舗のみという限定商品です。",
+      "line17": "プリンス財団の心や活動を理解して頂ける方たちにご提供し味わって頂くという、",
+      "line18": "とても特殊で特別なメッセージを持っています。この事から特別に許可した、",
+      "line19": "レストラン、各種イベント、ウェディングでのウエルカムドリンクなどでの、ご提供となります。",
+      "line20": "シグニチャー・ギンザのカフェでは、常時お楽しみいただけます。",
+      "line21": "アフタヌーンティーに合わせたり、カクテルのご用意もございます。",
+      "line22": "EC サイト、及び店舗ではウィスキーの販売を行っています。",
+      "line23": "チャールズ III 国王殿下の即位記念や誕生日記念のお祝いのために特別に作られたものであり、",
+      "line24": "選ばれたライフスタイルを彩る品々とともに、限定数のみの販売となっています。",
+      "line25": "お手に入れること自体が稀少な機会であり、特別な方への贈り物としても素晴らしい体験となるでしょう。"
+    }
+  },
+  "premium_wines": {
+    "title": "Premium Wines",
+    "description": "プレミアム ワイン",
+    "heading_1": "Delaire Graff Wines",
+    "sub_heading": "ドゥレア グラフ ワイン",
+    "two_col_desc": "南アフリカ、ステレンボッシュ",
+    "heading_2": "The Jewel of the Cape Winelands",
+    "section1_col1_line1": "最高水準の証である、英国女王賞＊を持つ、グ ラフダイヤモンド。 輝かしい功績とクラシカル な気品、モダンで精緻なムードが昇華した 詩情 あふれるクリエイティビティそのままに ドゥレ ア グラフ エステートのワイナリーは作られま した。アダムとイヴの楽園のような世界で太陽 と風の恵みを余すところなく受けてつくられた ワインは、 地上に生を受けた、私たちへの輝く 贈り物と言えます。 くつろぎのひと時、ドゥレ アグラフ ワインをお楽しみください。 ドゥレ ア グラフワインは数々の受賞歴があり 南半球 で一流のランク付けがされています。",
+    "section1_col1_line2": "＊The Queen's Awards for Enterprise：1973、1977、 1994、2006、2014年、5回の受賞 英国企業に対する英国の最高の公式賞として、これら の受賞は最高の栄誉であり 企業の競争力、繁栄、評判において「最高水準の品 質」を達成したことの証となります。",
+    "section1_col2_line1": "Graff holds the Queen's Award for Enterprise*, a \nhallmark of the highest standards. \nThe Delaire Graff Estate winery was established with \nbrilliant achievements, classical elegance, and the \nsame poetic creativity that sublimates a sense of \nmodern precision.\nIn a world like Adam and Eve's paradise, these wines \nmade with the full blessings of the sun and wind are a \nshining gift to us.",
+    "section1_col2_line2": "Delaire Graff wines have won numerous awards and \nare ranked among the best in the southern hemisphere.",
+    "section1_col2_line3": "＊The Queen's Awards for Enterprise: 5 times in 1973, 1977, \n1994, 2006 and 2014.",
+    "section1_col2_line4": "As the UK's highest official awards for UK companies, these \nawards are the highest accolade and are proof that a company \nhas achieved the \"highest standard of quality\" in \ncompetitiveness, prosperity and reputation.",
+    "name": "Winemaker, Morné Vrey",
+    "section2_col1_line1": "黄金に輝く太陽の大地、「ドゥレア グラフ エステー ト」。このリゾートは イエローダイヤモンドが「ドゥ レア・サンライズ」と名付けられたほど 世界にも稀 な、インスピレーションに満ち溢れた地なのです。 何 エーカーにも及ぶ香りのよい庭園に囲まれ 息を呑むよ うなアートが隅々に置かれ、卓越した美意識とともに 持続可能性を中心に据え、世界的な、とても高い評価 を得ています。 ラグジュアリーで自然との一体感を感 じるこのロッジに滞在していると 心を癒す大自然が、アフリカの香り高いドゥレア グラフ ワインとともに 忘れられない思い出があなたを包むのです。その風光 明媚なパノラマが広がるヘルシューグテ峠の頂上にあ る 美しいテロワールでの収穫は、常に探究心を失わな いワインメーカーである モルネ・ヴレイに、さらにひ らめきを与えている事で 私たちが受け取れる喜びが無 限に広がっていくのです。",
+    "section2_col2_line1": "Delaire Graff Estate, the land of golden sunshine.",
+    "section2_col2_line2": "This resort is such an exceptional and inspirational destination that the yellow diamond was named the \"Delaire Sunrise\".",
+    "section2_col2_line3": "Surrounded by acres of fragrant gardens, with breathtaking art around every corner, it has earned a worldwide reputation for its outstanding aesthetics and its focus on sustainability.",
+    "section2_col2_line4": "Stay at this luxurious, nature-integrated lodge, and the soothing wilderness will surround you with unforgettable memories, along with the fragrant Delaire Graff wine from Africa.",
+    "section2_col2_line5": "The harvest in the beautiful terroir at the top of the Helshoogte Pass, with its scenic panorama, has given the ever-inquisitive winemaker, Morné Vrey, even more inspiration, and the joy we receive is endless.",
+    "heading_3": "Van Biljon Cinq",
+    "sub_heading_3": "ドゥレア グラフ ワイン",
+    "section3_name": "Anton and Julia van Biljon",
+    "section3_col1_line1": "０２０年、南アフリカワインの権威ある評価ガイド 「プラッターズ・南アフリカ・ワインガイド」（1980年に始まった独立系ガイドブック）にて プラッターズアワード5つ星97/100受賞 レッド・ブレンド・オブ・ザ・イヤー受賞 プラッターズガイドより4.5 星 93/100受賞",
+    "section3_col1_line2": "（ブラインド・テイスティングにより評価される。5つ星は95点以上。）",
+    "section3_col1_line3": "世界的に有名なワインジャーナリストでマスター・オブ・ワイ ンの称号を持つ ティム・アトキン氏より92/100",
+    "section3_col1_line4": "（100 点満点での評価）",
+    "section3_col2_line1": "In 2020, the wines won awards given by the Platter’s South African Wine Guide (an independent guidebook started in 1980), an authoritative evaluation guide for South African wines.",
+    "section3_col2_line2": "Platter's Award 5 stars 97/100",
+    "section3_col2_line3": "Red Blend of the Year Award",
+    "section3_col2_line4": "4.5 Stars 93/100 from Platter's Guide",
+    "section3_col2_line5": "(Rated by blind tasting; 5 stars is 95+ points)",
+    "section3_col2_line6": "92/100 (on a 100-point scale) from world-renowned wine journalist and Master of Wine Tim Atkin.",
+    "section4_col1_line1": "り良いワインを作るために、大量生産をせず、我が 子のように愛をこめて、一粒一粒の葡萄に気を配り 時 間をかけ丁寧に手作りする事が出来たワインです。こ の事から限定数での販売となりますので なくなり次第 終了とさせていただきます。",
+    "section4_col2_line1": "In order to make a better wine, we do not mass-produce, but rather take the time to carefully handcraft each grape with love and care, as if it were our own child.",
+    "section4_col2_line2": "And for this reason, the number of the products sold will be limited therefore no new orders will be taken once they are sold out.",
+    "section5_name": "Anton and Julia van Biljon",
+    "section5_col1": "ヴァン・ビルジョンのワイナリーはステレンボッシュ、ポルカドライ丘陵の南斜面の 肥沃な真砂土が広がる理想的な場所にある小さな農園です。 葡萄はフォールズ湾から来る涼しい潮風を受けるため この地域の標準よりも2〜4週間遅れて収穫します。 十分時間をかけた栽培により、鮮やかな色合い、フルーツのフレーバーが 凝縮され、しっかりしたタンニンが味わえる葡萄を収穫できます。 収穫は最高級の房のみが手摘みされ、プレミアムな品質が最優先されます。 セラーでは、発酵中の機械的介入を最小限に抑えて可能な限り手動で行います。 穏やかにプレスした後、ワインはオーク樽で18〜24ヶ月熟成させます。 オーダーメイドのブレンドは品質に重点を置き、最高のバレルから選択されています。",
+    "section5_col2_line1": "Van Biljon Cinq’s boutique winery is ideally situated in Stellenbosch, on the southern slope of the Polkadraai Hills in decomposed granite soil. Since the area is exposed to a cooling sea breeze, harvest is 2-4 weeks later than the norm for this area. Thus, the grapes have ample time to develop character and complex flavours, yielding fruit with intense colour, concentrated fruit flavors and firm tannins.",
+    "section5_col2_line2": "Harvesting is done by hand and only the finest bunches are picked to ensure quality over quantity.",
+    "section5_col2_line3": "In the cellar as much as possible is done manually with minimal mechanical intervention during fermentation. After a gentle press the wine is allowed to mature in oak barrels for between 18-24 months.",
+    "section5_col2_line4": "Our bespoke blend is selected from the very best barrels, again with the emphasis on quality.",
+    "footer": "ヴァン・ビルジョン・サンク"
+  },
+  "season": {
+    "description1": "ブータン・プレミアム7松茸購入ページ",
+    "description2": "<p>ブータン・プレミアム７松茸</p><p>について</p>"
+  },
+  "roses_mark": {
+    "title": "Rosey’s Mark",
+    "description": "ロージーズ・マーク",
+    "heading_1": "2012 年、Rosey’s Mark は Ina（イナ）とRositsa（ロシツァ）姉妹によって創立されました。<br/>ブルガリアのバラの谷で採れた、天然オイルがたっぷり含まれた有機栽培のブルガリアンローズのブランドです。",
+    "sub_heading_1": "こころとカラダのデイケアにぴったりな",
+    "sub_heading_2": "天然ローズから作られた、おいしいシリーズがブルガリアから届きました。",
+    "sub_heading_3": "ブルガリアンローズの成分は、ストレス、消化、免疫システム、美容、老化 etc... に効果があると言われています。",
+    "sub_heading_4": "自然な香りと味は五感と完全に調和し、舌にもこころにも癒されていくときを感じます。",
+    "two_col": {
+      "left": {
+        "title": "Ina イナ",
+        "description": "ビジネスディベロップメントと営業を担当<br/>経済と国際貿易を学び、観光学部の修士号",
+        "list": {
+          "list1": "●2015 年ナイロビ、2016 年サンフランシスコ<br/>GES (Global Entrepreneurship Summit) ブルガリア代表",
+          "list2": "●アメリカ<br/>ヨーロッパ YTILI 2016 (Young Transatlantic Innovation Leaders Initiative) ブルガリアメンバー"
+        }
+      },
+      "right": {
+        "title": "Rositsa ロシツァ",
+        "description": "Rosey’s mark の創始者、クリエイティブエンジン<br/>ソフィア大学、コミュニケーション学部学士号<br/>イタリア・ミラノ、Istituto Europeo di Design でブランドマネジメントと広告学部の修士号、ブランドアイデンティティの開発、マーケティングとコミュニケーション、およびデザインを担当",
+        "list": "●ブルガリア版 Google オンライン教育プラットフォーム Digital Garage のアンバサダー"
+      }
+    },
+    "four_description": "“ブルガリアのフローラルガストロノミー” をコンセプトとし、豊かな香りはもちろん、その食用花としての可能性を拡げ、<br/>キュリナリー・アートとして唯一無二のバラの料理を創り上げることをミッションとしています。<br/>Ina（イナ）と Rositsa（ロシツァ）のフレッシュな感性で、<br/>ブルガリアのシェフの感性が刺激され、新たなキュリナリー・アートが生まれています。",
+    "two_col_footer": "シグニチャー・ギンザのカフェでは、ローズ・ルースティーをポットサービスで、<br/>ローズ・ウォーターとジャムを使ったジンフィズがお楽しみいただけます。",
+    "title_footer": "購入ページ"
+  },
+  "delicacy": {
+    "title": "Delicacy",
+    "description": "珍味",
+    "heading_1": "チョウザメの身肉を使った究極の珍味をお届けします　<br/>（チョウザメは太古から世界中で食されているお魚です）",
+    "sub_heading_2": "日本で最も綺麗な水が流れると言われている自然に囲まれた土地で<br/>ハルキャビアのために大切に育てられたチョウザメから作られた、お酒に相性抜群の珍味です。<br/>今まで粗末に扱われ捨てられていたチョウザメの身肉から<br/>本当に珍しく、美味しく、癖になる究極の珍味を作り上げました。<br/>黒い真珠と呼ばれるキャビアを作るチョウザメは、ほとんど手に入る事がありませんが、実はおいしい素材なのです。<br/>サステナブルを考えて作られたこの新しい食感は、<br/>フードロスをなくし、物、また命を大切にしようという活動から生まれたシグニチャーのオリジナル製品です。<br/>ぜひ、お試しください。私たちは、この活動をこれからも続けて頑張って行きたいと思っています。<br/>",
+    "two_description": "そのまま、おつまみとしていただいても、日々のお料理のバリエーションとしても<br/>幅広く使い勝手のいい味付けです。<br/>お土産としても、チョウザメというレアな素材はおしゃべりも楽しく広がっていくことと思います。",
+    "two_col_footer": "シグニチャー・ギンザのカフェでは、珍味のお味見ができます。<br/>ご訪問の際はお尋ねください。",
+    "title_footer": "購入ページ"
+  },
+  "table_ware": {
+    "title": "Signature’s Original Tableware",
+    "description": "シグニチャー・オリジナルのテーブルウエア",
+    "heading_1_line1": "並ぶもののない価値ある品を、",
+    "heading_1_line2": "あなたとあなたの大切な方へ",
+    "heading_1_line3": "シグニチャーのテーブルウエアでテーブルセッティングも未来も生まれ変わる",
+    "heading_2": "エッグシェルグラスについて",
+    "content": {
+      "line1": "江戸時代から明治にかけて、一つ、家一軒分もの価値で取引された",
+      "line2": "「卵殻手（らんかくで）」と呼ばれる有田磁器がありました。西洋の貴族から「エッグシェル」と呼ばれ絶賛されておりました。",
+      "line3": "時代に翻弄され 100 年前に途絶えてしまったその技術を、いま、",
+      "line4": "由緒ある陶工たちが独自の製法で復活させ脚光を浴びています。",
+      "line5": "このオリジナルグラスは「卵殻手シリーズ」の中でも精緻を極めた最高品質「EN-YO（婉容）」を使用し、",
+      "line6": "光が透ける薄さ 1 ミリ以下、飲み物そのものの美しい彩の変化を楽しむとともに、",
+      "line7": "「繭」を表現したふんわりとしたしつらいは、柔らかな手触りはもちろん、口当たりの良さが至福の時を刻みます。",
+      "line8": "柄（ステム）の部分にはゴールドとプラチナを使用し、",
+      "line9": "素材制作過程が比べるもののない最高級のラグジュアリー磁器に仕上げています。",
+      "line10": "グラフダイヤモンドをそのグランドデザインから支えてきたアン・マリー・グラフに",
+      "line11": "「このような素晴らしいものは絶対に途絶えさせてはいけない」と言わしめた、",
+      "line12": "まごうことなき銘品です。"
+    },
+    "heading_3": "キモノ・トーションについて",
+    "content2": {
+      "line1": "着物生地をアクセントにしたトーション。",
+      "line2": "着物生地は、サステナビリティを意識した観点から、新らしいものを使用するのではなく、",
+      "line3": "長く使われなかった在庫や端切れが採用されています。",
+      "line4": "生地によってはすでに生産が再現できないものもあり、裁断箇所により",
+      "line5": "柄が異なる場合がございますので、一つとして同じものがない貴重なアート作品です。",
+      "line6": "デザインは特許が取得されています。",
+      "line7": "特許取得：意匠登録 2023-012444"
+    }
+  },
+  "header": {
+    "caviar": { "label": "CAVIAR" },
+    "royal_collection": { "label": "Royal Collection" },
+    "premium_wines": {
+      "label": "Premium Wines",
+      "sub_1": "Luxury Wine Range",
+      "sub_2": "Luxury Wine Range",
+      "sub_3": "Luxury Wine Range",
+      "sub_4": "Luxury Wine Range"
+    },
+    "tableware": {
+      "label": "Tableware",
+      "sub_1": "Japan's Craftpeopleship Tableware"
+    },
+    "foods": {
+      "label": "Foods",
+      "sub_1": "Sweets",
+      "sub_2": "Delicacy",
+      "sub_3": "Seasonal Food"
+    },
+    "signature_products": {
+      "label": "Signature's Signature Products",
+      "sub_1": "Tableware",
+      "sub_2": "Wine Accessories"
+    }
+  },
+  "footer": {
+    "sub_description_1": "Signature:選ばれたテーマを贈る",
+    "sub_description_2": "大切に想う人に特別なものを贈りたい・・・特別がある”Signature”の贈り物は・・・",
+    "sub_description_3": "季節と共にうつりかわる選ばれた品々となり",
+    "sub_description_4": "特別なものを求めるあなたのステータスとして輝きます。",
+    "sub_description_5": "'Signature Ginza（シグニチャー銀座）：GSIX | 銀座\nシックス| B2階 | 銀座店'",
+    "sub_description_6": "Signature Tokyo（シグニチャー馬込）：東京馬込 | 金子コード株式会社（本社）| 1階",
+    "sub_description_7": "Signature Ginzaをご予約の方は",
+    "sub_description_8": "こちら",
+    "sub_description_9": "のサイトからご予約ください。"
+  }
+}
