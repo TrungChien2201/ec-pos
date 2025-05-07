@@ -10,7 +10,7 @@ import {
   MdRedeem,
 } from 'react-icons/md'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 import * as API from 'common/api'
 import * as CONSTANT from 'common/constant'

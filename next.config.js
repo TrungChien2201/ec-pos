@@ -21,9 +21,7 @@ const nextConfig = {
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || '',
   },
   experimental: {
-    // Enable ESM support (optional, test if needed)
-    esmExternals: 'loose',
-    turbopack: false,
+    // No experimental features needed
   },
   webpack: (config) => {
     config.resolve.alias['styled-components'] = path.resolve(__dirname, 'node_modules', 'styled-components');

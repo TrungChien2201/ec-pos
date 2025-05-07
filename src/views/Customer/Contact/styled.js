@@ -1,5 +1,5 @@
 import { Modal } from 'antd'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 export const ModalStyled = styled(Modal)`
   .ant-modal-content {

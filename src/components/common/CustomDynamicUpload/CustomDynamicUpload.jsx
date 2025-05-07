@@ -1,6 +1,6 @@
 import { Image, Upload } from 'antd'
 import { MdCameraAlt } from 'react-icons/md'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 import * as CONSTANT from 'common/constant'
 import * as UTILITY from 'common/utility'

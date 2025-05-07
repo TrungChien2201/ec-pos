@@ -1,5 +1,5 @@
 import { Button, Input } from 'antd'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 export const ButtonSearch = styled(Button)`
   display: flex;
