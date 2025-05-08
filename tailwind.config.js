@@ -17,7 +17,7 @@ module.exports = {
           'light-3': '#353535',
           'light-4': '#476261',
           'light-5': '#575757',
-          'light-6': '#231F20'
+          'light-6': '#231F20',
         },
         blue: {
           DEFAULT: '#115BEC',

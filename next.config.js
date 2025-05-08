@@ -61,6 +61,7 @@ const nextConfig = {
       'modules': path.resolve(__dirname, './src/modules'),
       'assets': path.resolve(__dirname, './src/assets'),
       'locales': path.resolve(__dirname, './src/locales'),
+      'middleware': path.resolve(__dirname, './src/middleware'),
     };
     config.resolve.extensions = [
       '.js',

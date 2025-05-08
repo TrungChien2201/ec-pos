@@ -9,15 +9,17 @@
   "scripts": {
     "dev": "next dev",
     "preview": "next build && next start",
-    "build:development": "NODE_ENV=development next build",
-    "build:staging": "NODE_ENV=staging next build",
-    "build:production": "NODE_ENV=production next build",
+    "build:development": "cross-env NODE_ENV=development next build",
+    "build:staging": "cross-env NODE_ENV=staging next build",
+    "build:production": "cross-env NODE_ENV=production next build",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/tailwind-generated.css",
     "build:css:prod": "postcss src/assets/tailwind.css -o src/assets/tailwind-generated.css --env production --minify",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix",
+    "lint": "eslint . --ext .js,.jsx",
+    "lint:fix": "eslint . --ext .js,.jsx --fix",
     "fix": "gts fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config",
+    "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config --end-of-line auto",
+    "fix:line-endings": "node fix-line-endings.js",
     "analyze": "source-map-explorer '.next/static/chunks/*.js'"
   },
   "dependencies": {
@@ -93,6 +95,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
     "cssnano": "^6.0.0",
     "eslint": "^8.37.0",
     "eslint-config-airbnb": "^19.0.4",

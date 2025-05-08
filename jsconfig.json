@@ -15,6 +15,7 @@
       "modules/*": ["./src/modules/*"],
       "assets/*": ["./src/assets/*"],
       "locales/*": ["./src/locales/*"],
+      "middleware/*": ["./src/middleware/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
