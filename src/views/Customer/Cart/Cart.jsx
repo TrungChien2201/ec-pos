@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query'
 import { message } from 'antd'
 import { NumericFormat } from 'react-number-format'
 import { useSelector, useDispatch } from 'react-redux'
-import { useLocation } from 'react-router-dom'
 
 import ButtonComponent from 'components/Button'
 
@@ -29,7 +28,6 @@ import RecommendForYou from '../Products/components/RecommendForYou'
 
 const Cart = () => {
   const dispatch = useDispatch()
-  const location = useLocation()
   const [point, setPoint] = useState(0)
   const [cartItems, setCartItems] = useState()
   const [loading, setLoading] = useState(false)
