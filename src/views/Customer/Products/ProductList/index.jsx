@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { Typography } from 'antd'
 import { t } from 'i18next'
 import { useSelector } from 'react-redux'
-import { useSearchParams, useLocation } from 'react-router-dom'
 
 import { shopifyClient } from 'utils/shopify.util'
 
@@ -13,17 +12,18 @@ import Banner from './components/Banner'
 import ItemList from './components/ItemList'
 import ModalWarning from './components/ModalWarning'
 import RecommendForYou from '../components/RecommendForYou'
+import { useRouter } from 'next/router'
 
 const ProductList = () => {
   const [productRecommends, setProductRecommends] = useState([])
-  const [searchParams] = useSearchParams()
-  const location = useLocation()
-  const isSearchPage = location.pathname === CONSTANT.SEARCH_PAGE_ROUTE
+  const router = useRouter()
+  const isSearchPage = router.pathname === CONSTANT.SEARCH_PAGE_ROUTE
   const collections = useSelector((state) => state.collections)
   const menus = useSelector((state) => state.menus.menus)
+
   const [currentCollection, setCurrentCollection] = useState([])
   const [infoCollection, setInfoCollection] = useState(null)
-  const collectionId = searchParams.get('collectionId')
+  const collectionId = router.query?.collectionId
 
   const getRecommendedProducts = async (productId) => {
     const products = await shopifyClient.product.fetchRecommendations(productId)
@@ -55,7 +55,7 @@ const ProductList = () => {
     if (collectionId) {
       getProductsByCollectionId(collections)
     }
-  }, [searchParams, collections, collectionId])
+  }, [collections, collectionId])
   return (
     <div>
       {isSearchPage ? (

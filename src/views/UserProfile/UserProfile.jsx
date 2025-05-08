@@ -2,11 +2,11 @@ import { useState } from 'react'
 
 import { Avatar, Menu } from 'antd'
 import { useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom'
-
+import { useRouter, useSearchParams } from 'next/navigation';
 import IconUser from 'resourse/svg/IconUser'
 
 import * as UTILITY from 'common/utility'
+import { USER_PROFILE } from 'common/constant'
 
 import UserProfileAddress from './Address'
 import OrderHistory from './OrderHistory'
@@ -28,8 +28,8 @@ const rootSubmenuKeys = ['sub1', 'sub2']
 
 const UserProfile = () => {
   // eslint-disable-next-line no-unused-vars
-  const [searchParams, setSearchParams] = useSearchParams()
-  const locale = useSelector((state) => state.user.locale)
+  const router = useRouter();
+  const searchParams = useSearchParams(); // Get current query params
   const [openKeys, setOpenKeys] = useState(['sub1'])
   const [menuItem, setMenuItem] = useState(UTILITY.parseQuery().tabActive || '1')
   const UserInfo = useSelector((state) => state.user)
@@ -62,7 +62,12 @@ const UserProfile = () => {
 
   const onClickMenu = (e) => {
     setMenuItem(e.key)
-    setSearchParams({ ...UTILITY.parseQuery(), tabActive: e.key })
+    const currentParams = new URLSearchParams(searchParams.toString());
+    // Add new query parameters
+    currentParams.set('tabActive', e.key);
+
+    // Navigate to the updated URL
+    router.push(`/${USER_PROFILE}?${currentParams.toString()}`);
   }
 
   return (

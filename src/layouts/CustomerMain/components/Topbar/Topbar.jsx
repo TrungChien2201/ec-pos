@@ -16,11 +16,12 @@ import { getMe, getToken } from 'services/auth'
 import { QUERY_KEY_CLIENT_PERSONAL_INFO } from 'common/api'
 
 import SearchInput from './components/SearchInput'
-// // import StoreLogo from 'images/logo-2x.png'
 import { closeModalLogin, showModalLogin, setLocale } from 'store/user'
 import { LANGUAGE } from 'common/constant'
 import { getKeysLanguage } from 'services/language'
 import { useRouter } from 'next/router'
+
+const StoreLogo = 'images/logo-2x.png'
 
 const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
   const dispatch = useDispatch()
@@ -64,14 +65,14 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
 
   return (
     <div
-      className='container mx-auto min-[1151px]:text-base font-medium max-[1150px]:text-sx'
+      className='container container--header mx-auto min-[1151px]:text-base font-medium max-[1150px]:text-sx'
       style={{ color: txtColor }}
     >
       <Row gutter={16} className='h-[145px] max-[1160px]:hidden items-center justify-between'>
         <Col>
           <img
             alt='logo'
-            src={'images/logo-2x.png'}
+            src={StoreLogo}
             className='cursor-pointer'
             width={168}
             height={54}
@@ -79,7 +80,7 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
           />
         </Col>
         {!searchActive && (
-          <Col className='flex justify-center items-center gap-x-6'>
+          <Col className='flex justify-center items-center gap-x-3 2xl:gap-x-6'>
             {renderMenus}
             <div className='flex justify-between hover:text-orange cursor-pointer'>
               <span

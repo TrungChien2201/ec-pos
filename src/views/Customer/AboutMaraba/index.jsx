@@ -2,21 +2,23 @@ import React from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
-import { useRouter } from 'next/router'
-import ImgHorizontalDivide from 'resourse/images/horizontal-divide.png'
-import Img1 from 'resourse/images/maraba/1.webp'
-import Img2 from 'resourse/images/maraba/2.webp'
-import Img3 from 'resourse/images/maraba/3.webp'
-import Img4 from 'resourse/images/maraba/4.webp'
-import Img5 from 'resourse/images/maraba/5.webp'
-import Img6 from 'resourse/images/maraba/6.webp'
-import Img7 from 'resourse/images/maraba/7.webp'
-import Img8 from 'resourse/images/maraba/8.webp'
-import banner from 'resourse/images/maraba/banner.webp'
-import ImgFooter from 'resourse/images/maraba/footer.webp'
-import logo from 'resourse/images/maraba/logo.webp'
+
+// Use string paths for images
+const ImgHorizontalDivide = 'images/horizontal-divide.png'
+const Img1 = 'images/maraba/1.webp'
+const Img2 = 'images/maraba/2.webp'
+const Img3 = 'images/maraba/3.webp'
+const Img4 = 'images/maraba/4.webp'
+const Img5 = 'images/maraba/5.webp'
+const Img6 = 'images/maraba/6.webp'
+const Img7 = 'images/maraba/7.webp'
+const Img8 = 'images/maraba/8.webp'
+const banner = 'images/maraba/banner.webp'
+const ImgFooter = 'images/maraba/footer.webp'
+const logo = 'images/maraba/logo.webp'
 
 const getCollectionInMenu = (menus, collectionTitle) => {
   const collection = (menus || [])

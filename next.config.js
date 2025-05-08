@@ -1,11 +1,31 @@
 /** @type {import('next').NextConfig} */
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_URL || '', // Use environment variable for basePath
+  images: {
+    domains: [
+      'localhost',
+      'api.signature-ginza.codeaplha.biz',
+      'api.signature-ginza.com',
+      'api.signature-ec-pos.codeaplha.biz'
+    ],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      }
+    ],
+  },
   async redirects() {
     return [
       {
@@ -24,7 +44,24 @@ const nextConfig = {
     // No experimental features needed
   },
   webpack: (config) => {
-    config.resolve.alias['styled-components'] = path.resolve(__dirname, 'node_modules', 'styled-components');
+    // Add path aliases from jsconfig.json
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
+      'common': path.resolve(__dirname, './src/common'),
+      'services': path.resolve(__dirname, './src/services'),
+      'utils': path.resolve(__dirname, './src/utils'),
+      'components': path.resolve(__dirname, './src/components'),
+      'store': path.resolve(__dirname, './src/store'),
+      'provider': path.resolve(__dirname, './src/provider'),
+      'layouts': path.resolve(__dirname, './src/layouts'),
+      'resourse': path.resolve(__dirname, './src/resourse'),
+      'views': path.resolve(__dirname, './src/views'),
+      'hooks': path.resolve(__dirname, './src/hooks'),
+      'modules': path.resolve(__dirname, './src/modules'),
+      'assets': path.resolve(__dirname, './src/assets'),
+      'locales': path.resolve(__dirname, './src/locales'),
+    };
     config.resolve.extensions = [
       '.js',
       '.jsx',
@@ -53,6 +90,12 @@ const nextConfig = {
           ],
         },
       },
+    });
+
+    // Add rule for image files
+    config.module.rules.push({
+      test: /\.(png|jpg|jpeg|gif|webp|svg)$/i,
+      type: 'asset/resource',
     });
 
     return config;

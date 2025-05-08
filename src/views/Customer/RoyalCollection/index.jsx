@@ -1,12 +1,12 @@
 import { useMemo } from 'react'
-
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
 
-import { useRouter } from 'next/router'
-import ImgHorizontalDivide from 'resourse/images/horizontal-divide.png'
-import Img1 from 'resourse/images/royal/1.webp'
+// Use string paths instead of direct imports
+const ImgHorizontalDivide = 'images/horizontal-divide.png'
+const Img1 = 'images/royal/1.webp'
 import BuyOnline from './components/BuyOnline'
 
 const RoyalCollection = () => {

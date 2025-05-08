@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import { useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 
 const Gorilla = () => {
   const { t } = useTranslation()
@@ -30,10 +30,10 @@ const Gorilla = () => {
           onClick={() => handleRedirect(child)}
         >
           <div className='relative'>
-            <img className='w-full rounded-t-[6px]' src={child?.image || child.data?.image?.src} />
+            <img className='w-full rounded-t-[6px]' src={child?.image || child.data?.image?.src} alt={child?.title || ''} />
             {child?.isComingSoon && (
               <div className='absolute bottom-0 left-0 w-full'>
-                <img src='images/image-93.svg' className='max-md:h-[31px]' />
+                <img src='images/image-93.svg' className='max-md:h-[31px]' alt="Coming Soon" />
               </div>
             )}
           </div>

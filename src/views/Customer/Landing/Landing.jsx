@@ -4,7 +4,6 @@ import liff from '@line/liff'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { message } from 'antd'
 import { useDispatch } from 'react-redux'
-import { useSearchParams } from 'react-router-dom'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
 import SplashScreen from 'components/common/SplashScreen'
@@ -30,9 +29,9 @@ const Landing = (props) => {
   const { logo } = props
   const dispatch = useDispatch()
   const router = useRouter()
+  const { liffId } = router.query
   const [liffToken, setLiffAccessToken] = useState()
   const [accessToken, setAccessToken] = useState(undefined)
-  const [searchParams] = useSearchParams()
   const isAnimationDoneRef = useRef(null)
   const [isLineLogin, setIsLineLogin] = useState(false)
 
@@ -112,7 +111,6 @@ const Landing = (props) => {
   }, [isAnimationDone])
 
   useEffect(() => {
-    const liffId = searchParams.get('liffId')
     const handleInitLiff = async () => {
       if (liffId) {
         await liff.init({ liffId })
@@ -135,7 +133,7 @@ const Landing = (props) => {
     } else {
       router.push('/home')
     }
-  }, [handleCheckLineAccess, router.push, searchParams])
+  }, [handleCheckLineAccess, router.push, liffId])
 
   return (
     <BaseAnimation>

@@ -361,6 +361,15 @@ h6 {
   max-width: 1440px;
 }
 
+.container--medium {
+  max-width: 1236px;
+}
+
+.container--header {
+  max-width: 1750px;
+  padding: 0 24px;
+}
+
 .image--banner {
   position: relative;
   &:before {

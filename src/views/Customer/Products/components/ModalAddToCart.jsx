@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ProductItem from 'views/Customer/Cart/components/ProductItem'
 
@@ -8,6 +7,7 @@ import IconCheckCircleSuccess from 'resourse/svg/IconCheckCircleSuccess'
 import { getCart } from 'services/cart'
 
 import { ALWAYS_BOX, CART_PAGE_ROUTE, TYPE_PRODUCT } from 'common/constant'
+import { useRouter } from 'next/router'
 
 const ModalAddToCart = ({
   product,
@@ -16,7 +16,7 @@ const ModalAddToCart = ({
   wrapperSelected,
 }) => {
   const locale = useSelector((state) => state.user.locale)
-  const nagivate = useNavigate()
+  const router = useRouter()
   const cart = getCart()
 
   const cartFilter = cart.filter((doc) => {
@@ -52,7 +52,7 @@ const ModalAddToCart = ({
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push(dataLayerAddToCart)
     console.log('dataLayer cart', window.dataLayer)
-    nagivate(CART_PAGE_ROUTE, { state: { productAddedCart: product.id } })
+    router.push(CART_PAGE_ROUTE, { state: { productAddedCart: product.id } })
   }
 
   const onClose = () => {

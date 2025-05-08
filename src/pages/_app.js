@@ -24,6 +24,7 @@ import isEmpty from 'lodash/isEmpty'
 import 'utils/dayjs'
 import { store } from '../store'
 import 'assets/tailwind.css';
+import 'utils/i18n'
 
 const ConfigProvider = dynamic(() => import('antd').then((mod) => mod.ConfigProvider), { ssr: false });
 const jaJP = dynamic(() => import('antd/es/locale/ja_JP').then((mod) => mod.default), { ssr: false });

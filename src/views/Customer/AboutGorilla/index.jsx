@@ -2,21 +2,23 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
-import banner from 'resourse/images/gorilla/banner.webp'
-import logo from 'resourse/images/gorilla/logo.webp'
-import Img1 from 'resourse/images/gorilla/1.webp'
-import Img2 from 'resourse/images/gorilla/2.webp'
-import Img3 from 'resourse/images/gorilla/3.webp'
-import Img4 from 'resourse/images/gorilla/4.webp'
-import Img5 from 'resourse/images/gorilla/5.webp'
-import Img6 from 'resourse/images/gorilla/6.webp'
-import Img7 from 'resourse/images/gorilla/7.webp'
-import Img8 from 'resourse/images/gorilla/8.webp'
-import ImgHorizontalDivide from 'resourse/images/horizontal-divide.png'
-import ImgFooter from 'resourse/images/gorilla/footer.webp'
-import { useRouter } from 'next/router'
+
+// Use string paths for images
+const banner = 'images/gorilla/banner.webp'
+const logo = 'images/gorilla/logo.webp'
+const Img1 = 'images/gorilla/1.webp'
+const Img2 = 'images/gorilla/2.webp'
+const Img3 = 'images/gorilla/3.webp'
+const Img4 = 'images/gorilla/4.webp'
+const Img5 = 'images/gorilla/5.webp'
+const Img6 = 'images/gorilla/6.webp'
+const Img7 = 'images/gorilla/7.webp'
+const Img8 = 'images/gorilla/8.webp'
+const ImgHorizontalDivide = 'images/horizontal-divide.png'
+const ImgFooter = 'images/gorilla/footer.webp'
 
 const getCollectionInMenu = (menus, collectionTitle) => {
   const collection = (menus || [])

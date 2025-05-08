@@ -3,9 +3,11 @@ import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import useSeason from 'hooks/useSeason'
-import DefaultBG from 'resourse/images/bg-homepage-1.png'
 
 import { APP_MEDIA_URL } from 'common/constant'
+
+// Use string path for the image
+const DefaultBG = 'images/bg-homepage-1.png'
 
 import Topbar from '../Topbar/Topbar'
 

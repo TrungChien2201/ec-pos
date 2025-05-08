@@ -4,7 +4,6 @@ import { Input } from 'antd'
 import cx from 'classnames'
 import _isEmpty from 'lodash/isEmpty'
 import { NumericFormat } from 'react-number-format'
-import { useSearchParams } from 'react-router-dom'
 
 import ButtonComponent from 'components/Button'
 import SelectComponent from 'components/Select'
@@ -19,6 +18,7 @@ import { SORTKEY } from 'common/constant'
 
 import { OPTION_STATUS, OPTION_TYPE, STATUS_FILTER, TYPE_FILTER } from './constants'
 import ProductItem from '../../components/ProductItem'
+import { useRouter } from 'next/router'
 
 const getSortType = (type) => {
   switch (type) {
@@ -84,13 +84,12 @@ const getSortStatus = (status) => {
 }
 
 const ItemList = ({ collection, infoCollection }) => {
-  const [searchParams] = useSearchParams()
+  const router = useRouter()
+  const {title, collectionId} = router.query
   const [type, setType] = useState(null)
   const [status, setStatus] = useState(null)
   const [minPrice, setMinPrice] = useState('')
   const [maxPrice, setMaxPrice] = useState('')
-  const title = searchParams.get('title')
-  const collectionId = searchParams.get('collectionId')
   const [productList, setProductList] = useState(collection?.products || [])
   const [visible, setVisible] = useState(false)
   const myRef = useRef(null)

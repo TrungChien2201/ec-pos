@@ -74,7 +74,7 @@ const ClientMain = (props) => {
     } catch (err) {
       router.push(`${CONSTANT.CLIENT_LOGIN_ROUTE}/${liffId}`)
       const path = location?.pathname
-      //Error
+      // CLIENT_RESERVATIONS_ROUTE not defined
       // if (
       //   path?.replace(`/${liffId}`, '') === CONSTANT.CLIENT_RESERVATIONS_ROUTE ||
       //   path?.replace(`/${liffId}`, '') === CONSTANT.CLIENT_MEMBER_PROFILE_ROUTE
@@ -156,16 +156,16 @@ const ClientMain = (props) => {
                   </div>
                 </Content>
                 {/* )} */}
-                {personalInfo?.status !== 2 ? (
+                {/* BottomMenuBar not defined */}
+                {/* {personalInfo?.status !== 2 ? (
                   <div />
                 ) : (
-                  // <BottomMenuBar
-                  //   publicSettings={publicSettings}
-                  //   personalInfo={personalInfo}
-                  //   accessToken={accessToken}
-                  // />
-                  <div />
-                )}
+                  <BottomMenuBar
+                    publicSettings={publicSettings}
+                    personalInfo={personalInfo}
+                    accessToken={accessToken}
+                  />
+                )} */}
               </Layout>
             </BaseAnimation>
           </Spin>

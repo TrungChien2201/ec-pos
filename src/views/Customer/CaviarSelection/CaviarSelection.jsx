@@ -1,14 +1,16 @@
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
-import { useRouter } from 'next/router'
-import ImgHalCaviar1 from 'resourse/images/halcaviar-1.png'
-import ImgHalCaviar2 from 'resourse/images/halcaviar-2.png'
-import ImgHalCaviar3 from 'resourse/images/halcaviar-3.png'
-import ImgHalCaviar4 from 'resourse/images/halcaviar-4.png'
-import ImgHalCaviar6 from 'resourse/images/halcaviar-6.png'
-import ImgHalCaviar7 from 'resourse/images/halcaviar-7.webp'
-import ImgHorizontalDivide from 'resourse/images/horizontal-divide.png'
+
+// Use string paths instead of direct imports
+const ImgHalCaviar1 = 'images/halcaviar-1.png'
+const ImgHalCaviar2 = 'images/halcaviar-2.png'
+const ImgHalCaviar3 = 'images/halcaviar-3.png'
+const ImgHalCaviar4 = 'images/halcaviar-4.png'
+const ImgHalCaviar6 = 'images/halcaviar-6.png'
+const ImgHalCaviar7 = 'images/halcaviar-7.webp'
+const ImgHorizontalDivide = 'images/horizontal-divide.png'
 
 const getCollectionInMenu = (menus, collectionTitle) => {
   const collection = (menus || [])

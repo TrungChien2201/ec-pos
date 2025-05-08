@@ -1,19 +1,21 @@
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
-import { useRouter } from 'next/router'
-import ImgHorizontalDivide from 'resourse/images/horizontal-divide.png'
-import imgFooter from 'resourse/images/roseys-mark/3.webp'
-import imgBanner from 'resourse/images/roseys-mark/banner.png'
-import imgFour1 from 'resourse/images/roseys-mark/four1.png'
-import imgFour2 from 'resourse/images/roseys-mark/four2.png'
-import imgFour3 from 'resourse/images/roseys-mark/four3.png'
-import imgFour4 from 'resourse/images/roseys-mark/four4.png'
-import imgLogo from 'resourse/images/roseys-mark/logo.png'
-import imgTowCol2 from 'resourse/images/roseys-mark/two-col-1.png'
-import imgTowCol1 from 'resourse/images/roseys-mark/two-col-2.png'
-import imgTowColLeft from 'resourse/images/roseys-mark/two-col-left.png'
-import imgTowColRight from 'resourse/images/roseys-mark/two-col-right.png'
+
+// Use string paths instead of direct imports
+const ImgHorizontalDivide = 'images/horizontal-divide.png'
+const imgFooter = 'images/roseys-mark/3.webp'
+const imgBanner = 'images/roseys-mark/banner.png'
+const imgFour1 = 'images/roseys-mark/four1.png'
+const imgFour2 = 'images/roseys-mark/four2.png'
+const imgFour3 = 'images/roseys-mark/four3.png'
+const imgFour4 = 'images/roseys-mark/four4.png'
+const imgLogo = 'images/roseys-mark/logo.png'
+const imgTowCol2 = 'images/roseys-mark/two-col-1.png'
+const imgTowCol1 = 'images/roseys-mark/two-col-2.png'
+const imgTowColLeft = 'images/roseys-mark/two-col-left.png'
+const imgTowColRight = 'images/roseys-mark/two-col-right.png'
 
 const getCollectionInMenu = (menus, collectionTitle) => {
   const collection = (menus || [])

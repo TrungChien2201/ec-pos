@@ -6,8 +6,10 @@ import { Col, Form, Input, Row } from 'antd'
 import { useTranslation } from 'react-i18next'
 
 import ButtonCommon from 'components/common/button'
-import SentImg from 'resourse/images/sent.png'
 import { sendContact } from 'services/contact'
+
+// Use string path instead of direct import
+const SentImg = 'images/sent.png'
 
 import { ModalStyled } from './styled'
 

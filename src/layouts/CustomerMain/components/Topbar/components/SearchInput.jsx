@@ -21,8 +21,8 @@ const SearchInput = ({
   const router = useRouter()
   const searchParams = router.query;
   const [title, setTitle] = useState('')
-  const qParam = searchParams.get('title')
-  const collectionId = searchParams.get('collectionId')
+  const qParam = searchParams?.title
+  const collectionId = searchParams?.collectionId
   const inputRef = useRef(null)
 
   const handleShowInput = () => setExpand((prev) => !prev)

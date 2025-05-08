@@ -11,8 +11,8 @@ const CustomFooter = ({ isHomePage }) => {
       <div className='p-0 flex flex-col justify-center items-center !bg-white'>
         <div className='container flex justify-center'>
           <div className='relative image--footer overflow-hidden w-[100%] max-w-[450px] lg:max-w-[calc(632/1280*100%)]'>
-            <img className='w-full md:hidden' src='images/footer-mobile.png' />
-            <img className='w-full max-md:hidden' src='images/footer-desktop.png' />
+            <img className='w-full md:hidden' src='images/footer-mobile.png' alt='Footer mobile' />
+            <img className='w-full max-md:hidden' src='images/footer-desktop.png' alt='Footer desktop' />
           </div>
         </div>
 

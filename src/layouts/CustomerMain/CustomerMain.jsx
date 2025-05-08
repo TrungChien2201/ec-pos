@@ -12,7 +12,7 @@ import * as API from 'common/api'
 import * as CONSTANT from 'common/constant'
 import * as UTILITY from 'common/utility'
 
-// import Topbar from './components/Topbar/Topbar'
+import Topbar from './components/Topbar/Topbar'
 import HomeHeader from './components/HomeHeader/HomeHeader'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
@@ -146,9 +146,9 @@ const CustomerMain = (props) => {
               <HomeHeader setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} />
             ) : (
               <Header className='relative p-0 shadow w-full h-[145px] max-[640px]:h-[100px]'>
-                <img src='images/bg-header.png' className='w-full h-full hidden md:block' />
+                <img src='images/bg-header.png' alt="Header background" className='w-full h-full hidden md:block' />
                 <div className='absolute w-full h-full top-0 left-0 bg-blue-light-6 md:bg-transparent'>
-                  {/* <Topbar setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} /> */}
+                  <Topbar setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} />
                 </div>
               </Header>
             )}
