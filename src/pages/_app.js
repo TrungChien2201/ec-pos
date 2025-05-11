@@ -25,6 +25,9 @@ import 'utils/dayjs'
 import { store } from '../store'
 import 'assets/tailwind.css';
 import 'utils/i18n'
+// Global styles for SlickSlider
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const ConfigProvider = dynamic(() => import('antd').then((mod) => mod.ConfigProvider), { ssr: false });
 const jaJP = dynamic(() => import('antd/es/locale/ja_JP').then((mod) => mod.default), { ssr: false });

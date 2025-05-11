@@ -31,7 +31,7 @@ import ImageSlider from './ImageSlider'
 import ModalGallery from './ImageSlider/ModalGallery'
 
 import { useRouter } from 'next/router'
-import './styles.scss'
+import styles from './styles.module.scss'
 
 const ProductDetail = () => {
   const locale = useSelector((state) => state.user.locale)
@@ -391,7 +391,7 @@ const ProductDetail = () => {
         <title>{productDetail?.title}</title>
         <meta name='description' content={productDetail?.description} />
       </Helmet>
-      <div className='bg-[#FBFBFB] product-detail'>
+      <div className={`bg-[#FBFBFB] ${styles['product-detail']}`}>
         <div className='container content-wrapper mx-auto pb-[15px] lg:pb-[40px]'>
           <div className='p-[0.8rem] lg:pt-5 lg:pl-0'>
             <button
@@ -404,9 +404,9 @@ const ProductDetail = () => {
             </button>
           </div>
           <div className='lg:flex gap-6'>
-            <div className='image-slider w-full mb-[15px] lg:mb-0 product-detail__images'>
+            <div className={`image-slider w-full mb-[15px] lg:mb-0 ${styles['product-detail__images']}`}>
               {currentImage && (
-                <div className='bg-white border-wrapper border-0 lg:border-[0.5px] relative'>
+                <div className={`bg-white ${styles['border-wrapper']} border-0 lg:border-[0.5px] relative`}>
                   <div className='relative w-full'>
                     <img
                       onClick={() => {
@@ -419,15 +419,15 @@ const ProductDetail = () => {
                       {`${currentPositionImage} / ${productDetail?.images.length}`}
                     </span>
                   </div>
-                  <div className='max-w-full px-[10px] py-[50px] mx-[20px] product-detail__thumbnails'>
+                  <div className={`max-w-full px-[10px] py-[50px] mx-[20px] ${styles['product-detail__thumbnails']}`}>
                     {productDetail?.images?.length > 3 ? (
                       <ImageSlider>
                         {productDetail?.images?.map((item, index) => (
                           <img
                             className={cx(
-                              'aspect-square image-thumbnail w-[100px] h-[100px] lg:w-[145px] lg:h-[145px] object-cover',
+                              `aspect-square ${styles['image-thumbnail']} w-[100px] h-[100px] lg:w-[145px] lg:h-[145px] object-cover`,
                               {
-                                active: currentImage === item.src,
+                                [styles.active]: currentImage === item.src,
                               },
                             )}
                             key={index}
@@ -444,9 +444,9 @@ const ProductDetail = () => {
                         {productDetail?.images?.map((item, index) => (
                           <img
                             className={cx(
-                              'aspect-square image-thumbnail w-[100px] h-[100px] lg:w-[145px] lg:h-[145px] cursor-pointer object-cover',
+                              `aspect-square ${styles['image-thumbnail']} w-[100px] h-[100px] lg:w-[145px] lg:h-[145px] cursor-pointer object-cover`,
                               {
-                                active: currentImage === item.src,
+                                [styles.active]: currentImage === item.src,
                               },
                             )}
                             key={index}
@@ -464,10 +464,10 @@ const ProductDetail = () => {
               )}
             </div>
 
-            <div className='w-full product-detail__contents'>
+            <div className={`w-full ${styles['product-detail__contents']}`}>
               {/* normal */}
               {!productDetail?.productType.includes(ALWAYS_BOX) && (
-                <div className='bg-white p-[16px] mb-[15px] border-wrapper border-0 lg:border-[0.5px]'>
+                <div className={`bg-white p-[16px] mb-[15px] ${styles['border-wrapper']} border-0 lg:border-[0.5px]`}>
                   <ProductTitle
                     title={productDetail?.title.toString().replace(textBold, '')}
                     titleBold={textBold}

@@ -5,9 +5,10 @@ import Slider from 'react-slick'
 import IconArrowLeft from 'resourse/svg/IconArrowLeft'
 import IconArrowRight from 'resourse/svg/IconArrowRight'
 
-import './styles.scss'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import styles from './styles.module.scss'
+// These global styles need to be imported in _app.js
+// import 'slick-carousel/slick/slick.css'
+// import 'slick-carousel/slick/slick-theme.css'
 
 const SlickSlider = ({ children }) => {
   const [slideIndex, setSlideIndex] = useState(0)

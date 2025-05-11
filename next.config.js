@@ -30,9 +30,8 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: `/${process.env.NEXT_PUBLIC_BASE_URL}/home`,
-        permanent: true,
-        basePath: false,
+        destination: '/home',
+        permanent: false,
       },
     ];
   },
@@ -76,22 +75,22 @@ const nextConfig = {
       ...config.resolve.extensions,
     ];
     // Webpack handle ES Modules in node_modules
-    config.module.rules.push({
-      test: /\.js$/,
-      include: /node_modules\/(antd|@ant-design|rc-.*|react-redux|tanstack|@tanstack|framer-motion|react-icons|antd-input-otp|react-responsive-carousel|react-slick|styled-components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            ['next/babel', { 'preset-env': { modules: 'commonjs' } }], // Force CommonJS for ESM modules
-          ],
-          plugins: [
-            '@babel/plugin-proposal-dynamic-import',
-            '@babel/plugin-transform-modules-commonjs', // Convert ESM to CommonJS
-          ],
-        },
-      },
-    });
+    // config.module.rules.push({
+    //   test: /\.js$/,
+    //   include: /node_modules\/(antd|@ant-design|rc-.*|react-redux|tanstack|@tanstack|framer-motion|react-icons|antd-input-otp|react-responsive-carousel|react-slick|styled-components)/,
+    //   use: {
+    //     loader: 'babel-loader',
+    //     options: {
+    //       presets: [
+    //         ['next/babel', { 'preset-env': { modules: 'commonjs' } }], // Force CommonJS for ESM modules
+    //       ],
+    //       plugins: [
+    //         '@babel/plugin-proposal-dynamic-import',
+    //         '@babel/plugin-transform-modules-commonjs', // Convert ESM to CommonJS
+    //       ],
+    //     },
+    //   },
+    // });
 
     // Add rule for image files
     config.module.rules.push({

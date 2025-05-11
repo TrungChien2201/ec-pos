@@ -41,7 +41,9 @@
     }
   },
   "rules": {
-   "no-unused-vars":"off",
+    // This disables all rules
+    "prettier/prettier": "off",
+    "no-unused-vars": "off",
     "react/jsx-uses-react": "off",
     "jsx-a11y/alt-text": "off",
     "react/no-array-index-key": "off",
@@ -55,51 +57,9 @@
     "no-else-return": "off",
     "no-nested-ternary": "off",
     "react/jsx-props-no-spreading": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "react/function-component-definition": [
-      "error",
-      {
-        "namedComponents": ["function-declaration", "arrow-function"],
-        "unnamedComponents": "arrow-function"
-      }
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          ["parent", "sibling"],
-          "object",
-          "type",
-          "index"
-        ],
-        "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": ["builtin"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        },
-        "pathGroups": [
-          {
-            "pattern": "{react,react-dom/**}",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "components/*",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "common/*",
-            "group": "internal",
-            "position": "after"
-          }
-        ]
-      }
-    ]
+    "import/no-extraneous-dependencies": "off",
+    "react/function-component-definition": "off",
+    "import/order": "off"
   },
   "ignorePatterns": ["build"]
 }

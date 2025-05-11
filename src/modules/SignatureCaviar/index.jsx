@@ -1,4 +1,4 @@
-import './styles.scss'
+import styles from './styles.module.scss'
 
 const SignatureCaviar = () => {
   return (
@@ -14,7 +14,7 @@ const SignatureCaviar = () => {
           </p>
         </div>
         <div className='flex flex-col xl:flex-row gap-y-10 mt-4 md:mt-5 content'>
-          <div className='w-full h-[180px] xl:w-[650px] lg:h-[354px] relative content__left'>
+          <div className={`w-full h-[180px] xl:w-[650px] lg:h-[354px] relative ${styles.content__left}`}>
             <div className='w-full h-[180px] lg:h-[354px] border-[1px] border-solid border-[#ABABAB] rounded-[6px] flex gap-x-3 lg:gap-x-5'>
               <div
                 className='lg:h-[354px] bg-cover flex-shrink-0 w-[180px] h-[180px] lg:w-[354px] xl:aspect-square content__left-image'
@@ -36,7 +36,7 @@ const SignatureCaviar = () => {
             </div>
           </div>
 
-          <div className='lg:ml-auto w-full xl:w-[600px] h-[145px] md:h-[180px] lg:h-[260px] xl:pl-[40px] 2xl:pl-[70px] relative content__right'>
+          <div className={`lg:ml-auto w-full xl:w-[600px] h-[145px] md:h-[180px] lg:h-[260px] xl:pl-[40px] 2xl:pl-[70px] relative ${styles.content__right}`}>
             <div className='w-full md:text-blue lg:h-[260px] h-[130px] md:h-[180px] border-[1px] border-solid border-[#ABABAB] rounded-[6px] flex gap-x-3 lg:gap-x-6'>
               <div
                 className='lg:h-[259px] md:w-[180px] md:h-[180px] bg-cover w-[130px] h-[130px] flex-shrink-0 lg:w-[259px]'
