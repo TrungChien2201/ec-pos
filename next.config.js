@@ -38,6 +38,7 @@ const nextConfig = {
   env: {
     // Optionally define custom environment variables
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || '',
+    NEXT_PUBLIC_SYSTEM_TITLE: process.env.NEXT_PUBLIC_SYSTEM_TITLE || 'Signature',
   },
   experimental: {
     // No experimental features needed

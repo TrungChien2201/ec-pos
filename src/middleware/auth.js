@@ -1,4 +1,3 @@
-import { getToken } from 'services/auth';
 import { PERMISSION_ERROR_ROUTE } from 'common/constant';
 import authConfig from 'common/endpoints/auth';
 
@@ -12,16 +11,22 @@ export const withAuth = (gssp) => {
     // Check if we're on the client side
     const isClient = typeof window !== 'undefined';
 
-    // Get the token (client-side from localStorage, server-side from cookies)
-    const token = isClient
-      ? getToken()
-      : context.req?.cookies?.[authConfig.storageTokenKeyName];
+    // Get the token from localStorage if on client side
+    let token = null;
+
+    if (isClient) {
+      // Client-side: Check localStorage for accessToken
+      token = localStorage.getItem(authConfig.storageTokenKeyName);
+    } else {
+      // Server-side: Check cookies for accessToken
+      token = context.req?.cookies?.[authConfig.storageTokenKeyName];
+    }
 
     // Log for debugging
     console.log('Auth middleware:', {
       isClient,
       token,
-      cookies: context.req?.cookies,
+      path: context.resolvedUrl || context.asPath,
       cookieName: authConfig.storageTokenKeyName,
       redirectPath: PERMISSION_ERROR_ROUTE
     });
@@ -30,7 +35,7 @@ export const withAuth = (gssp) => {
     if (!token) {
       return {
         redirect: {
-          destination: '/401', // Use hardcoded string to avoid any issues
+          destination: PERMISSION_ERROR_ROUTE,
           permanent: false,
         },
       };

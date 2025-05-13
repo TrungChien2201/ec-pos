@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 
 const MenuItem = ({ menu }) => {
   const router = useRouter()
+  const isDetailPage = router.pathname.includes('/[id]')
+
   if (!menu.showTopBar) {
     return null
   }
@@ -26,7 +28,7 @@ const MenuItem = ({ menu }) => {
     <div className='flex justify-between group transition-all cursor-pointer relative h-[44px]'>
       <div className='group-hover:text-orange transition-all flex items-center gap-x-2'>
         <span className='text-[16px] leading-6 font-medium'>{menu.title}</span>
-        <img alt='eva-arrow' src='images/eva_arrow-ios-back-outline.png' width={18} height={18} />
+        <img alt='eva-arrow' src={isDetailPage ? '../images/eva_arrow-ios-back-outline.png' : 'images/eva_arrow-ios-back-outline.png'} width={18} height={18} />
       </div>
       <div className='hidden translate-y-4 duration-500 transition-all group-hover:block group-hover:translate-y-0 flex-col absolute top-[44px] bg-white shadow-menu-item w-fit min-w-[197px] z-10'>
         {renderChildMenu}

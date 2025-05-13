@@ -25,6 +25,7 @@ const CustomerMain = (props) => {
   console.log('CustomerMain')
   const { children } = props
   const router = useRouter()
+  const bgHeader = router.pathname.includes('/[id]') ? '../images/bg-header.png' : 'images/bg-header.png'
   const isMountedRef = UTILITY.USE_IS_MOUNTED_REF()
   const [auth, setAuth] = useState(undefined)
   const [logo, setLogo] = useState(undefined)
@@ -146,7 +147,7 @@ const CustomerMain = (props) => {
               <HomeHeader setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} />
             ) : (
               <Header className='relative p-0 shadow w-full h-[145px] max-[640px]:h-[100px]'>
-                <img src='images/bg-header.png' alt="Header background" className='w-full h-full hidden md:block' />
+                <img src={bgHeader} alt="Header background" className='w-full h-full hidden md:block' />
                 <div className='absolute w-full h-full top-0 left-0 bg-blue-light-6 md:bg-transparent'>
                   <Topbar setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} />
                 </div>

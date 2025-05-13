@@ -29,6 +29,7 @@ const rootSubmenuKeys = ['sub1', 'sub2']
 const UserProfile = () => {
   // eslint-disable-next-line no-unused-vars
   const router = useRouter();
+  const locale = useSelector((state) => state.user.locale)
   const searchParams = useSearchParams(); // Get current query params
   const [openKeys, setOpenKeys] = useState(['sub1'])
   const [menuItem, setMenuItem] = useState(UTILITY.parseQuery().tabActive || '1')
@@ -83,7 +84,7 @@ const UserProfile = () => {
                   size='large'
                   src={
                     UserInfo.user?.avatar_url
-                      ? `${VITE_API_URL}/${UserInfo.user?.avatar_url}`
+                      ? `${NEXT_PUBLIC_API_URL}/${UserInfo.user?.avatar_url}`
                       : '/images/avatar-user.png'
                   }
                   crossOrigin='anonymous'

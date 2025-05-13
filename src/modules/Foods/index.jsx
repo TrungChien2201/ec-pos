@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 
 const Foods = () => {
-  console.log('foodssss')
   const router = useRouter()
   const menus = useSelector((state) => state.menus.sections)
   const locale = useSelector((state) => state.user.locale)

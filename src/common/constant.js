@@ -795,3 +795,12 @@ export const LANGUAGE = [
     value: 'zh',
   },
 ]
+
+export const getLanguage = (isDetailPage) => {
+  return LANGUAGE.map(item => {
+    return {
+      ...item,
+      image: isDetailPage ? `../${item.image}` : item.image,
+    }
+  })
+}

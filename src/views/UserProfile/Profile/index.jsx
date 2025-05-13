@@ -202,7 +202,7 @@ const UserInformation = () => {
               src={
                 imgPreview ??
                 (UserInfo.user?.avatar_url
-                  ? `${VITE_API_URL}/${UserInfo?.user?.avatar_url}`
+                  ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
                   : '/images/avatar-user.png')
               }
               crossOrigin='anonymous'

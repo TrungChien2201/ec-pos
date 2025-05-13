@@ -17,15 +17,16 @@ import { QUERY_KEY_CLIENT_PERSONAL_INFO } from 'common/api'
 
 import SearchInput from './components/SearchInput'
 import { closeModalLogin, showModalLogin, setLocale } from 'store/user'
-import { LANGUAGE } from 'common/constant'
+import { LANGUAGE, getLanguage } from 'common/constant'
 import { getKeysLanguage } from 'services/language'
 import { useRouter } from 'next/router'
-
-const StoreLogo = 'images/logo-2x.png'
 
 const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
   const dispatch = useDispatch()
   const router = useRouter()
+  const isDetailPage = router.pathname.includes('/[id]')
+  const StoreLogo = isDetailPage ? '../images/logo-2x.png' : 'images/logo-2x.png'
+
   const menus = useSelector((state) => state.menus.menus)
   const UserFEInfo = useSelector((state) => state.user)
   const countCart = useSelector((state) => state.countCart)
@@ -115,7 +116,7 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
             )}
           </div>
           <Select value={language} className='w-auto select-language' onChange={onChangeLanguage}>
-            {LANGUAGE.map((item) => (
+            {getLanguage(isDetailPage)?.map((item) => (
               <Select.Option key={item.id} value={item.value}>
                 <span className='flex gap-2 items-center'>
                   <img class='w-6 h-6 rounded-full' src={item.image} />
@@ -152,7 +153,7 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
             ) : null}
           </div>
           <Select value={language} className='w-auto select-language' onChange={onChangeLanguage}>
-            {LANGUAGE.map((item) => (
+            {getLanguage(isDetailPage)?.map((item) => (
               <Select.Option key={item.id} value={item.value}>
                 <span className='flex gap-2 items-center'>
                   <img class='w-6 h-6 rounded-full' src={item.image} />

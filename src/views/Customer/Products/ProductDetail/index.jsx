@@ -33,14 +33,15 @@ import ModalGallery from './ImageSlider/ModalGallery'
 import { useRouter } from 'next/router'
 import './styles.scss'
 
-const ProductDetail = () => {
+const ProductDetail = ({ productData }) => {
   const locale = useSelector((state) => state.user.locale)
   const dispatch = useDispatch()
   const router = useRouter()
   const { id } = router.query
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(!productData)
 
-  const [productDetail, setProductDetail] = useState()
+  // Initialize with server-side data if available
+  const [productDetail, setProductDetail] = useState(productData || null)
   const [productRecommends, setProductRecommends] = useState([])
   const [textBold, setTextBold] = useState('')
 
@@ -373,10 +374,28 @@ const ProductDetail = () => {
   useEffect(() => {
     if (id) {
       setProductRecommendId(`gid://shopify/Product/${id}`)
-      getProductById()
+
+      // Only fetch product data if it wasn't provided via props
+      if (!productData) {
+        getProductById()
+      } else {
+        // If we already have product data, just set up the initial state
+        if (productData?.productType?.match(regexBold)) {
+          setTextBold(productData.productType.match(regexBold)[1])
+        }
+        if (productData?.images?.length) {
+          setCurrentImage(productData.images[0]?.src)
+        }
+        if (productData?.variants?.length) {
+          setVariantProduct(productData.variants[0])
+        }
+        if (productData?.productType?.length) {
+          setProductType(productData.productType)
+        }
+      }
     }
     getRecommendedProducts()
-  }, [getProductById, id])
+  }, [getProductById, id, productData])
 
   useEffect(() => {
     if (showZoomImage) {

@@ -4,7 +4,9 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools' // Add this 
 import { useSelector, Provider } from 'react-redux'
 import dynamic from 'next/dynamic'
 import { domMax, LazyMotion } from 'framer-motion'
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider, Helmet } from 'react-helmet-async'
+import AuthGuard from 'components/AuthGuard'
+import Head from 'next/head'
 // import { appWithTranslation } from 'next-i18next';
 import ScrollToTop from 'components/ScrollToTop'
 import ModalWarningAge from 'components/modals/ModalWarningAge'
@@ -145,9 +147,18 @@ function MyApp({ Component, pageProps }) {
         getProduct()
       }
     }, [MENUS])
+    // Get the system title from environment variable
+    const systemTitle = process.env.NEXT_PUBLIC_SYSTEM_TITLE || 'Signature';
+
     return (
       <>
-        <Component {...pageProps} />
+        <Head>
+          <title>{systemTitle}</title>
+          <meta name="description" content={`${systemTitle} - Premium Products`} />
+        </Head>
+        <AuthGuard>
+          <Component {...pageProps} />
+        </AuthGuard>
         {warning.showModal && <ModalWarningAge linkRedriect={warning.linkRedriect} />}
       </>
     )

@@ -102,7 +102,7 @@ const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }
       {address && address.length > 0 ? (
         <div className='px-4 flex flex-col gap-6'>
           <div className='text-base font-normal text-black'>{locale['user_profile.choosing']}</div>
-          <div className={`md:max-h-[510px] ${styles['scroll-custom']}`}>
+          <div className={`md:max-h-[510px] scroll-custom`}>
             <Radio.Group
               className='w-full'
               value={valueDefault}
