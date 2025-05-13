@@ -13,7 +13,6 @@ import { USER_PROFILE } from 'common/constant'
 
 import { initCountCart } from 'store/countCart'
 import { useRouter } from 'next/router'
-import Image from 'next/image';
 
 const UserProfile = () => {
   const locale = useSelector((state) => state.user.locale)
@@ -57,7 +56,7 @@ const UserProfile = () => {
       label: (
         <div className='flex md:flex md:min-w-fit items-center gap-x-2 md:bg-white/25 rounded-3xl md:pr-4'>
           <div className='w-7 h-7 md:w-10 md:h-10 flex-shrink-0 border border-[#51D811] relative overflow-hidden rounded-full'>
-            <Image
+            <img
               src={
                 UserInfo.user?.avatar_url
                   ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
@@ -95,7 +94,7 @@ const UserProfile = () => {
   return (
     <Dropdown menu={{ items }} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
       <div className='w-7 h-7 md:w-10 md:h-10 flex-shrink-0 border border-[#51D811] relative overflow-hidden rounded-full'>
-        <Image
+        <img
           src={
             UserInfo.user?.avatar_url
               ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
@@ -106,7 +105,6 @@ const UserProfile = () => {
         />
       </div>
     </Dropdown>
-    // <div>hello</div>
   )
 }
 

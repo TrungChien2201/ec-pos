@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from 'antd'
 import cx from 'classnames'
-import styles from './styles.module.scss'
+import './styles.scss'
 
 function ButtonComponent({
   variant,
@@ -21,10 +21,8 @@ function ButtonComponent({
       loading={loading}
       disabled={disabled}
       className={cx(
-        styles.button,
-        styles[`button--${variant}`],
-        'min-h-[40px] text-[14px] lg:text-[16px] lg:min-h-[44px]',
-        className,
+        `button button--${variant} min-h-[40px] text-[14px] lg:text-[16px] lg:min-h-[44px]`,
+        [className],
       )}
       onClick={onClick}
     >

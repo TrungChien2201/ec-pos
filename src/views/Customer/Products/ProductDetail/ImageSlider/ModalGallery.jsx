@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
 import cx from 'classnames'
-import { createPortal } from 'react-dom'
 
 import IconArrowLeft from 'resourse/svg/IconArrowLeft'
 import IconArrowRight from 'resourse/svg/IconArrowRight'
 import IconClose from 'resourse/svg/IconClose'
 
-import styles from './Gallery.module.scss'
-// These global styles need to be imported in _app.js
-// import 'slick-carousel/slick/slick.css'
-// import 'slick-carousel/slick/slick-theme.css'
+import 'views/Customer/Products/ProductDetail/ImageSlider/Gallery.scss'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 
 const ModalGallery = ({ images, onClose, currentImage, currentPosition }) => {
@@ -64,12 +62,12 @@ const ModalGallery = ({ images, onClose, currentImage, currentPosition }) => {
   }
 
   return (
-    <div className={`fixed flex flex-col items-center justify-center z-10 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-black ${styles['modal-gallery']}`}>
+    <div className='fixed flex flex-col items-center justify-center z-10 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-black modal-gallery'>
       <IconClose className='absolute right-[15px] top-[15px] cursor-pointer' onClick={onClose} />
       <div className='relative mx-auto text-center my-[30px]'>
         <div>
           <IconArrowLeft
-            className={cx(`${styles['prev-btn-slider']} mr-[50px]`, { [styles.disable]: slideIndex === 1 })}
+            className={cx('prev-btn-slider mr-[50px]', { disable: slideIndex === 1 })}
             onClick={handlePrev}
           />
           <img
@@ -78,8 +76,8 @@ const ModalGallery = ({ images, onClose, currentImage, currentPosition }) => {
             alt='product image'
           />
           <IconArrowRight
-            className={cx(`${styles['prev-btn-slider']} ml-[50px]`, {
-              [styles.disable]: slideIndex === images.length,
+            className={cx('prev-btn-slider ml-[50px]', {
+              disable: slideIndex === images.length,
             })}
             onClick={handleNext}
           />
@@ -94,9 +92,9 @@ const ModalGallery = ({ images, onClose, currentImage, currentPosition }) => {
           {images?.map((item, index) => (
             <img
               className={cx(
-                `aspect-square ${styles['image-thumbnail']} w-[100px] h-[100px] object-cover cursor-pointer`,
+                'aspect-square image-thumbnail w-[100px] h-[100px] object-cover cursor-pointer',
                 {
-                  [styles.active]: currentImage === item.src,
+                  active: slideIndex - 1 === index,
                 },
               )}
               key={index}

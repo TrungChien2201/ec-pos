@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Divider, Form, Input, Avatar, Modal, Upload } from 'antd'
-import styles from '../styles.module.scss'
+import '../styles.scss'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -132,7 +132,7 @@ const UserInformation = () => {
       <Divider />
 
       <div className='flex flex-col md:flex-row pt-[20px] pb-[66px]'>
-        <div className={`w-full md:w-8/12 md:px-4 lg:px-12 order-2 md:order-1 ${styles['border-form-profile']}`}>
+        <div className='w-full md:w-8/12 md:px-4 lg:px-12 order-2 md:order-1 border-form-profile'>
           <Form
             className='p-[20px] lg:p-8 md:p-0'
             layout='vertical'
@@ -177,9 +177,7 @@ const UserInformation = () => {
                 },
               ]}
             >
-              <div className={styles['number-input-wrapper']}>
-                <Input placeholder={locale['common.input']} onChange={handlePhoneChange} />
-              </div>
+              <Input placeholder={locale['common.input']} onChange={handlePhoneChange} />
             </Form.Item>
             <Form.Item name='email' label={locale['common.email']}>
               <Input placeholder={locale['common.email']} disabled />
@@ -196,7 +194,7 @@ const UserInformation = () => {
         </div>
 
         <div className='flex flex-col gap-4 w-full md:w-4/12 order-1 md:order-2 px-12'>
-          <div className={`w-fit mx-auto ${styles.uploadAvata}`}>
+          <div className='w-fit mx-auto uploadAvata'>
             <Avatar
               className='border-[#A5A58D] border-2'
               style={{ verticalAlign: 'middle' }}
@@ -204,13 +202,13 @@ const UserInformation = () => {
               src={
                 imgPreview ??
                 (UserInfo.user?.avatar_url
-                  ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
-                  : 'images/avatar-user.png')
+                  ? `${VITE_API_URL}/${UserInfo?.user?.avatar_url}`
+                  : '/images/avatar-user.png')
               }
               crossOrigin='anonymous'
             />
             <Upload {...props}>
-              <IconCamera className={styles.iconUpload} />
+              <IconCamera className='iconUpload' />
             </Upload>
           </div>
 
@@ -242,7 +240,7 @@ const UserInformation = () => {
       <Modal
         open={openModal}
         onCancel={handleCancel}
-        className={styles.modalSuccess}
+        className='modalSuccess'
         closable={false}
         centered
         style={{
