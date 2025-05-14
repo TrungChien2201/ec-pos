@@ -4,7 +4,6 @@ import Slider from 'react-slick'
 
 import IconArrowLeft from 'resourse/svg/IconArrowLeft'
 import IconArrowRight from 'resourse/svg/IconArrowRight'
-import 'components/SlickSlider/styles.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 

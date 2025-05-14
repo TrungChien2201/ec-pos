@@ -6,7 +6,6 @@ import IconArrowLeft from 'resourse/svg/IconArrowLeft'
 import IconArrowRight from 'resourse/svg/IconArrowRight'
 import IconClose from 'resourse/svg/IconClose'
 
-import 'views/Customer/Products/ProductDetail/ImageSlider/Gallery.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'

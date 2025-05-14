@@ -31,7 +31,6 @@ import ImageSlider from './ImageSlider'
 import ModalGallery from './ImageSlider/ModalGallery'
 
 import { useRouter } from 'next/router'
-import './styles.scss'
 
 const ProductDetail = ({ productData }) => {
   const locale = useSelector((state) => state.user.locale)

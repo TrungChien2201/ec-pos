@@ -2,7 +2,6 @@ import React from 'react'
 
 import { Button } from 'antd'
 import cx from 'classnames'
-import './styles.scss'
 
 function ButtonComponent({
   variant,

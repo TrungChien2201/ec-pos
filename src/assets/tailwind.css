@@ -6,3 +6,10 @@
 
 @import './main.css';
 @import './font.css';
+@import '../components/Button/styles.scss';
+@import '../modules/SignatureCaviar/styles.scss';
+@import '../views/Customer/Products/ProductDetail/styles.scss';
+@import '../views/Customer/Products/ProductDetail/ImageSlider/styles.scss';
+@import '../views/Customer/Products/ProductDetail/ImageSlider/Gallery.scss';
+@import '../views/UserProfile/styles.scss';
+@import '../components/SlickSlider/styles.scss';
