@@ -12,8 +12,6 @@ import UserProfileAddress from './Address'
 import OrderHistory from './OrderHistory'
 import UserInformation from './Profile'
 
-import './styles.scss'
-
 const getItem = (label, key, icon, children, type) => {
   return {
     key,

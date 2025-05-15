@@ -7,6 +7,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_URL || '', // Use environment variable for basePath
+
+  // Configure SWC for styled-components
+  compiler: {
+    styledComponents: true,
+  },
   images: {
     domains: [
       'localhost',

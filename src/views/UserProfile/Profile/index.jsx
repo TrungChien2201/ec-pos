@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
 import { Divider, Form, Input, Avatar, Modal, Upload } from 'antd'
-import '../styles.scss'
 
 import { useSelector, useDispatch } from 'react-redux'
 

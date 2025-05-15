@@ -16,8 +16,6 @@ import { getListAddress, getListProvinces, removeAddress } from 'services/addres
 
 import ModalAddress from '../ModalAddress'
 
-import '../styles.scss'
-
 const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }) => {
   const locale = useSelector((state) => state.user.locale)
   const [isOpen, setIsOpen] = useState(false)
