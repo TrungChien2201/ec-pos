@@ -1,0 +1,8 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [["styled-components", { "ssr": true }]],
+  "compact": false,
+  "generatorOpts": {
+    "maxSize": 2000000
+  }
+}

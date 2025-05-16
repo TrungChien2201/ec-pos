@@ -12,6 +12,11 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+
+  // Completely disable static generation
+  experimental: {
+    disableStaticGeneration: true,
+  },
   images: {
     domains: [
       'localhost',
@@ -44,9 +49,6 @@ const nextConfig = {
     // Optionally define custom environment variables
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || '',
     NEXT_PUBLIC_SYSTEM_TITLE: process.env.NEXT_PUBLIC_SYSTEM_TITLE || 'Signature',
-  },
-  experimental: {
-    // No experimental features needed
   },
   webpack: (config) => {
     // Add path aliases from jsconfig.json
@@ -158,6 +160,9 @@ const nextConfig = {
     'styled-components'
   ],
   reactStrictMode: true,
+  allowedDevOrigins: [
+    'seo-signature-ec-pos.codeaplha.biz'
+  ]
 };
 
 export default nextConfig;
