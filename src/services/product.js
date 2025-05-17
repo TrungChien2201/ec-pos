@@ -37,7 +37,7 @@ export const fetchSeasonRecommend = async () => {
 
     `,
     {
-      apiVersion: '2023-10',
+      apiVersion: '2024-10',
     },
   )
   return response?.data?.products?.edges || []

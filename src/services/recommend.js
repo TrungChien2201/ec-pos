@@ -84,7 +84,7 @@ const filterProducts = (filter) => {
 //     }`
 
 //   const products = await shopifyStorefontClient.request(productQuery, {
-//     apiVersion: '2023-10',
+//     apiVersion: '2025-01',
 //   })
 //   return products?.data?.collection?.products?.edges
 // }
@@ -152,7 +152,7 @@ export const getProductsByFilter = async (query) => {
       }
     }`
   const products = await shopifyStorefontClient.request(productQuery, {
-    apiVersion: '2023-10',
+    apiVersion: '2025-01',
   })
   return getProductInfo(products.data?.collection?.products?.edges || [])
 }
@@ -170,12 +170,12 @@ export const getMetafieldProductsGiftBoxById = async (id) => {
           key
           type
           value
-          
+
         }
       }
     }`
   const product = await shopifyStorefontClient.request(productQuery, {
-    apiVersion: '2023-10',
+    apiVersion: '2025-01',
   })
   try {
     return JSON.parse(product?.data?.product?.metafield?.value)

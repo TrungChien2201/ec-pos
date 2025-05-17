@@ -8,4 +8,11 @@ const PremiumWinePage = () => {
   );
 };
 
+// Force server-side rendering to avoid Html import issues
+export async function getServerSideProps() {
+  return {
+    props: {},
+  }
+}
+
 export default PremiumWinePage;

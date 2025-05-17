@@ -10,7 +10,7 @@ export const shopifyClient = Client.buildClient({
 
 export const shopifyStorefontClient = createStorefrontApiClient({
   storeDomain: process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN || 'mystoretestgem.myshopify.com',
-  apiVersion: '2024-10',
+  apiVersion: '2025-01',
   language: 'en',
   publicAccessToken:
   process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN || '54b05506225de06b0c250841f49bbefc',

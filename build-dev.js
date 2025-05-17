@@ -7,6 +7,9 @@
 process.env.NEXT_IGNORE_NODE_VERSION = 'true';
 process.env.NODE_ENV = 'development';
 process.env.NODE_OPTIONS = '--no-node-snapshot';
+// Use SWC instead of Babel
+process.env.NEXT_DISABLE_BABEL = 'true';
+process.env.NEXT_SWC = 'true';
 
 // Use child_process to run the next build command directly
 import { spawn } from 'child_process';
@@ -20,7 +23,9 @@ const buildProcess = spawn('npx', ['next', 'build'], {
     ...process.env,
     NEXT_IGNORE_NODE_VERSION: 'true',
     NODE_ENV: 'development',
-    NODE_OPTIONS: '--no-node-snapshot'
+    NODE_OPTIONS: '--no-node-snapshot',
+    NEXT_DISABLE_BABEL: 'true',
+    NEXT_SWC: 'true'
   }
 });
 
