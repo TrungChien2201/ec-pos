@@ -52,7 +52,7 @@ const ModalAddToCart = ({
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push(dataLayerAddToCart)
     console.log('dataLayer cart', window.dataLayer)
-    router.push(CART_PAGE_ROUTE, { state: { productAddedCart: product.id } })
+    router.push(CART_PAGE_ROUTE)
   }
 
   const onClose = () => {
