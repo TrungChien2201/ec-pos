@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-import { useSelector } from 'react-redux'
 
 import { Checkbox } from 'antd'
 import { NumericFormat } from 'react-number-format'
@@ -18,7 +17,6 @@ const CartItem = ({
   handleCheckCartItem,
   handleRemoveWrapped,
 }) => {
-  const locale = useSelector((state) => state.user.locale)
   const { id } = cartItem.checkVariant
   const productId = cartItem.id
   const { checked } = cartItem
@@ -81,7 +79,7 @@ const CartItem = ({
                 decreaseValue={() => handleDecreaseAmount(id)}
               />
               <img
-                src='images/image-50.svg'
+                src='/ec/images/image-50.svg'
                 className='cursor-pointer'
                 width={18}
                 height={18}
@@ -89,9 +87,7 @@ const CartItem = ({
               />
             </div>
             <div className='flex items-center gap-[5px] text-[14px] leading-[22px] lg:text-[14px] lg:leading-[22px]'>
-              <span className='text-black opacity-[85%] font-medium'>
-                {locale['cart.subtotal']}
-              </span>
+              <span className='text-black opacity-[85%] font-medium'>小計:</span>
               <NumericFormat
                 displayType='text'
                 className='text-light-yellow'
@@ -117,7 +113,7 @@ const CartItem = ({
                   decreaseValue={() => handleDecreaseAmount(id)}
                 />
                 <img
-                  src='images/image-50.svg'
+                  src='/ec/images/image-50.svg'
                   className='cursor-pointer'
                   width={18}
                   height={18}
@@ -125,9 +121,7 @@ const CartItem = ({
                 />
               </div>
               <div className='flex items-center gap-[5px] text-[14px] leading-[22px] lg:text-[14px] lg:leading-[22px]'>
-                <span className='text-black opacity-[85%] font-medium'>
-                  {locale['cart.subtotal']}
-                </span>
+                <span className='text-black opacity-[85%] font-medium'>小計:</span>
                 <NumericFormat
                   displayType='text'
                   className='text-light-yellow'
@@ -153,7 +147,7 @@ const CartItem = ({
                   decreaseValue={() => handleDecreaseAmount(id)}
                 />
                 <img
-                  src='images/image-50.svg'
+                  src='/ec/images/image-50.svg'
                   className='cursor-pointer'
                   width={18}
                   height={18}
@@ -161,9 +155,7 @@ const CartItem = ({
                 />
               </div>
               <div className='flex items-center gap-[5px] text-[14px] leading-[22px] lg:text-[14px] lg:leading-[22px]'>
-                <span className='text-black opacity-[85%] font-medium'>
-                  {locale['cart.subtotal']}
-                </span>
+                <span className='text-black opacity-[85%] font-medium'>小計:</span>
                 <NumericFormat
                   displayType='text'
                   className='text-light-yellow'

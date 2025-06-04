@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 const Banner = ({ currentCollection, infoCollection }) => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const { title } = currentCollection || {}
   const COLLECTION = {
     'HAL CAVIAR': {
@@ -38,7 +38,7 @@ const Banner = ({ currentCollection, infoCollection }) => {
       bg: '#D6EAD0',
     },
     'NOVA Caviar': {
-      subTitle: locale['nova_caviar.description'],
+      subTitle: t('nova_caviar.description'),
       bg: '#A8A9AD',
       imgStyle: { height: 'auto' },
     },

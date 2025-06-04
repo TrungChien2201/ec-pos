@@ -1,12 +1,12 @@
 import { m } from 'framer-motion'
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { CiCircleCheck } from 'react-icons/ci'
 
 import * as CONSTANT from 'common/constant'
 
 export default function ForgotSectionContent(props) {
   const { stepOneInfo } = props
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
 
   return (
     <div className='flex justify-center items-center flex-col'>
@@ -16,7 +16,7 @@ export default function ForgotSectionContent(props) {
       >
         <img
           src={stepOneInfo.logo}
-          alt={locale['common.banner']}
+          alt={t('common.banner')}
           className='mx-auto w-[221px] h-auto rounded'
         />
       </m.div>

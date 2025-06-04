@@ -1,12 +1,8 @@
-import AboutGorillaView from 'views/Customer/Settings'
+import SettingsView from 'views/Customer/Settings'
 
 const SettingPage = () => {
-  return (
-    <div>
-      <AboutGorillaView />
-    </div>
-  );
-};
+  return <SettingsView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default SettingPage;
+export default SettingPage

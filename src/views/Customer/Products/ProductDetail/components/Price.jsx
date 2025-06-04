@@ -1,10 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { NumericFormat } from 'react-number-format'
 
 const Price = ({ price, wrapping, noPrice = false }) => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   return (
     <React.Fragment>
       {!noPrice ? (
@@ -19,7 +19,7 @@ const Price = ({ price, wrapping, noPrice = false }) => {
               {wrapping ? `＜${wrapping?.title}＞ ¥` : '¥'}
               {formattedValue}
               <span className='relative -top-1 ml-2 font-normal text-[#555] text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px]'>
-                {locale['cart.tax_included']}
+                {t('cart.tax_included')}
               </span>
             </span>
           )}
@@ -27,7 +27,7 @@ const Price = ({ price, wrapping, noPrice = false }) => {
       ) : (
         <span className='font-medium text-[#9C8C6A] text-[20px] leading-[28px] lg:text-[30px] lg:leading-[40px]'>
           {wrapping ? `＜${wrapping?.title}＞ ` : ''}
-          {locale['product.price_TBA']}
+          {t('product.price_TBA')}
         </span>
       )}
     </React.Fragment>

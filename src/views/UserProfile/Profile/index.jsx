@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Divider, Form, Input, Avatar, Modal, Upload } from 'antd'
 
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import ButtonComponent from 'components/Button'
 
@@ -23,7 +24,7 @@ import liff from '@line/liff'
 
 const UserInformation = () => {
   const dispatch = useDispatch()
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const [form] = Form.useForm()
   const { isMobile, isTablet } = useResponsive()
 
@@ -125,7 +126,7 @@ const UserInformation = () => {
   return (
     <div className='flex-1 py-4 bg-white border md:rounded-2xl'>
       <div className='flex justify-between items-center px-4'>
-        <div className='font-medium text-xl text-black'>{locale['user_profile.profile']}</div>
+        <div className='font-medium text-xl text-black'>{t('user_profile.profile')}</div>
       </div>
 
       <Divider />
@@ -143,15 +144,15 @@ const UserInformation = () => {
             <div className='grid grid-cols-2 gap-x-4'>
               <Form.Item
                 name='last_name'
-                label={locale['common.name']}
+                label={t('common.name')}
                 rules={[
                   {
                     required: true,
-                    message: locale['common.name'] + locale['common.validation.required'],
+                    message: t('common.validation.required', { name: t('common.name') }),
                   },
                 ]}
               >
-                <Input placeholder={locale['common.last_name']} />
+                <Input placeholder={t('common.last_name')} />
               </Form.Item>
               <Form.Item
                 name='first_name'
@@ -159,34 +160,34 @@ const UserInformation = () => {
                 rules={[
                   {
                     required: true,
-                    message: locale['common.name'] + locale['common.validation.required'],
+                    message: t('common.validation.required', { name: t('common.name') }),
                   },
                 ]}
               >
-                <Input placeholder={locale['common.first_name']} />
+                <Input placeholder={t('common.first_name')} />
               </Form.Item>
             </div>
             <Form.Item
               name='phone'
-              label={locale['common.phone']}
+              label={t('common.phone')}
               rules={[
                 {
                   pattern: /[\d]{10}|[\d]{11}$/,
-                  message: locale['common.validation.phone'],
+                  message: t('common.validation.phone'),
                 },
               ]}
             >
-              <Input placeholder={locale['common.input']} onChange={handlePhoneChange} />
+              <Input placeholder={t('common.input')} onChange={handlePhoneChange} />
             </Form.Item>
-            <Form.Item name='email' label={locale['common.email']}>
-              <Input placeholder={locale['common.email']} disabled />
+            <Form.Item name='email' label={t('common.email')}>
+              <Input placeholder={t('common.email')} disabled />
             </Form.Item>
             <Form.Item>
               <ButtonComponent
                 type='submit'
                 isLoading={isLoadingEdit}
                 className='bg-[#9C8C6A] text-white px-[15px] py-1 w-[133px]'
-                title={locale['common.save']}
+                title={t('common.save')}
               />
             </Form.Item>
           </Form>
@@ -214,11 +215,11 @@ const UserInformation = () => {
           <div className='flex justify-center'>
             <div className='px-5 text-center' style={{ borderRight: '1px solid #6C6C6C' }}>
               <p className='text-xl font-medium text-black'>{countOrder}</p>
-              <p className='text-[#6C6C6C]'>{locale['user_profile.info.order']}</p>
+              <p className='text-[#6C6C6C]'>{t('user_profile.info.order')}</p>
             </div>
             <div className='px-5 text-center'>
               <p className='text-xl font-medium text-black'>{UserInfo?.user?.point}</p>
-              <p className='text-[#6C6C6C]'>{locale['user_profile.info.point']}</p>
+              <p className='text-[#6C6C6C]'>{t('user_profile.info.point')}</p>
             </div>
           </div>
           <div className='flex justify-center'>
@@ -226,8 +227,8 @@ const UserInformation = () => {
               className='bg-[#00B800] text-white flex justify-center items-center px-2 lg:px-4 py-2 lg:w-[215px] h-[50px] max-lg:text-xs'
               title={
                 !UserInfo?.user?.line_user_id
-                  ? locale['user_profile.info.work_with_line']
-                  : locale['user_profile.info.line_linked']
+                  ? t('user_profile.info.work_with_line')
+                  : t('user_profile.info.line_linked')
               }
               prefixIcon={<IconLineApp className='max-lg:w-8' />}
               onClick={handleLineUser}

@@ -86,7 +86,7 @@ const SidebarMenu = ({ isOpen, onClose }) => {
           </div>
           <img
             alt='logo'
-            src='images/logo-2x.png'
+            src='/ec/images/logo-2x.png'
             width={118}
             height={38}
             onClick={() => {

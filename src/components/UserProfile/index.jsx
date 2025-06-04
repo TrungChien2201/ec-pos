@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { Dropdown } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import IconLogout from 'resourse/svg/IconLogout'
 import IconUser from 'resourse/svg/IconUser'
@@ -15,7 +16,7 @@ import { initCountCart } from 'store/countCart'
 import { useRouter } from 'next/router'
 
 const UserProfile = () => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const router = useRouter()
   const queryClient = useQueryClient()
@@ -60,9 +61,9 @@ const UserProfile = () => {
               src={
                 UserInfo.user?.avatar_url
                   ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
-                  : 'images/avatar-default.png'
+                  : '/ec/images/avatar-default.png'
               }
-              className='object-cover align-top w-7 h-7 md:w-10 md:h-10'
+              className='object-cover align-top w-7 h-7 md:w-10 md:h-10 vvv'
               crossOrigin='anonymous'
             />
           </div>
@@ -77,7 +78,7 @@ const UserProfile = () => {
           className='flex justify-start items-center gap-1'
           onClick={() => router.push(USER_PROFILE)}
         >
-          <IconUser /> {locale['user_profile.my_profile']}
+          <IconUser /> {t('user_profile.my_profile')}
         </div>
       ),
     },
@@ -85,20 +86,20 @@ const UserProfile = () => {
       key: '2',
       label: (
         <div onClick={() => handleLogout()} className='flex justify-start items-center gap-1'>
-          <IconLogout /> {locale['user_profile.logout']}
+          <IconLogout /> {t('user_profile.logout')}
         </div>
       ),
     },
   ]
 
   return (
-    <Dropdown menu={{ items }} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
+    <Dropdown menu={{ items }} placement='bottomLeft' arrow={{ pointAtCenter: true }}>
       <div className='w-7 h-7 md:w-10 md:h-10 flex-shrink-0 border border-[#51D811] relative overflow-hidden rounded-full'>
         <img
           src={
             UserInfo.user?.avatar_url
               ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
-              : 'images/avatar-default.png'
+              : '/ec/images/avatar-default.png'
           }
           className='object-cover align-top w-7 h-7 md:w-10 md:h-10'
           crossOrigin='anonymous'

@@ -1,11 +1,11 @@
-import { useCallback } from 'react'
+import React, { useCallback } from 'react'
 
 import { Typography } from 'antd'
 import cx from 'classnames'
 import { NumericFormat } from 'react-number-format'
+import { useRouter } from 'next/router'
 
 import { ALWAYS_BOX } from 'common/constant'
-import { useRouter } from 'next/router'
 
 const { Title } = Typography
 
@@ -96,18 +96,6 @@ const ProductItem = ({ product, currentSelectedGiftColor, wrapperSelected }) => 
             thousandSeparator=','
             decimalScale={3}
           />
-          {/* <p className='text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px] text-[#0000008c] font-medium mb-0'>
-            {location?.pathname?.includes('/product') ? (
-              <NumericFormat
-                displayType='text'
-                value={product?.soldout ?? 0}
-                suffix=' 個売れた'
-                decimalScale={3}
-              />
-            ) : (
-              '税込'
-            )}
-          </p> */}
         </div>
       </div>
     </div>

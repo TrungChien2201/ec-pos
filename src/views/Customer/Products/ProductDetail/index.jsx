@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import { useCallback, useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 
 import { useQuery } from '@tanstack/react-query'
 import { notification, Spin } from 'antd'
 import cx from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import AdjustNumberItem from 'components/common/AdjustNumberItem/AdjustNumberItem'
 import IconArrowLefV2 from 'resourse/svg/IconArrowLefV2'
@@ -33,7 +33,7 @@ import ModalGallery from './ImageSlider/ModalGallery'
 import { useRouter } from 'next/router'
 
 const ProductDetail = ({ productData }) => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const router = useRouter()
   const { id } = router.query
@@ -75,11 +75,7 @@ const ProductDetail = ({ productData }) => {
 
   // use in modal gallery
   const [showZoomImage, setShowZoomImage] = useState(false)
-  const descriptionContent =
-    locale[productDetail?.descriptionHtml] ??
-    locale[productDetail?.description] ??
-    productDetail?.descriptionHtml ??
-    productDetail?.description
+  const descriptionContent = productDetail?.descriptionHtml ?? productDetail?.description
 
   const currentSelectedDataGiftColor = useCallback(
     (isWrapping) => {
@@ -405,10 +401,6 @@ const ProductDetail = ({ productData }) => {
   if (loading) return <Spin size='large' fullscreen />
   return (
     <>
-      <Helmet>
-        <title>{productDetail?.title}</title>
-        <meta name='description' content={productDetail?.description} />
-      </Helmet>
       <div className={`bg-[#FBFBFB] 'product-detail'}`}>
         <div className='container content-wrapper mx-auto pb-[15px] lg:pb-[40px]'>
           <div className='p-[0.8rem] lg:pt-5 lg:pl-0'>
@@ -418,7 +410,7 @@ const ProductDetail = ({ productData }) => {
               onClick={() => router.push(-1)}
             >
               <IconArrowLefV2 />
-              {locale['common.back']}
+              {t('common.back')}
             </button>
           </div>
           <div className='lg:flex gap-6'>
@@ -437,7 +429,9 @@ const ProductDetail = ({ productData }) => {
                       {`${currentPositionImage} / ${productDetail?.images.length}`}
                     </span>
                   </div>
-                  <div className={`max-w-full px-[10px] py-[50px] mx-[20px] product-detail__thumbnails`}>
+                  <div
+                    className={`max-w-full px-[10px] py-[50px] mx-[20px] product-detail__thumbnails`}
+                  >
                     {productDetail?.images?.length > 3 ? (
                       <ImageSlider>
                         {productDetail?.images?.map((item, index) => (
@@ -445,7 +439,7 @@ const ProductDetail = ({ productData }) => {
                             className={cx(
                               `aspect-square image-thumbnail w-[100px] h-[100px] lg:w-[145px] lg:h-[145px] object-cover`,
                               {
-                                'active': currentImage === item.src,
+                                active: currentImage === item.src,
                               },
                             )}
                             key={index}
@@ -464,7 +458,7 @@ const ProductDetail = ({ productData }) => {
                             className={cx(
                               `aspect-square image-thumbnail w-[100px] h-[100px] lg:w-[145px] lg:h-[145px] cursor-pointer object-cover`,
                               {
-                                'active': currentImage === item.src,
+                                active: currentImage === item.src,
                               },
                             )}
                             key={index}
@@ -485,7 +479,9 @@ const ProductDetail = ({ productData }) => {
             <div className={`w-full product-detail__contents`}>
               {/* normal */}
               {!productDetail?.productType.includes(ALWAYS_BOX) && (
-                <div className={`bg-white p-[16px] mb-[15px] border-wrapper border-0 lg:border-[0.5px]`}>
+                <div
+                  className={`bg-white p-[16px] mb-[15px] border-wrapper border-0 lg:border-[0.5px]`}
+                >
                   <ProductTitle
                     title={productDetail?.title.toString().replace(textBold, '')}
                     titleBold={textBold}
@@ -513,7 +509,7 @@ const ProductDetail = ({ productData }) => {
                     <>
                       <div className='flex flex-col md:flex-row justify-start md:items-center mb-[8px] gap-4 md:gap-5'>
                         <div className='text-xs lg:text-base mr-[5px] text-black'>
-                          {locale['product.gift_wrapping']}&nbsp;
+                          {t('product.gift_wrapping')}&nbsp;
                           {(currentSelectedGiftColor?.price.amount > 0 ||
                             variantGiftColorPriceMin > 0) && (
                             <>
@@ -526,7 +522,7 @@ const ProductDetail = ({ productData }) => {
                               </span>
                               &nbsp;
                               <span className='text-xs lg:text-base text-[#555555]'>
-                                {locale['cart.tax_included']}
+                                {t('cart.tax_included')}
                               </span>
                             </>
                           )}
@@ -550,11 +546,11 @@ const ProductDetail = ({ productData }) => {
                         </div>
                       </div>
                       <div className='mb-4 text-base text-black'>
-                        {locale['product.gift_wrapping_description.line1']}
+                        {t('product.gift_wrapping_description.line1')}
                         <br />
-                        {locale['product.gift_wrapping_description.line2']}
+                        {t('product.gift_wrapping_description.line2')}
                         <br />
-                        {locale['product.gift_wrapping_description.line3']}
+                        {t('product.gift_wrapping_description.line3')}
                       </div>
                     </>
                   )}
@@ -607,7 +603,7 @@ const ProductDetail = ({ productData }) => {
                       <>
                         <div className='flex flex-col md:flex-row justify-start md:items-center mb-[8px] gap-4 md:gap-5'>
                           <div className='text-xs lg:text-base mr-[5px] text-black'>
-                            {locale['product.gift_wrapping']}&nbsp;
+                            {t('product.gift_wrapping')}&nbsp;
                             {(currentSelectedGiftColor?.price.amount > 0 ||
                               variantGiftColorPriceMin > 0) && (
                               <>
@@ -620,7 +616,7 @@ const ProductDetail = ({ productData }) => {
                                 </span>
                                 &nbsp;
                                 <span className='text-xs lg:text-base text-[#555555]'>
-                                  {locale['cart.tax_included']}
+                                  {t('cart.tax_included')}
                                 </span>
                               </>
                             )}
@@ -647,11 +643,11 @@ const ProductDetail = ({ productData }) => {
                           </div>
                         </div>
                         <div className='mb-4 text-base text-black'>
-                          {locale['product.gift_wrapping_description.line1']}
+                          {t('product.gift_wrapping_description.line1')}
                           <br />
-                          {locale['product.gift_wrapping_description.line2']}
+                          {t('product.gift_wrapping_description.line2')}
                           <br />
-                          {locale['product.gift_wrapping_description.line3']}
+                          {t('product.gift_wrapping_description.line3')}
                         </div>
                       </>
                     )}

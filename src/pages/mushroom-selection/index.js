@@ -1,11 +1,14 @@
 import MushroomSelectionView from 'views/Customer/MushroomSelection/MushroomSelection'
 
 const MushroomSelectionPage = () => {
-  return (
-    <div>
-      <MushroomSelectionView />
-    </div>
-  );
-};
+  return <MushroomSelectionView />
+}
 
-export default MushroomSelectionPage;
+// Force server-side rendering to avoid Html import issues
+export async function getServerSideProps() {
+  return {
+    props: {},
+  }
+}
+
+export default MushroomSelectionPage

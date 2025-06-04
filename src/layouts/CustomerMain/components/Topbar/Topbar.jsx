@@ -16,22 +16,19 @@ import { getMe, getToken } from 'services/auth'
 import { QUERY_KEY_CLIENT_PERSONAL_INFO } from 'common/api'
 
 import SearchInput from './components/SearchInput'
-import { closeModalLogin, showModalLogin, setLocale } from 'store/user'
-import { LANGUAGE, getLanguage } from 'common/constant'
-import { getKeysLanguage } from 'services/language'
+import { closeModalLogin, showModalLogin } from 'store/user'
 import { useRouter } from 'next/router'
 
 const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
   const dispatch = useDispatch()
   const router = useRouter()
   const isDetailPage = router.pathname.includes('/[id]')
-  const StoreLogo = isDetailPage ? '../images/logo-2x.png' : 'images/logo-2x.png'
+  const StoreLogo = isDetailPage ? '../images/logo-2x.png' : '/ec/images/logo-2x.png'
 
   const menus = useSelector((state) => state.menus.menus)
   const UserFEInfo = useSelector((state) => state.user)
   const countCart = useSelector((state) => state.countCart)
   const [searchActive, setSearchActive] = useState(false)
-  const [language, setLanguage] = useState('')
   const { data: UserInfo } = useQuery([QUERY_KEY_CLIENT_PERSONAL_INFO, getToken()], () => getMe(), {
     enabled: !!getToken(),
   })
@@ -45,24 +42,6 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
   }
 
   const renderMenus = menus?.map((menu, index) => <MenuItem key={index} menu={menu} />)
-  const onChangeLanguage = async (value) => {
-    localStorage.setItem('locale', value)
-    setLanguage(value)
-
-    try {
-      const { data } = await getKeysLanguage()
-      dispatch(setLocale(data[value]))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      const locale = localStorage.getItem('locale') || LANGUAGE[0].value
-      setLanguage(locale)
-    }
-  }, [])
 
   return (
     <div
@@ -115,16 +94,6 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
               </div>
             )}
           </div>
-          <Select value={language} className='w-auto select-language' onChange={onChangeLanguage}>
-            {getLanguage(isDetailPage)?.map((item) => (
-              <Select.Option key={item.id} value={item.value}>
-                <span className='flex gap-2 items-center'>
-                  <img class='w-6 h-6 rounded-full' src={item.image} />
-                  <span>{item.name}</span>
-                </span>
-              </Select.Option>
-            ))}
-          </Select>
         </Col>
       </Row>
       <Row className='h-[100px] min-[1161px]:hidden' wrap={false}>
@@ -152,16 +121,6 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
               </div>
             ) : null}
           </div>
-          <Select value={language} className='w-auto select-language' onChange={onChangeLanguage}>
-            {getLanguage(isDetailPage)?.map((item) => (
-              <Select.Option key={item.id} value={item.value}>
-                <span className='flex gap-2 items-center'>
-                  <img class='w-6 h-6 rounded-full' src={item.image} />
-                  <span>{item.name}</span>
-                </span>
-              </Select.Option>
-            ))}
-          </Select>
         </Col>
       </Row>
       <AccountModal

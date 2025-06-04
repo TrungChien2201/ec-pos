@@ -1,9 +1,9 @@
-import NotFoudView from 'views/NotFound'
+import NotFoundView from 'views/NotFound'
 
-// Trang 404 không thể có getServerSideProps
-// Thay vào đó, chúng ta sẽ sử dụng custom 404 page đơn giản
+// Page 404 can not have getServerSideProps
+// So, we can customer 404 page simple
 const NotFoundPage = () => {
-  return <NotFoudView />
+  return <NotFoundView />
 }
 
 export default NotFoundPage

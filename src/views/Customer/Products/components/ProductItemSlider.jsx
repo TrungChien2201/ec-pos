@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { initWarning } from 'store/warning'
 
@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 const ProductItemSlider = ({ type, product }) => {
   const router = useRouter()
   const dispatch = useDispatch()
-  const locale = useSelector((state) => state.user.locale)
 
   const onNavigate = (url) => {
     if (
@@ -42,7 +41,7 @@ const ProductItemSlider = ({ type, product }) => {
       </div>
       <div className='p-[8px] border-solid border-0 border-t border-gray-200 bg-white'>
         <p className='font-medium text-[16px] leading-[24px] text-black two-line min-h-[50px] mt-[8px] mb-[4px]'>
-          {locale[product?.title] ?? product?.title}
+          {product?.title}
         </p>
         {type && (
           <div className='min-w-[123px] text-center bg-[#E8E8E8] text-[#232323] px-[8px] py-[4px] rounded-[8px] w-fit text-[12px] leading-[22px] lg:text-[14px]'>
@@ -55,9 +54,8 @@ const ProductItemSlider = ({ type, product }) => {
           className='absolute top-0 left-0 right-0 bottom-0 bg-[#00000059] flex items-center justify-center flex-col cursor-pointer'
           onClick={onNavigate}
         >
-          <p className='text-white font-bold text-[30px] leading-[40px]'>
-            {locale[common.sold_out]}
-          </p>
+          <p className='text-white font-bold text-[30px] leading-[40px]'>売り切れ</p>
+          <p className='text-white font-medium text-[30px] leading-[40px]'>Sold out</p>
         </div>
       )}
     </div>

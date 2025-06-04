@@ -20,7 +20,6 @@ const UserAddress = ({ className, userAddress, setAddressSelected, onCallBack })
   const [isEditUserAddrss, setIsEditUserAddress] = useState(false)
   const [isOpenAddAddress, setIsOpenAddAddress] = useState(false)
   const userInfo = useSelector((state) => state.user)
-  const locale = useSelector((state) => state.user.locale)
   const dispatch = useDispatch()
 
   const { data: provinces } = useQuery(['getListProvinces'], getListProvinces)
@@ -63,11 +62,11 @@ const UserAddress = ({ className, userAddress, setAddressSelected, onCallBack })
     <div className={className}>
       <div className='flex items-center justify-between text-black mb-[15px] lg:text-[16px] lg:max-w-[415px]'>
         <span className='flex items-center gap-[8px]'>
-          <IconLocation /> {locale['user_profile.shipping_address']}
+          <IconLocation /> お届け先住所
         </span>
         {!isEmpty(userAddress) && (
           <span className='text-[#1890FF] cursor-pointer' onClick={onChangeAddress}>
-            {locale['common.change']}
+            変更
           </span>
         )}
       </div>
@@ -91,7 +90,7 @@ const UserAddress = ({ className, userAddress, setAddressSelected, onCallBack })
           onClick={onAddAddress}
         >
           <IconPlus />
-          {locale['user_profile.register_your_address']}
+          住所を登録する
         </div>
       )}
       <Modal

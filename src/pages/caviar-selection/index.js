@@ -1,12 +1,8 @@
 import CaviarSelectionView from 'views/Customer/CaviarSelection/CaviarSelection'
 
 const CaviarSelectionPage = () => {
-  return (
-    <div>
-      <CaviarSelectionView />
-    </div>
-  );
-};
+  return <CaviarSelectionView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default CaviarSelectionPage;
+export default CaviarSelectionPage

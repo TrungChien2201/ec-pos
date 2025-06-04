@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Form, Input, Typography, message } from 'antd'
 import { m } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { IoArrowBackSharp } from 'react-icons/io5'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import ErrorMessage from 'components/ErrorMessage'
 
@@ -24,12 +25,12 @@ const { Text } = Typography
 const Login = (props) => {
   const dispatch = useDispatch()
   const { changeView, handleClose } = props
+  const { t } = useTranslation()
   const [form] = Form.useForm()
   const [accessToken, setAccessToken] = useState(undefined)
   const [errorMessage, setErrorMessage] = useState('')
   const email = Form.useWatch('email', form)
   const password = Form.useWatch('password', form)
-  const locale = useSelector((state) => state.user.locale)
 
   const { mutate: handleCheckLineAccess } = useMutation((formData) => checkLineAccess(formData), {
     onSuccess: (data) => {},
@@ -105,17 +106,13 @@ const Login = (props) => {
             <IoArrowBackSharp className='w-6 h-6 text-black' onClick={handleClose} />
           </m.div>
           <m.div variants={CONSTANT.ANIMATION_VARIANT_STAGGER_ITEM} className='md:flex mb-4 hidden'>
-            <img
-              src={CONSTANT.LOGIN_LOGO}
-              alt={locale['common.banner']}
-              className='mx-auto rounded'
-            />
+            <img src={CONSTANT.LOGIN_LOGO} alt={t('common.banner')} className='mx-auto rounded' />
           </m.div>
           <m.div
             className='flex flex-col lg:mr-16 lg:px-6'
             variants={CONSTANT.ANIMATION_VARIANT_STAGGER_ITEM}
           >
-            <h1 className='text-3xl text-primary leading-10 font-bold'>{locale['login.title']}</h1>
+            <h1 className='text-3xl text-primary leading-10 font-bold'>{t('login.title')}</h1>
             {errorMessage?.length ? <ErrorMessage message={errorMessage} /> : null}
             <Form
               form={form}
@@ -128,31 +125,34 @@ const Login = (props) => {
               <Form.Item
                 name='email'
                 className='mt-8'
-                label={locale['forgot.email']}
+                label={t('login.email')}
                 rules={[
                   {
                     required: true,
-                    message: locale['login.form.email_required'],
+                    message: t('login.form.email_required'),
                   },
                 ]}
               >
-                <Input placeholder={locale['login.email_placeholder']} />
+                <Input placeholder={t('login.email_placeholder')} />
               </Form.Item>
               <Form.Item
                 name='password'
                 className='mt-2.5'
-                label={locale['login.password']}
+                label={t('login.password')}
                 rules={[
                   {
                     required: true,
-                    message: locale['login.form.password_required'],
+                    message: t('login.form.password_required'),
                   },
                 ]}
               >
-                <Input.Password className='h-[48px]' placeholder={locale['login.password_placeholder']} />
+                <Input.Password
+                  className='h-[48px]'
+                  placeholder={t('login.password_placeholder')}
+                />
               </Form.Item>
               <Text className='text-blue cursor-pointer' onClick={() => changeView(3)}>
-                {locale['login.forgot_password']}
+                {t('login.forgot_password')}
               </Text>
               <Form.Item className='text-center mt-5'>
                 <ButtonCommon
@@ -160,18 +160,18 @@ const Login = (props) => {
                   submit={() => form.submit()}
                   size='large'
                   type='primary'
-                  textButton={locale['login.btn']}
+                  textButton={t('login.title')}
                   disabled={!(email && password)}
                 />
               </Form.Item>
               <m.div className='flex justify-center mt-8'>
                 <Text className='text-black text-base'>
-                  {locale['login.dont_have_account']}
+                  {t('login.dont_have_account')}
                   <Text
                     className='text-primary ml-1 cursor-pointer text-base font-medium'
                     onClick={() => changeView(2)}
                   >
-                    {locale['common.here']}
+                    {t('common.here')}
                   </Text>
                 </Text>
               </m.div>

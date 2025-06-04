@@ -1,12 +1,8 @@
 import ContactView from 'views/Customer/Contact/Contact'
 
 const ContactPage = () => {
-  return (
-    <div>
-      <ContactView />
-    </div>
-  );
-};
+  return <ContactView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default ContactPage;
+export default ContactPage

@@ -32,8 +32,8 @@ export const PERMISSION_ERROR_ROUTE = '/401'
 
 export const USER_PROFILE = '/user-profile'
 
-export const ROUTES_MINIMAL_LAYOUT = ["/404", "/401", "/line-friend", "/line-access", "/liff/login"]
-export const ROUTES_CLIENT_LAYOUT = ["liff/profile"]
+export const ROUTES_MINIMAL_LAYOUT = ['/404', '/401', '/line-friend', '/line-access', '/liff/login']
+export const ROUTES_CLIENT_LAYOUT = ['liff/profile']
 
 // PAGES
 export const PAGE_ADMIN_DASHBOARD = 'ダッシュボード'
@@ -311,17 +311,15 @@ export const PREFECTURES = [
 
 export const getMenu = (locale) => [
   {
-    title: locale['header.caviar.value'],
+    title: 'CAVIAR',
     showTopBar: true,
     childs: [
       {
-        title: locale['header.caviar.sub_1'],
-        key: 'HAL CAVIAR',
+        title: 'HAL CAVIAR',
         image: 'logos/HALCAVIAR.png',
       },
       {
-        title: locale['header.caviar.sub_2'],
-        key: 'NOVA Caviar',
+        title: 'NOVA Caviar',
         image: 'logos/NOVARCAVIAR.png',
         contentText: `ノヴァキャビアはフレッシュ(生)キャビアです。
               <br />
@@ -332,45 +330,48 @@ export const getMenu = (locale) => [
     ],
   },
   {
-    title: locale['header.royal_collection.value'],
+    title: 'Royal Collection',
     showTopBar: true,
     childs: [
       {
-        title: locale['header.royal_collection.sub_1'],
-        key: 'Buckingham Palace Royal Collection',
+        title: 'Buckingham Palace Royal Collection',
         image: 'logos/buckingham_palace_royal_collection.png',
       },
       {
-        title: locale['header.royal_collection.sub_2'],
-        key: 'Highgrove Selection',
+        title: 'Highgrove Selection',
         image: 'logos/high-grove-colection.png',
         active: true,
       },
     ],
   },
   {
-    title: locale['header.premium_wines.value'],
+    title: 'Premium Wines',
     showTopBar: true,
     childs: [
       {
-        title: locale['header.premium_wines.sub_1'],
-        key: 'Luxury Wine Range',
+        title: 'Luxury Wine Range',
         addParent: true,
       },
       {
-        title: locale['header.premium_wines.sub_2'],
-        key: 'Premium Wine Range',
+        title: 'Premium Wine Range',
         addParent: true,
       },
       {
-        title: locale['header.premium_wines.sub_3'],
-        key: 'Icon Wine Range',
+        title: 'Icon Wine Range',
         addParent: true,
       },
       {
-        title: locale['header.premium_wines.sub_4'],
-        key: 'Van Biljon Cinq Wines',
+        title: 'Van Biljon Cinq Wines',
         image: 'logos/van_biljon_wines.png',
+      },
+    ],
+  },
+  {
+    title: 'Tableware',
+    showTopBar: false,
+    childs: [
+      {
+        title: `Japan's Craftpeopleship Tableware`,
       },
     ],
   },
@@ -392,27 +393,16 @@ export const getMenu = (locale) => [
     ],
   },
   {
-    title: locale['header.tableware.label'],
-    showTopBar: false,
-    childs: [
-      {
-        title: `Japan's Craftpeopleship Tableware`,
-      },
-    ],
-  },
-  {
-    title: locale['header.foods.value'],
+    title: 'Foods',
     showTopBar: true,
     childs: [
       {
-        title: locale['header.foods.sub_1'],
-        key: 'Sweets',
+        title: 'Sweets',
         active: true,
         image: 'logos/Sweets.png',
       },
       {
-        title: locale['header.foods.sub_2'],
-        key: 'Bhutan Premium 7 Matsutake',
+        title: `Bhutan Premium 7 Matsutake`,
         active: true,
         image: 'logos/matsutake.png',
         contentText: `松茸は天然のものですので山の保護のため季節により収穫量の増減があります。
@@ -422,20 +412,21 @@ export const getMenu = (locale) => [
               　※生鮮品のためご注文後のキャンセルはお受けできません。`,
       },
       {
-        title: locale['header.foods.sub_3'],
-        key: 'Rosey’s Mark',
+        title: `Rosey’s Mark`,
         active: true,
         image: 'logos/rosey_marks.png',
       },
       {
-        title: locale['header.foods.sub_4'],
-        key: 'Seasonal Food',
+        title: `Seasonal Food`,
+        active: false,
+      },
+      {
+        title: `About Bhutan Premium 7 Matsutake`,
         active: true,
         isHideOnMenu: true,
       },
       {
-        title: locale['header.foods.sub_5'],
-        key: 'Delicacy',
+        title: 'Delicacy',
         active: true,
         image: 'logos/delicacy_logo.png',
         width: 'w-full max-w-[350px] md:max-w-[453px]',
@@ -444,18 +435,16 @@ export const getMenu = (locale) => [
     ],
   },
   {
-    title: locale['header.signature_products.value'],
+    title: `Signature's Signature Products`,
     showTopBar: true,
     childs: [
       {
-        title: locale['header.signature_products.sub_1'],
-        key: "Signature's Original Tableware",
+        title: `Signature's Original Tableware`,
         image: 'logos/table_ware.png',
         active: true,
       },
       {
-        title: locale['header.signature_products.sub_2'],
-        key: 'Wine Accessories',
+        title: 'Wine Accessories',
         active: false,
       },
     ],
@@ -785,7 +774,7 @@ export const LANGUAGE = [
   {
     id: 2,
     name: 'EN',
-    image: 'logos/en_flag.png',
+    image: '/ec/logos/en_flag.png',
     value: 'en',
   },
   {
@@ -797,7 +786,7 @@ export const LANGUAGE = [
 ]
 
 export const getLanguage = (isDetailPage) => {
-  return LANGUAGE.map(item => {
+  return LANGUAGE.map((item) => {
     return {
       ...item,
       image: isDetailPage ? `../${item.image}` : item.image,

@@ -1,6 +1,6 @@
 import { Form, Input } from 'antd'
 import { m } from 'framer-motion'
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import ForgotSectionContent from 'components/ForgotPassword'
 
@@ -11,17 +11,17 @@ import * as CONSTANT from 'common/constant'
 
 const SuccessResetPassword = (props) => {
   const { changeView } = props
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const [form] = Form.useForm()
 
   const stepOneInfo = {
-    title: locale['forgotPassword.successReset.title'],
-    descOne: locale['forgotPassword.successReset.descOne'],
-    descTwo: locale['forgotPassword.successReset.descOne'],
+    title: t('forgotPassword.successReset.title'),
+    descOne: t('forgotPassword.successReset.descOne'),
+    descTwo: t('forgotPassword.successReset.descOne'),
     // subDesc: t('forgotPassword.successReset.subdesc'),
     logo: CONSTANT.SUCCESS_RESET_FORGOTPASSWORD_LOGO,
     screen: 'success',
-    notify_message: locale['forgotPassword.successReset.form.notify_message'],
+    notify_message: t('forgotPassword.successReset.form.notify_message'),
   }
 
   const onFinish = (formData) => {
@@ -61,7 +61,7 @@ const SuccessResetPassword = (props) => {
                   submit={() => changeView(1)}
                   size='large'
                   type='primary'
-                  textButton={locale['forgotPassword.successReset.form.button_text']}
+                  textButton={t('forgotPassword.successReset.form.button_text')}
                 />
               </Form.Item>
             </Form>

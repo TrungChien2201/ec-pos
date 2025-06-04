@@ -8,16 +8,6 @@ build-develop:
     only:
         - develop
 
-# build-develop-2:
-#     stage: build
-#     before_script:
-#         - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
-#         - eval $(ssh-agent -s)
-#     script:
-#         - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build2.sh --branch=develop --docker-f=deploy/Dockerfile2 --time-period=15 --host-port=3056 --container-port=80'
-#     only:
-#         - develop
-
 deploy-develop:
     stage: deploy
     before_script:
@@ -28,15 +18,25 @@ deploy-develop:
     only:
         - develop
 
-# deploy-develop-2:
-#     stage: deploy
-#     before_script:
-#         - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
-#         - eval $(ssh-agent -s)
-#     script:
-#         - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy2.sh --branch=develop --docker-f=deploy/Dockerfile2 --time-period=15 --host-port=3056 --container-port=80'
-#     only:
-#         - develop
+build-feature-seo:
+    stage: build
+    before_script:
+        - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+        - eval $(ssh-agent -s)
+    script:
+        - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash build-seo.sh --deploy-ssh-host=115.146.127.154  --deploy-ssh-port=2012 --time-period=15 --host-port=3060 --container-port=3000'
+    only:
+        - feature/seo
+
+deploy-feature-seo:
+    stage: deploy
+    before_script:
+        - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+        - eval $(ssh-agent -s)
+    script:
+        - bash /etc/gitlab-runner/select-sever-cicd.sh 'bash deploy-seo.sh --deploy-ssh-host=115.146.127.154  --deploy-ssh-port=2012 --time-period=15 --host-port=3060 --container-port=3000'
+    only:
+        - feature/seo
 
 build-staging:
   stage: build

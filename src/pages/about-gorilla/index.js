@@ -1,12 +1,8 @@
 import AboutGorillaView from 'views/Customer/AboutGorilla'
 
 const AboutGorillaPage = () => {
-  return (
-    <div>
-      <AboutGorillaView />
-    </div>
-  );
-};
+  return <AboutGorillaView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default AboutGorillaPage;
+export default AboutGorillaPage

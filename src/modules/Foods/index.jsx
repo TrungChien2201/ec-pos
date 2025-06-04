@@ -1,11 +1,11 @@
 import cx from 'classnames'
-import { useRouter } from 'next/router'
+import { classSizeLargeImg, classSizeSmallImg } from 'modules/Gorilla'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 const Foods = () => {
   const router = useRouter()
   const menus = useSelector((state) => state.menus.sections)
-  const locale = useSelector((state) => state.user.locale)
   const handleRedirect = (child) => {
     if (!child?.id || child?.isComingSoon) return
     if (child?.id) {
@@ -28,7 +28,12 @@ const Foods = () => {
           onClick={() => handleRedirect(child)}
         >
           <div className='relative'>
-            <img className='w-full rounded-t-[6px]' src={child?.image || child.data?.image?.src} />
+            <img
+              className={`w-full rounded-t-[6px] ${
+                child?.sizeSmall ? classSizeSmallImg : classSizeLargeImg
+              }`}
+              src={child?.image || child.data?.image?.src}
+            />
             {child?.isComingSoon && (
               <div className='absolute bottom-0 left-0 w-full'>
                 <img src='images/image-93.svg' className='max-sm:h-[31px]' />
@@ -43,7 +48,7 @@ const Foods = () => {
                   : 'text-base md:text-[20px] xl:text-[24px]'
               } md:leading-[32px] text-[#514F4E]`}
             >
-              {locale[`home.foods.key${child?.key}`]}
+              {child.data?.description || child?.title}
             </p>
           </div>
         </div>
@@ -64,7 +69,12 @@ const Foods = () => {
           onClick={() => handleRedirect(child)}
         >
           <div className='relative'>
-            <img className='w-full rounded-t-[6px]' src={child?.image || child.data?.image?.src} />
+            <img
+              className={`w-full rounded-t-[6px] ${
+                child?.sizeSmall ? classSizeSmallImg : classSizeLargeImg
+              }`}
+              src={child?.image || child.data?.image?.src}
+            />
             {child?.isComingSoon && (
               <div className='absolute bottom-0 left-0 w-full'>
                 <img src='images/image-93.svg' className='max-sm:h-[31px]' />
@@ -79,7 +89,7 @@ const Foods = () => {
                   : 'text-base md:text-[20px] xl:text-[24px]'
               } md:leading-[32px] text-[#514F4E]`}
             >
-              {locale[`home.foods.key${child?.key}`]}
+              {child.data?.description || child?.title}
             </p>
           </div>
         </div>
@@ -90,10 +100,10 @@ const Foods = () => {
       <div className='container container--home mx-auto pt-8 md:pt-14'>
         <div className='text-center'>
           <p className='font-light lg:text-[38px] lg:leading-[46px] text-[#514F4E] text-[20px] leading-[28px] md:text-[28px] md:leading-[32px]'>
-            {locale['home.foods.title']}
+            {foodMenu?.title}
           </p>
           <p className='text-[18px] leading-[28px] text-[#514F4E] max-[640px]:leading-[12px] max-[640px]:text-[14px] font-semibold'>
-            {locale['home.foods.description']}
+            おいしいもの
           </p>
         </div>
         <div className='flex flex-col md:flex-row gap-6 lg:gap-y-10 w-full h-auto mt-8 md:mt-[40px]'>

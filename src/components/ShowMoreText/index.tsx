@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 
 interface ShowMoreTextProps {
   text: string
@@ -12,7 +11,6 @@ const ShowMoreText: React.FC<ShowMoreTextProps> = ({
   maxCharacters = 700,
   className = '',
 }) => {
-  const locale = useSelector((state) => state.user.locale)
   const [isExpanded, setIsExpanded] = useState(false)
   const [isTruncated, setIsTruncated] = useState(false)
 
@@ -111,7 +109,7 @@ const ShowMoreText: React.FC<ShowMoreTextProps> = ({
           className='text-blue-500 underline cursor-pointer'
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          {isExpanded ? locale['product.show_less'] : locale['product.show_more']}
+          {isExpanded ? '閉じる' : 'もっと見る'}
         </a>
       )}
     </div>

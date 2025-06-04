@@ -16,7 +16,7 @@ import { QUERY_KEY_CLIENT_PERSONAL_INFO } from 'common/api'
 import { initCollection } from 'store/collections'
 import { initCountCart } from 'store/countCart'
 import { initMenu, initHomeSection } from 'store/menus'
-import { initUser, initCountOrder, logoutUser, setLocale } from 'store/user'
+import { initUser, initCountOrder, logoutUser } from 'store/user'
 import { shopifyClient } from 'utils/shopify.util'
 import { getKeysLanguage } from 'services/language'
 import { getMenu, HOME_SECTION, LANGUAGE, PRIMARY_COLOR, SECONDARY_COLOR } from 'common/constant'
@@ -25,17 +25,21 @@ import { CustomProvider } from 'provider/CustomProvider'
 import isEmpty from 'lodash/isEmpty'
 import 'utils/dayjs'
 import { store } from '../store'
-import 'assets/tailwind.css';
+import 'assets/tailwind.css'
 import 'utils/i18n'
 // Global styles for SlickSlider
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const ConfigProvider = dynamic(() => import('antd').then((mod) => mod.ConfigProvider), { ssr: false });
-const jaJP = dynamic(() => import('antd/es/locale/ja_JP').then((mod) => mod.default), { ssr: false });
+const ConfigProvider = dynamic(() => import('antd').then((mod) => mod.ConfigProvider), {
+  ssr: false,
+})
+const jaJP = dynamic(() => import('antd/es/locale/ja_JP').then((mod) => mod.default), {
+  ssr: false,
+})
 
 function MyApp({ Component, pageProps }) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient())
 
   const handleLogout = async () => {
     queryClient.invalidateQueries([QUERY_KEY_CLIENT_PERSONAL_INFO, getToken()])
@@ -46,8 +50,8 @@ function MyApp({ Component, pageProps }) {
     logout()
     await getUser()
     // Prepend basePath to redirect URL
-    const basePath = process.env.NEXT_PUBLIC_BASE_URL || '';
-    window.location.href = `${basePath}/home`;
+    const basePath = process.env.NEXT_PUBLIC_BASE_URL || ''
+    window.location.href = `${basePath}/home`
   }
 
   const getUser = async (updateCart = false) => {
@@ -76,21 +80,8 @@ function MyApp({ Component, pageProps }) {
     }
   }
 
-  const getLanguage = async () => {
-    try {
-      const { data } = await getKeysLanguage()
-      const language = localStorage.getItem('locale') || LANGUAGE[0].value
-      console.log(data, language, 'data')
-
-      store.dispatch(setLocale(data[language]))
-    } catch (error) {
-      console.error('Error fetching language:', error)
-    }
-  }
-
   useEffect(() => {
     getUser(true)
-    getLanguage()
     const interval = setInterval(() => {
       getUser()
     }, 1800000)
@@ -101,8 +92,7 @@ function MyApp({ Component, pageProps }) {
   // Nested component to use useSelector
   function AppContent() {
     const warning = useSelector((state) => state.warning)
-    const locale = useSelector((state) => state.user.locale)
-    const MENUS = useMemo(() => (!isEmpty(locale) ? getMenu(locale) : []), [locale])
+    const MENUS = useMemo(() => getMenu())
 
     const getProduct = async () => {
       const products = await shopifyClient.collection.fetchAllWithProducts({
@@ -148,13 +138,13 @@ function MyApp({ Component, pageProps }) {
       }
     }, [MENUS])
     // Get the system title from environment variable
-    const systemTitle = process.env.NEXT_PUBLIC_SYSTEM_TITLE || 'Signature';
+    const systemTitle = process.env.NEXT_PUBLIC_SYSTEM_TITLE || 'Signature'
 
     return (
       <>
         <Head>
           <title>{systemTitle}</title>
-          <meta name="description" content={`${systemTitle} - Premium Products`} />
+          <meta name='description' content={`${systemTitle} - Premium Products`} />
         </Head>
         <AuthGuard>
           <Component {...pageProps} />

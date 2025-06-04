@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector} from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import ButtonComponent from 'components/Button'
 import { COMING_SOON } from 'common/constant'
@@ -7,13 +7,13 @@ import IconCart from 'resourse/svg/IconCart'
 import IconCartDisabled from 'resourse/svg/IconCartDisabled'
 
 const GroupAction = ({ variant, handleAddItemToCart, handleBuyNow, productType }) => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   return (
     <div>
       <ButtonComponent
         variant='ghost'
         className='w-full mb-[8px] flex items-center justify-center gap-[8px]'
-        title={locale['common.add_to_cart']}
+        title={t('common.add_to_cart')}
         prefixIcon={
           variant?.available ? (
             <IconCart className='w-[16px] lg:w-[20px]' />
@@ -27,7 +27,7 @@ const GroupAction = ({ variant, handleAddItemToCart, handleBuyNow, productType }
       <ButtonComponent
         variant='primary'
         className='w-full'
-        title={locale['common.buy_now']}
+        title={t('common.buy_now')}
         onClick={handleBuyNow}
         disabled={!variant?.available || productType.includes(COMING_SOON)}
       />

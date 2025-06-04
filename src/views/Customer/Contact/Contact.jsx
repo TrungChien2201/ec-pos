@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 
 import { useMutation } from '@tanstack/react-query'
 import { Col, Form, Input, Row } from 'antd'
@@ -8,14 +7,10 @@ import { useTranslation } from 'react-i18next'
 import ButtonCommon from 'components/common/button'
 import { sendContact } from 'services/contact'
 
-// Use string path instead of direct import
-const SentImg = 'images/sent.png'
-
 import { ModalStyled } from './styled'
-
 const Contact = () => {
+  const SentImg = 'images/sent.png'
   const { t } = useTranslation()
-  const locale = useSelector((state) => state.user.locale)
   const [form] = Form.useForm()
   const [openModal, setOpenModal] = useState(false)
   const { mutate: submitContact } = useMutation((formData) => sendContact(formData), {
@@ -44,7 +39,7 @@ const Contact = () => {
     <Row justify='center' className='bg-white'>
       <Col xs={24} sm={12} md={12} lg={8} className='px-4 mt-6 mb-14 md:mt-20 md:mb-40'>
         <Row className='mb-3 lg:mb-8 text-xl lg:text-[38px] font-medium text-black'>
-          {locale['contact.title']}
+          {t('contact.title')}
         </Row>
         <Form form={form} onFinish={onSubmit} autoComplete='off'>
           <Row gutter={16}>
@@ -54,11 +49,11 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
-                    message: locale['common.name'] + ' ' + locale['common.validation.required'],
+                    message: t('common.validation.required', { name: t('common.name') }),
                   },
                 ]}
               >
-                <Input placeholder={locale['common.last_name']} />
+                <Input placeholder={t('common.last_name')} />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -67,12 +62,11 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
-                    message:
-                      locale['common.first_name'] + ' ' + locale['common.validation.required'],
+                    message: t('common.validation.required', { name: t('common.name') }),
                   },
                 ]}
               >
-                <Input placeholder={locale['common.first_name']} />
+                <Input placeholder={t('common.first_name')} />
               </Form.Item>
             </Col>
           </Row>
@@ -83,15 +77,15 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
-                    message: locale['common.phone'] + ' ' + locale['common.validation.required'],
+                    message: t('common.validation.required', { name: t('common.phone') }),
                   },
                   {
                     pattern: /[\d]{10}|[\d]{11}$/,
-                    message: locale['common.validation.phone'],
+                    message: t('common.validation.phone'),
                   },
                 ]}
               >
-                <Input placeholder={locale['common.phone']} onChange={onPhoneChange} />
+                <Input placeholder={t('common.phone')} onChange={onPhoneChange} />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -100,15 +94,15 @@ const Contact = () => {
                 rules={[
                   {
                     required: true,
-                    message: locale['common.email'] + ' ' + locale['common.validation.required'],
+                    message: t('common.validation.required', { name: t('common.email') }),
                   },
                   {
                     type: 'email',
-                    message: locale['common.validation.email'],
+                    message: t('common.validation.email'),
                   },
                 ]}
               >
-                <Input placeholder={locale['common.email']} />
+                <Input placeholder={t('common.email')} />
               </Form.Item>
             </Col>
           </Row>
@@ -117,11 +111,11 @@ const Contact = () => {
             rules={[
               {
                 required: true,
-                message: locale['common.content'] + ' ' + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('contact.content') }),
               },
             ]}
           >
-            <Input.TextArea placeholder={locale['contact.content']} rows={5} />
+            <Input.TextArea placeholder={t('contact.content')} rows={5} />
           </Form.Item>
           <Col xs={24} sm={12} md={12} lg={8}>
             <ButtonCommon
@@ -129,7 +123,7 @@ const Contact = () => {
               submit={() => form.submit()}
               size='large'
               type='primary'
-              textButton={locale['contact.submit_btn']}
+              textButton={t('contact.submit_btn')}
             />
           </Col>
         </Form>
@@ -138,7 +132,7 @@ const Contact = () => {
         <Row className='flex items-center flex-col p-4 bg-[#F5F5F5] rounded-[1rem]'>
           <img src={SentImg} className='w-28' />
           <Row className='font-medium text-2xl text-center leading-10 text-[#9C8C6A] whitespace-pre-wrap'>
-            {locale['contact.success_message']}
+            {t('contact.success_message')}
           </Row>
         </Row>
       </ModalStyled>

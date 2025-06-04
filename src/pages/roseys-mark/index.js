@@ -1,11 +1,7 @@
 import RoseysMarkView from 'views/Customer/RoseysMarkSelection'
 
 const RoseysMarkPage = () => {
-  return (
-    <div>
-      <RoseysMarkView />
-    </div>
-  );
-};
+  return <RoseysMarkView />
+}
 
-export default RoseysMarkPage;
+export default RoseysMarkPage

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { PlusOutlined } from '@ant-design/icons'
@@ -17,7 +17,7 @@ import { getListAddress, getListProvinces, removeAddress } from 'services/addres
 import ModalAddress from '../ModalAddress'
 
 const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }) => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [isRemove, setIsRemove] = useState(false)
   const [idSelected, setIdSelected] = useState(false)
@@ -86,20 +86,18 @@ const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }
   return (
     <div className='flex-1 h-full py-4 bg-white border sm:rounded-2xl'>
       <div className='flex justify-between items-center px-4'>
-        <div className='font-medium text-xl text-black'>
-          {locale['user_profile.shipping_address']}
-        </div>
+        <div className='font-medium text-xl text-black'>{t('user_profile.shipping_address')}</div>
         <ButtonComponent
           className='bg-[#9C8C6A] text-white'
           prefixIcon={<PlusOutlined />}
-          title={locale['user_profile.register_new_address']}
+          title={t('user_profile.register_new_address')}
           onClick={actionAddAddress}
         />
       </div>
       <Divider orientationMargin1='0.05' />
       {address && address.length > 0 ? (
         <div className='px-4 flex flex-col gap-6'>
-          <div className='text-base font-normal text-black'>{locale['user_profile.choosing']}</div>
+          <div className='text-base font-normal text-black'>{t('user_profile.choosing')}</div>
           <div className={`md:max-h-[510px] scroll-custom`}>
             <Radio.Group
               className='w-full'

@@ -1,12 +1,8 @@
 import RoyalCollectionView from 'views/Customer/Buckingham/BuckinghamSelection'
 
 const RoyalCollection = () => {
-  return (
-    <div>
-      <RoyalCollectionView />
-    </div>
-  );
-};
+  return <RoyalCollectionView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default RoyalCollection;
+export default RoyalCollection

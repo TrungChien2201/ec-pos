@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
+export const classSizeSmallImg = 'h-[53.94px] size414:h-auto size1440:h-[99.42px]'
+export const classSizeLargeImg = 'h-[107.89px] size414:h-auto size1440:h-[197.68px]'
+
 const Gorilla = () => {
   const { t } = useTranslation()
   const router = useRouter()
@@ -30,10 +33,15 @@ const Gorilla = () => {
           onClick={() => handleRedirect(child)}
         >
           <div className='relative'>
-            <img className='w-full rounded-t-[6px]' src={child?.image || child.data?.image?.src} alt={child?.title || ''} />
+            <img
+              className={`w-full rounded-t-[6px] ${
+                child?.sizeSmall ? classSizeSmallImg : classSizeLargeImg
+              }`}
+              src={child?.image || child.data?.image?.src}
+            />
             {child?.isComingSoon && (
               <div className='absolute bottom-0 left-0 w-full'>
-                <img src='images/image-93.svg' className='max-md:h-[31px]' alt="Coming Soon" />
+                <img src='images/image-93.svg' className='max-md:h-[31px]' />
               </div>
             )}
           </div>

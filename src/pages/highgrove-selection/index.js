@@ -1,12 +1,8 @@
 import HighgroveSelectionView from 'views/Customer/HighgroveSelection/HighgroveSelection'
 
 const HighgroveSelectionPage = () => {
-  return (
-    <div>
-      <HighgroveSelectionView />
-    </div>
-  );
-};
+  return <HighgroveSelectionView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default HighgroveSelectionPage;
+export default HighgroveSelectionPage

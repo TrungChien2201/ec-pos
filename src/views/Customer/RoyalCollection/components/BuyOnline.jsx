@@ -1,61 +1,80 @@
 import React, { useMemo } from 'react'
-import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
 
-// Use string paths for images
+import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
 
 const BuyOnline = () => {
+  const { t } = useTranslation()
   const router = useRouter()
   const menus = useSelector((state) => state.menus.menus)
 
-  const collections = useMemo(() => {
-    return (menus || [])
-      .map((item) => item.childs)
-      .flat()
-      .filter((item) => item.isShowInRoyalCollection)
+  const items = useMemo(() => {
+    const premiumWines = menus.find((item) => item.title === 'Premium Wines')
+    if (!menus && !premiumWines) return options
+
+    const findItem = (title) => {
+      if (!premiumWines?.childs) return ''
+      return premiumWines?.childs?.find((item) => item.title === title)
+    }
+    return options.map((item) => ({
+      ...item,
+      id: findItem(item.title).id,
+      description: findItem(item.title)?.data?.description,
+    }))
   }, [menus])
 
   return (
-    <div className='bg-white'>
-      <div className='container container--medium mx-auto'>
-        <div className='flex justify-center py-[24px] overflow-x-hidden'>
+    <div className='mb-8 lg:mb-8'>
+      <div className='px-4'>
+        <div className='flex justify-center py-[24px] overflow-x-hidden w-full'>
           <img
             src={ImgHorizontalDivide}
             alt=''
-            className='object-cover object-center h-[45px] max-md:h-[32px] w-full'
+            className='object-cover object-center w-full max-w-[1280px] h-[45px] max-md:h-[32px]'
           />
         </div>
-        <div className='text-center'>
-          <p className='text-[32px] leading-[40px] max-md:text-[24px] max-md:leading-[32px] text-[#514F4E] font-["Spectral"]'>
-            Buy Online
-          </p>
-        </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] mt-[24px] pb-[24px]'>
-          {collections.map((collection) => (
+        <p className='text-center text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E] font-Spectral'>
+          {t('hal_caviar.title_footer')}
+        </p>
+      </div>
+      <div className='flex flex-col lg:flex-row items-center gap-[20px] w-full px-4 xl:px-[unset] max-w-[1292px] justify-center mx-auto'>
+        {items?.map((item, index) => {
+          return (
             <div
-              key={collection.id}
-              className='cursor-pointer'
-              onClick={() => router.push(`/products?collectionId=${collection.id}`)}
+              className='w-full max-w-[433px] lg:max-w-auto bg-white border-[1px] border-solid border-[#ABABAB] rounded-[6px] cursor-pointer'
+              onClick={() => item.id && router.push(`/products?collectionId=${item.id}`)}
             >
-              <div className='border-[1px] border-solid border-[#ABABAB] rounded-[4px]'>
-                <img
-                  src={collection.image}
-                  alt={collection.title}
-                  className='w-full h-[200px] object-cover rounded-t-[4px]'
-                />
-                <div className='p-[16px] text-center'>
-                  <p className='text-[14px] leading-[20px] text-[#514F4E] font-semibold'>
-                    {collection.title}
-                  </p>
-                </div>
+              <img className='w-full rounded-t-[6px]' src={item.imageUrl} />
+              <div className='flex items-center justify-center text-center w-full min-w-[100px] min-h-[22px] lg:min-h-[24px] px-[15px]'>
+                <p
+                  className={`pt-1 px-3 font-semibold leading-[16px] text-sm md:text-[12px] xl:text-[14px] md:leading-[18px] text-[#514F4E]`}
+                >
+                  {item?.description}
+                </p>
               </div>
             </div>
-          ))}
-        </div>
+          )
+        })}
       </div>
     </div>
   )
 }
 
 export default BuyOnline
+
+const options = [
+  {
+    title: 'Luxury Wine Range',
+    imageUrl: 'images/home/premium_wines/1.webp',
+  },
+  {
+    title: 'Premium Wine Range',
+    imageUrl: 'images/home/premium_wines/2.webp',
+  },
+  {
+    title: 'Icon Wine Range',
+    imageUrl: 'images/home/premium_wines/3.webp',
+  },
+]

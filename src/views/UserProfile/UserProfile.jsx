@@ -1,8 +1,9 @@
 import { useState } from 'react'
 
 import { Avatar, Menu } from 'antd'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation'
 import IconUser from 'resourse/svg/IconUser'
 
 import * as UTILITY from 'common/utility'
@@ -26,9 +27,9 @@ const rootSubmenuKeys = ['sub1', 'sub2']
 
 const UserProfile = () => {
   // eslint-disable-next-line no-unused-vars
-  const router = useRouter();
-  const locale = useSelector((state) => state.user.locale)
-  const searchParams = useSearchParams(); // Get current query params
+  const router = useRouter()
+  const { t } = useTranslation()
+  const searchParams = useSearchParams() // Get current query params
   const [openKeys, setOpenKeys] = useState(['sub1'])
   const [menuItem, setMenuItem] = useState(UTILITY.parseQuery().tabActive || '1')
   const UserInfo = useSelector((state) => state.user)
@@ -37,15 +38,15 @@ const UserProfile = () => {
 
   const commonItems = [
     getItem(
-      locale['user_profile.my_profile'],
+      t('user_profile.my_profile'),
       'sub1',
       <div className='mt-2 mr-[-10px]'>
         <IconUser width='38' height='38' />
       </div>,
       [
-        getItem(locale['user_profile.profile'], '1'),
-        getItem(locale['user_profile.shipping_address'], '2'),
-        getItem(locale['user_profile.order_history'], '3'),
+        getItem(t('user_profile.profile'), '1'),
+        getItem(t('user_profile.shipping_address'), '2'),
+        getItem(t('user_profile.order_history'), '3'),
       ],
     ),
   ]
@@ -61,12 +62,12 @@ const UserProfile = () => {
 
   const onClickMenu = (e) => {
     setMenuItem(e.key)
-    const currentParams = new URLSearchParams(searchParams.toString());
+    const currentParams = new URLSearchParams(searchParams.toString())
     // Add new query parameters
-    currentParams.set('tabActive', e.key);
+    currentParams.set('tabActive', e.key)
 
     // Navigate to the updated URL
-    router.push(`/${USER_PROFILE}?${currentParams.toString()}`);
+    router.push(`/${USER_PROFILE}?${currentParams.toString()}`)
   }
 
   return (

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { CloseOutlined } from '@ant-design/icons'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Modal, Form, Input, Checkbox, Select } from 'antd'
 import classNames from 'classnames'
+import { useTranslation } from 'react-i18next'
 
 import ButtonComponent from 'components/Button'
 import ErrorMessage from 'components/ErrorMessage'
@@ -15,7 +15,7 @@ import { createAddress, editAddress, getListProvinces } from 'services/address'
 const { Option } = Select
 
 const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddress = false }) => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const [form] = Form.useForm()
   const [isDefault, setIsDefault] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -102,9 +102,7 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
       className='md:p-0 md:w-[568px] md:rounded-4xl xl:rounded-6xl modal--add-new-address'
       title={
         <div className='font-bold text-3xl text-primary px-6 py-4 pt-8'>
-          {defaultValue
-            ? locale['modal.address.edit_address']
-            : locale['modal.address.add_new_address']}
+          {defaultValue ? t('modal.address.edit_address') : t('modal.address.add_new_address')}
         </div>
       }
       closeIcon={<CloseOutlined />}
@@ -119,65 +117,65 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-4'>
           <Form.Item
             name='first_name'
-            label={locale['modal.address.first_name']}
+            label={t('modal.address.first_name')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.first_name'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.first_name') }),
               },
             ]}
             required
           >
-            <Input placeholder={locale['modal.address.first_name_pld']} />
+            <Input placeholder={t('modal.address.first_name_pld')} />
           </Form.Item>
           <Form.Item
             name='last_name'
-            label={locale['modal.address.last_name']}
+            label={t('modal.address.last_name')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.last_name'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.last_name') }),
               },
             ]}
             required
           >
-            <Input placeholder={locale['modal.address.last_name_pld']} />
+            <Input placeholder={t('modal.address.last_name_pld')} />
           </Form.Item>
-          <Form.Item name='company' label={locale['modal.address.company']}>
-            <Input placeholder={locale['modal.address.company_pld']} />
+          <Form.Item name='company' label={t('modal.address.company')}>
+            <Input placeholder={t('modal.address.company_pld')} />
           </Form.Item>
           <Form.Item
             name='phone'
-            label={locale['modal.address.phone']}
+            label={t('modal.address.phone')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.phone'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.phone') }),
               },
             ]}
             required
           >
             <Input
               type='number'
-              placeholder={locale['modal.address.phone_pld']}
+              placeholder={t('modal.address.phone_pld')}
               className='h-[48px]'
               onChange={onChangePhone}
             />
           </Form.Item>
           <Form.Item
             name='post_code'
-            label={locale['modal.address.post_code']}
+            label={t('modal.address.post_code')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.post_code'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.post_code') }),
               },
             ]}
             required
           >
             <Input
               type='number'
-              placeholder={locale['modal.address.post_code_pld']}
+              placeholder={t('modal.address.post_code_pld')}
               className={classNames('h-[48px]', {
                 'border-solid border-[#ff4d4f] border': errorAddress,
               })}
@@ -186,17 +184,17 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
           </Form.Item>
           <Form.Item
             name='prefectures'
-            label={locale['modal.address.prefectures']}
+            label={t('modal.address.prefectures')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.prefectures'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.prefectures') }),
               },
             ]}
             required
           >
             <Select
-              placeholder={locale['modal.address.prefectures_pld']}
+              placeholder={t('modal.address.prefectures_pld')}
               className={classNames('h-[48px]', {
                 'border-solid border-[#ff4d4f] border rounded-[5px]': errorAddress,
               })}
@@ -210,17 +208,17 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
           </Form.Item>
           <Form.Item
             name='city'
-            label={locale['modal.address.city']}
+            label={t('modal.address.city')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.city'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.city') }),
               },
             ]}
             required
           >
             <Input
-              placeholder={locale['modal.address.city_pld']}
+              placeholder={t('modal.address.city_pld')}
               className={classNames('h-[48px]', {
                 'border-solid border-[#ff4d4f] border': errorAddress,
               })}
@@ -228,17 +226,17 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
           </Form.Item>
           <Form.Item
             name='address1'
-            label={locale['modal.address.address1']}
+            label={t('modal.address.address1')}
             rules={[
               {
                 required: true,
-                message: locale['modal.address.address1'] + locale['common.validation.required'],
+                message: t('common.validation.required', { name: t('modal.address.address1') }),
               },
             ]}
             required
           >
             <Input
-              placeholder={locale['modal.address.address1_pld']}
+              placeholder={t('modal.address.address1_pld')}
               className={classNames('h-[48px]', {
                 'border-solid border-[#ff4d4f] border': errorAddress,
               })}
@@ -262,7 +260,7 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
               setIsDefault(e.target.checked)
             }}
           >
-            {locale['modal.address.default_address']}
+            {t('modal.address.default_address')}
           </Checkbox>
         </Form.Item>
         <Form.Item>
@@ -270,13 +268,13 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
             <ButtonComponent
               onClick={onClose}
               className='border-[#9C8C6A]  w-[256px] bg-white text-black'
-              title={locale['common.cancel']}
+              title={t('common.cancel')}
             />
             <ButtonComponent
               type='submit'
               isLoading={isLoadingCreate || isLoadingEdit}
               className='bg-[#9C8C6A] w-[256px] text-white'
-              title={defaultValue ? locale['common.edit'] : locale['common.create']}
+              title={defaultValue ? t('common.edit') : t('common.create')}
             />
           </div>
         </Form.Item>

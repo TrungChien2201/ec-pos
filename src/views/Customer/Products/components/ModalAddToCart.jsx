@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import ProductItem from 'views/Customer/Cart/components/ProductItem'
 
 import ButtonComponent from 'components/Button'
@@ -15,8 +15,8 @@ const ModalAddToCart = ({
   currentSelectedGiftColor,
   wrapperSelected,
 }) => {
-  const locale = useSelector((state) => state.user.locale)
   const router = useRouter()
+  const { t } = useTranslation()
   const cart = getCart()
 
   const cartFilter = cart.filter((doc) => {
@@ -65,7 +65,7 @@ const ModalAddToCart = ({
         <div className='text-center mb-[8px] bg-[#F5F5F5] p-[10px] rounded-[6px]'>
           <IconCheckCircleSuccess />
           <h3 className='text-[#07A315] text-[16px] font-medium leading-[24px] text-center mb-[12px] lg:text-[20px] lg:leading-[40px]'>
-            {locale['modal.add_to_cart.message']}
+            {t('modal.add_to_cart.message')}
           </h3>
           <ProductItem
             product={product}
@@ -76,14 +76,14 @@ const ModalAddToCart = ({
         <ButtonComponent
           className='w-full mb-[15px] lg:mb-[20px]'
           variant='primary'
-          title={`${locale['modal.add_to_cart.view_cart']}: ${cartFilter.length || 0})`}
+          title={`${t('modal.add_to_cart.view_cart')}: ${cartFilter.length || 0})`}
           onClick={goToCart}
         />
         <p
           className='w-full underline text-[#000] text-center text-[14px] lg:text-[16px] cursor-pointer'
           onClick={onClose}
         >
-          {locale['modal.add_to_cart.continue_shopping']}
+          {t('modal.add_to_cart.continue_shopping')}
         </p>
       </div>
     </div>

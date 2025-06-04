@@ -2,10 +2,10 @@ import { useRef, useState } from 'react'
 
 import cx from 'classnames'
 import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { useSelector } from 'react-redux'
 
 import useSeason from 'hooks/useSeason'
 import useWindowSize from 'hooks/useWindowSize'
@@ -14,7 +14,6 @@ import IconArrowRightSlide from 'resourse/svg/IconArrowRightSlide'
 
 import { BASE_URL } from 'common/constant'
 import VideoModal from 'components/modals/VideoModal'
-import { useRouter } from 'next/router'
 
 const ConditionRender = () => {
   const prevRef = useRef(null)
@@ -23,7 +22,6 @@ const ConditionRender = () => {
   const router = useRouter()
   const { seasons } = useSeason()
   const { t } = useTranslation()
-  const locale = useSelector((state) => state.user.locale)
   const [isShowVideo, setIsShowVideo] = useState(false)
   const [linkVideo, setLinkVideo] = useState('')
 
@@ -178,6 +176,15 @@ const ConditionRender = () => {
         },
       },
       {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          centerMode: false,
+        },
+      },
+      {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
@@ -204,7 +211,7 @@ const ConditionRender = () => {
                   crossOrigin='anonymous'
                   src={item.image_url}
                   alt='banner'
-                  className='w-full h-full rounded-t-[6px]'
+                  className='w-full h-full rounded-[6px]'
                 />
               </div>
               {item.description && (
@@ -222,16 +229,15 @@ const ConditionRender = () => {
 }
 
 const SeasonRecommends = () => {
-  const locale = useSelector((state) => state.user.locale)
   return (
-    <section className='rounded-t-3xl md:rounded-none relative z-1 bg-[#ffffff] pt-8 md:pt-14 max-[640px]:mt-[-1rem]'>
+    <section className='md:rounded-none relative z-1 bg-[#ffffff] pt-8 md:pt-14 max-[640px]:mt-0'>
       <div className='w-full container container--home mx-auto'>
         <div className='text-center'>
           <p className='font-light lg:text-[38px] lg:leading-[46px] text-[#514F4E] text-[20px] leading-[28px] md:text-[28px] md:leading-[32px]'>
-            {locale['season.title']}
+            Season recommends
           </p>
           <p className='text-[18px] leading-[28px] text-[#514F4E] max-[640px]:leading-[12px] max-[640px]:text-[14px] font-semibold'>
-            {locale['season.description']}
+            季節のおすすめ
           </p>
         </div>
         <div className='h-full mt-4 md:mt-8'>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 
@@ -27,7 +28,7 @@ const getCollectionInMenu = (menus, collectionTitle) => {
 }
 
 const RoseysMarkSelection = () => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const menus = useSelector((state) => state.menus.sections)
   const collection = getCollectionInMenu(menus, 'Rosey’s Mark')
   const router = useRouter()
@@ -36,10 +37,10 @@ const RoseysMarkSelection = () => {
     <BaseAnimation className='bg-white text-black-light-5 font-roboto'>
       <div className='w-full px-6 pt-[44px] flex flex-col items-center justify-center text-center'>
         <p className='text-[20px] md:text-[52px] tracking-[0.5px] leading-none text-black font-spectral'>
-          {locale['roses_mark.title']}
+          {t('roses_mark.title')}
         </p>
         <p className='md:mt-2 text-sm md:text-[26px] leading-[30px] font-semibold text-black'>
-          {locale['roses_mark.description']}
+          {t('roses_mark.description')}
         </p>
       </div>
       <div className='mt-6'>
@@ -49,7 +50,7 @@ const RoseysMarkSelection = () => {
         <div className='container container--small-desktop'>
           <div className='w-full flex flex-col items-center text-center max-md:text-[#000000] '>
             <div
-              dangerouslySetInnerHTML={{ __html: locale['roses_mark.heading_1'] }}
+              dangerouslySetInnerHTML={{ __html: t('roses_mark.heading_1') }}
               className='text-base md:text-[20px] md:leading-[36px] text-black-light-5 font-bold'
             />
             <img
@@ -57,23 +58,23 @@ const RoseysMarkSelection = () => {
               className='w-full max-w-[200px] md:max-w-[303px] h-auto mt-8 md:mt-6'
             />
             <div className='flex items-center justify-center w-full mt-3 min-h-[40px] text-sm md:text-[26px] bg-black-light-4 text-white font-semibold'>
-              {locale['roses_mark.description']}
+              {t('roses_mark.description')}
             </div>
             <div className='flex flex-col gap-2 md:gap-0 mt-5 md:mt-6'>
               <div
-                dangerouslySetInnerHTML={{ __html: locale['roses_mark.sub_heading_1'] }}
+                dangerouslySetInnerHTML={{ __html: t('roses_mark.sub_heading_1') }}
                 className='text-sm leading-[22px] md:text-lg md:leading-[30px] text-black-light-5 font-medium'
               />
               <div
-                dangerouslySetInnerHTML={{ __html: locale['roses_mark.sub_heading_2'] }}
+                dangerouslySetInnerHTML={{ __html: t('roses_mark.sub_heading_2') }}
                 className='text-sm leading-[22px] md:text-lg md:leading-[30px] text-black-light-5 font-medium'
               />
               <div
-                dangerouslySetInnerHTML={{ __html: locale['roses_mark.sub_heading_3'] }}
+                dangerouslySetInnerHTML={{ __html: t('roses_mark.sub_heading_3') }}
                 className='text-sm leading-[22px] md:text-lg md:leading-[30px] text-black-light-5 font-medium'
               />
               <div
-                dangerouslySetInnerHTML={{ __html: locale['roses_mark.sub_heading_4'] }}
+                dangerouslySetInnerHTML={{ __html: t('roses_mark.sub_heading_4') }}
                 className='text-sm leading-[22px] md:text-lg md:leading-[30px] text-black-light-5 font-medium'
               />
             </div>
@@ -85,11 +86,11 @@ const RoseysMarkSelection = () => {
               </div>
               <div className='flex flex-col px-4'>
                 <h3 className='text-xl md:text-[26px] text-black leading-[30px] font-semibold'>
-                  {locale['roses_mark.two_col.left.title']}
+                  {t('roses_mark.two_col.left.title')}
                 </h3>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: locale['roses_mark.two_col.left.description'],
+                    __html: t('roses_mark.two_col.left.description'),
                   }}
                   className='mt-[2px] text-sm leading-[22px] md:text-lg md:leading-[30px]'
                 />
@@ -98,7 +99,7 @@ const RoseysMarkSelection = () => {
                     ['list1', 'list2'].map((item) => (
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: locale[`roses_mark.two_col.left.list.${item}`],
+                          __html: t(`roses_mark.two_col.left.list.${item}`),
                         }}
                         className='text-sm leading-[22px] md:text-lg md:leading-[30px]'
                       />
@@ -113,16 +114,16 @@ const RoseysMarkSelection = () => {
               </div>
               <div className='flex flex-col px-4'>
                 <h3 className='text-xl md:text-[26px] text-black leading-[30px] font-semibold'>
-                  {locale['roses_mark.two_col.right.title']}
+                  {t('roses_mark.two_col.right.title')}
                 </h3>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: locale['roses_mark.two_col.right.description'],
+                    __html: t('roses_mark.two_col.right.description'),
                   }}
                   className='text-sm leading-[22px] md:text-lg md:leading-[30px]'
                 />
                 <div
-                  dangerouslySetInnerHTML={{ __html: locale['roses_mark.two_col.right.list'] }}
+                  dangerouslySetInnerHTML={{ __html: t('roses_mark.two_col.right.list') }}
                   className='text-sm leading-[22px] md:text-lg md:leading-[30px]'
                 />
               </div>
@@ -143,7 +144,7 @@ const RoseysMarkSelection = () => {
             </div>
           </div>
           <div
-            dangerouslySetInnerHTML={{ __html: locale['roses_mark.four_description'] }}
+            dangerouslySetInnerHTML={{ __html: t('roses_mark.four_description') }}
             className='mt-[25px] font-medium text-center flex justify-center items-center gap-[15px] max-md:gap-[8px] flex-col text-sm leading-[22px] md:text-lg md:leading-[30px]'
           />
           <div className='grid md:grid-cols-2 md:gap2 mt-8 md:mt-4'>
@@ -156,7 +157,7 @@ const RoseysMarkSelection = () => {
           </div>
 
           <div
-            dangerouslySetInnerHTML={{ __html: locale['roses_mark.two_col_footer'] }}
+            dangerouslySetInnerHTML={{ __html: t('roses_mark.two_col_footer') }}
             className='text-center flex flex-col justify-center items-center mt-[25px] font-medium text-sm leading-[22px] md:text-lg md:leading-[30px]'
           />
           <div className='flex justify-center py-[24px] overflow-x-hidden'>
@@ -168,17 +169,19 @@ const RoseysMarkSelection = () => {
           </div>
 
           <p className='text-center text-2xl md:text-[32px] leading-[40px] text-[#514F4E] font-spectral'>
-            {locale['roses_mark.title_footer']}
+            {t('roses_mark.title_footer')}
           </p>
           <div
             className='flex flex-col items-center justify-center max-w-[343px] md:max-w-[433px] mx-auto bg-white border-[1px] border-solid border-[#ABABAB] rounded-[4px] text-xs font-medium cursor-pointer'
-            onClick={() => collection?.id && router.push(`/products?collectionId=${collection?.id}`)}
+            onClick={() =>
+              collection?.id && router.push(`/products?collectionId=${collection?.id}`)
+            }
           >
             <div className='w-full image--banner image--rosey-footer'>
               <img className='rounded-t-[4px]' src={imgFooter} />
             </div>
             <p className='pt-[1px] text-xs leading-[20px] md:text-sm md:leading-[22px] text-[#514F4E] font-semibold'>
-              {locale['roses_mark.description']}
+              {t('roses_mark.description')}
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { useMutation } from '@tanstack/react-query'
 import { Form, Typography } from 'antd'
 import { InputOTP } from 'antd-input-otp'
 import { m } from 'framer-motion'
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { FaLongArrowAltLeft } from 'react-icons/fa'
 import { IoArrowBackSharp } from 'react-icons/io5'
 
@@ -22,15 +22,15 @@ const { Text } = Typography
 
 const ForgotPasswordStepTwo = (props) => {
   const { changeView, value, onNext } = props
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const [form] = Form.useForm()
   const [errorMessage, setErrorMessage] = useState('')
   const [resend, setResend] = useState(false)
   const stepOneInfo = {
-    title: locale['forgotPassword.stepTwo.title'],
-    descOne: hideEmail(value) + locale['forgotPassword.stepTwo.descOne'],
-    descTwo: locale['forgotPassword.stepTwo.descTwo'],
-    subDesc: locale['forgotPassword.stepTwo.sub_desc'],
+    title: t('forgotPassword.stepTwo.title'),
+    descOne: hideEmail(value) + t('forgotPassword.stepTwo.descOne'),
+    descTwo: t('forgotPassword.stepTwo.descTwo'),
+    subDesc: t('forgotPassword.stepTwo.sub_desc'),
     logo: CONSTANT.FORGOTPASSWORD_LOGO,
     screen: '',
   }
@@ -108,14 +108,14 @@ const ForgotPasswordStepTwo = (props) => {
               </Form.Item>
               {!resend ? (
                 <p className='mb-4 text-center text-gray-light-1' onClick={handleResendEmail}>
-                  {locale['forgotPassword.stepTwo.form.text_desc']}
+                  {t('forgotPassword.stepTwo.form.text_desc')}
                   <span className='ml-1 text-blue underline cursor-pointer'>
-                    {locale['forgotPassword.stepTwo.form.text_resend']}
+                    {t('forgotPassword.stepTwo.form.text_resend')}
                   </span>
                 </p>
               ) : (
                 <p className='mb-4 text-center text-gray-light-1'>
-                  {locale['forgotPassword.stepTwo.form.resended_text']}: (01:00)
+                  {t('forgotPassword.stepTwo.form.resended_text')}: (01:00)
                 </p>
               )}
               <Form.Item className='text-center mb-[13px]'>
@@ -124,14 +124,14 @@ const ForgotPasswordStepTwo = (props) => {
                   submit={() => form.submit()}
                   size='large'
                   type='primary'
-                  textButton={locale['forgotPassword.stepTwo.form.button_text']}
+                  textButton={t('forgotPassword.stepTwo.form.button_text')}
                 />
               </Form.Item>
               <m.div className='flex justify-center mb-8'>
                 <Text className='text-blue cursor-pointer relative' onClick={() => changeView(1)}>
                   <FaLongArrowAltLeft className='mt-0.5 mr-1 absolute top-[3px] left-[-20px]' />
                   <Text className='text-blue cursor-pointer'>
-                    {locale['forgotPassword.stepTwo.form.back_text']}
+                    {t('forgotPassword.stepTwo.form.back_text')}
                   </Text>
                 </Text>
               </m.div>

@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}', './src/**/**/*.{js,jsx,ts,tsx}', './src/**/**/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -18,6 +18,7 @@ module.exports = {
           'light-4': '#476261',
           'light-5': '#575757',
           'light-6': '#231F20',
+          'light-7': '#514F4E',
         },
         blue: {
           DEFAULT: '#115BEC',
@@ -108,6 +109,8 @@ module.exports = {
       screens: {
         sx: '375px',
         desktop: '1280px',
+        size1440: '1440px',
+        size414: '414px',
       },
       flex: {
         '1-auto': '1 0 auto',

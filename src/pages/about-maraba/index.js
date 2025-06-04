@@ -1,12 +1,8 @@
 import AboutMarabaView from 'views/Customer/AboutMaraba'
 
 const AboutMarabaPage = () => {
-  return (
-    <div>
-      <AboutMarabaView />
-    </div>
-  );
-};
+  return <AboutMarabaView />
+}
 
 // Force server-side rendering to avoid Html import issues
 export async function getServerSideProps() {
@@ -15,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default AboutMarabaPage;
+export default AboutMarabaPage

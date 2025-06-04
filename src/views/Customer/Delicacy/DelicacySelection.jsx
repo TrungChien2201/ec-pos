@@ -1,118 +1,119 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-
-import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
 import { useRouter } from 'next/router'
 
-// Use string paths for images
-const imgFooter = 'images/delicacy/5.webp'
+import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
 const imgBanner = 'images/delicacy/banner.png'
+const imgFooter = 'images/delicacy/5.webp'
 const imgLogo = 'images/delicacy/logo.png'
-const imgTowCol1 = 'images/delicacy/two-col-1.png'
-const imgTowCol2 = 'images/delicacy/two-col-2.png'
 const imgTowColLeft = 'images/delicacy/two-col-left.png'
 const imgTowColRight = 'images/delicacy/two-col-right.png'
+const imgTowCol1 = 'images/delicacy/two-col-1.png'
+const imgTowCol2 = 'images/delicacy/two-col-2.png'
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
 
 const getCollectionInMenu = (menus, collectionTitle) => {
   const collection = (menus || [])
     .map((item) => item.childs)
     .flat()
-    .find((item) => item.title === collectionTitle)
+    .find((item) => item.title === collectionTitle || item.titleOther === collectionTitle)
 
   return collection
 }
 
 const DelicacySelection = () => {
   const { t } = useTranslation()
-  const menus = useSelector((state) => state.menus.menus)
+  const menus = useSelector((state) => state.menus.sections)
   const collection = getCollectionInMenu(menus, 'Delicacy')
-
   const router = useRouter()
+
   return (
-    <BaseAnimation className='bg-white font-["Roboto"] text-black-light-7 text-justify'>
-      <div className='text-center pt-[44px] pb-[24px] '>
-        <p className='text-black text-[52px] font-medium leading-[46px] max-md:text-[20px] max-md:leading-[28px] font-["Spectral"]'>
+    <BaseAnimation className='bg-white text-black-light-5 font-roboto delicacy-selection'>
+      <div className='w-full px-6 pt-[44px] flex flex-col items-center justify-center text-center'>
+        <p className='text-[20px] md:text-[52px] tracking-[0.5px] leading-none text-black font-spectral'>
           {t('delicacy.title')}
         </p>
-        <p className='mt-2 max-md:mt-0 text-[26px] leading-[28px] max-md:text-[14px] max-md:leading-[22px] font-semibold text-[#000000]'>
+        <p className='md:mt-2 text-sm md:text-[26px] leading-[30px] font-semibold text-black'>
           {t('delicacy.description')}
         </p>
       </div>
-      <img src={imgBanner} className='w-full h-auto ' />
-      <div className='container container--medium mx-auto'>
-        <div className='px-2 text-center font-bold pt-[43px] text-[20px] leading-[28px] text-[#3D3D3D] max-md:text-[16px] max-md:leading-[24px]'>
-          <p>{t('delicacy.heading_1')}</p>
-          <p>{t('delicacy.heading_2')}</p>
-        </div>
-
-        <div className='flex justify-center my-8'>
-          <img src={imgLogo} className='w-full max-w-[278px] h-auto ' />
-        </div>
-
-        <div className='flex justify-center items-center mx-auto h-[40px] w-full max-w-[1076px] bg-[#AA998E] text-sm lg:text-[26px] leading-[32px] text-white font-semibold'>
-          <p>{t('delicacy.description')}</p>
-        </div>
-
-        <div className='w-full max-w-[1058px] mx-auto text-center mt-8 lg:font-medium text-[14px] leading-[22px] lg:text-[24px] lg:leading-[30px] text-[#514F4E] flex flex-col gap-1 justify-center'>
-          <p className='tracking-wider'>{t('delicacy.content.line1')}</p>
-          <p>{t('delicacy.content.line2')}</p>
-        </div>
-
-        <div className='mt-10 mb-8'>
-          <div className='flex flex-col lg:flex-row justify-center'>
-            <img src={imgTowColLeft} className='lg:w-1/2' />
-            <img src={imgTowColRight} className='lg:w-1/2' />
+      <div className='mt-6'>
+        <img src={imgBanner} className='w-full h-auto' />
+      </div>
+      <div className='flex justify-center bg-white mt-5 md:mt-7 pb-[38px]'>
+        <div className='container container--small-desktop'>
+          <div className='w-full flex flex-col items-center text-center max-md:text-[#000000] '>
+            <div
+              dangerouslySetInnerHTML={{ __html: t('delicacy.heading_1') }}
+              className='text-base leading-[28px] md:text-[20px] md:leading-[36px] text-black-light-5 font-bold'
+            />
+            <img
+              src={imgLogo}
+              className='w-full max-w-[350px] md:max-w-[529px] h-auto mt-[60px] md:mt-6'
+            />
+            <div
+              className='flex items-center justify-center w-full mt-10 min-h-[26px] md:min-h-[40px] text-sm md:text-[26px] bg-li text-white font-semibold'
+              style={{
+                background:
+                  'linear-gradient(90deg, #E2C18A 0%, #CA9C64 16.92%, #F7D896 37.43%, #C59A5A 64.05%, #F4DEA4 100%)',
+              }}
+            >
+              {t('delicacy.description')}
+            </div>
+            <div className='flex flex-col gap-2 md:gap-0 mt-5 md:mt-6'>
+              <div
+                dangerouslySetInnerHTML={{ __html: t('delicacy.sub_heading_2') }}
+                className='text-sm leading-[22px] md:text-lg md:leading-[30px] text-black-light-5'
+              />
+            </div>
           </div>
-        </div>
-
-        <div className='lg:px-20 mt-8 lg:font-medium text-lg leading-[22px] text-[#514F4E] lg:text-[26px] lg:leading-[36px]'>
-          <div
-            className='leading-8 lg:tracking-[1px]'
-            dangerouslySetInnerHTML={{ __html: t('delicacy.content.line3') }}
-          />
-          <p className='flex justify-center text-sm leading-[26px] lg:text-lg lg:leading-7 lg:font-medium'>
-            {t('delicacy.content.line4')}
-          </p>
-        </div>
-
-        <div className='mt-10 mb-8'>
-          <div className='flex flex-col lg:flex-row justify-center'>
-            <img src={imgTowCol1} className='lg:w-1/2' />
-            <img src={imgTowCol2} className='lg:w-1/2' />
+          <div className='grid md:grid-cols-2 mt-8 md:mt-4'>
+            <div className='image--banner image--two-col'>
+              <img src={imgTowColLeft} className='w-full' />
+            </div>
+            <div className='image--banner image--two-col'>
+              <img src={imgTowColRight} className='w-full' />
+            </div>
           </div>
-        </div>
-
-        <div className='flex flex-col gap-4 lg:px-20 mt-8 lg:font-medium text-lg leading-[22px] text-[#514F4E] lg:text-[26px] lg:leading-[36px]'>
           <div
-            className='max-w-[846px] mx-auto text-center leading-8 lg:tracking-[1px]'
-            dangerouslySetInnerHTML={{ __html: t('delicacy.content.line5') }}
+            dangerouslySetInnerHTML={{ __html: t('delicacy.two_description') }}
+            className='mt-10 text-center flex justify-center items-center gap-[15px] max-md:gap-[8px] flex-col text-sm leading-[22px] md:text-lg md:leading-[30px]'
           />
+          <div className='grid md:grid-cols-2 md:gap2 mt-8 md:mt-4'>
+            <div className='flex-1 overflow-hidden'>
+              <img src={imgTowCol1} className='w-full' />
+            </div>
+            <div className='flex-1 overflow-hidden'>
+              <img src={imgTowCol2} className='w-full' />
+            </div>
+          </div>
+
           <div
-            className='flex justify-center text-sm leading-[26px] lg:text-lg lg:leading-7 lg:font-medium'
-            dangerouslySetInnerHTML={{ __html: t('delicacy.content.line6') }}
+            dangerouslySetInnerHTML={{ __html: t('delicacy.two_col_footer') }}
+            className='text-center flex flex-col justify-center items-center mt-[25px] text-sm leading-[22px] md:text-lg md:leading-[30px]'
           />
-        </div>
+          <div className='flex justify-center py-[24px] overflow-x-hidden'>
+            <img
+              src={ImgHorizontalDivide}
+              alt='divide'
+              className='w-full h-[32px] lg:h-[45px] object-cover object-center'
+            />
+          </div>
 
-        <div className='flex justify-center py-[24px] overflow-x-hidden'>
-          <img
-            src={ImgHorizontalDivide}
-            alt=''
-            className='object-cover object-center h-[45px] max-md:h-[32px] w-full'
-          />
-        </div>
-
-        <div className='text-center font-["spectral"] pb-[38px]'>
-          <p className='text-center text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E] font-["Spectral"]'>
-            {t('nova_caviar.footer')}
+          <p className='text-center text-2xl md:text-[32px] leading-[40px] text-[#514F4E] font-spectral'>
+            {t('delicacy.title_footer')}
           </p>
           <div
-            onClick={() => collection?.id && router.push(`/products?collectionId=${collection?.id}`)}
-            className='cursor-pointer flex flex-col items-center mx-auto w-[433px] h-[166px] max-md:w-[343px] max-md:h-[135px] border-[1px] border-solid border-[#ABABAB] rounded-[4px]'
+            className='flex flex-col items-center justify-center max-w-[343px] md:max-w-[433px] mx-auto bg-white border-[1px] border-solid border-[#ABABAB] rounded-[4px] text-xs font-medium cursor-pointer'
+            onClick={() =>
+              collection?.id && router.push(`/products?collectionId=${collection?.id}`)
+            }
           >
-            <img src={imgFooter} alt='img footer' className='w-full h-full' />
-            <p className=' leading-[24px] font-roboto text-[14px] max-md:leading-[20px] max-md:text-[12px] text-[#514F4E] font-semibold'>
+            <div className='w-full image--banner image--rosey-footer'>
+              <img className='rounded-t-[4px]' src={imgFooter} />
+            </div>
+            <p className='pt-[1px] text-xs leading-[20px] md:text-sm md:leading-[22px] text-[#514F4E] font-semibold'>
               {t('delicacy.description')}
             </p>
           </div>

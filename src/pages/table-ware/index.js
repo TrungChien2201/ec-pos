@@ -1,11 +1,7 @@
 import TablewareView from 'views/Customer/Tableware/TablewareSelection'
 
 const TablewarePage = () => {
-  return (
-    <div>
-      <TablewareView />
-    </div>
-  );
-};
+  return <TablewareView />
+}
 
-export default TablewarePage;
+export default TablewarePage

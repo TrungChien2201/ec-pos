@@ -1,15 +1,14 @@
-import { useSelector } from 'react-redux'
+import React from 'react'
 
 import { Typography } from 'antd'
 import cx from 'classnames'
-import { useRouter } from 'next/router'
 import { NumericFormat } from 'react-number-format'
+import { useRouter } from 'next/router'
 
 const { Title } = Typography
 
 const ProductItem = ({ product }) => {
   const router = useRouter()
-  const locale = useSelector((state) => state.user.locale)
 
   const onNagivate = () => {
     router.push(`/products/${product?.id.split('Product/')?.[1]}`)
@@ -48,7 +47,7 @@ const ProductItem = ({ product }) => {
             decimalScale={3}
           />
           <p className='text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px] text-[#0000008c] font-medium mb-0'>
-            {locale['cart.tax_included']}
+            税込
           </p>
         </div>
       </div>

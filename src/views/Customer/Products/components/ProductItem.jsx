@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Typography } from 'antd'
 import cx from 'classnames'
 import { NumericFormat } from 'react-number-format'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { COMING_SOON, NO_PRICE, ALWAYS_BOX, regexBold } from 'common/constant'
 
 import { getProductsGift } from 'services/cart'
@@ -19,7 +19,6 @@ const { Title } = Typography
 const ProductItem = ({ product, className }) => {
   const router = useRouter()
   const dispatch = useDispatch()
-  const locale = useSelector((state) => state.user.locale)
 
   const [variantGift, setVariantGift] = useState([])
   const [textBold, setTextBold] = useState('')
@@ -107,9 +106,7 @@ const ProductItem = ({ product, className }) => {
             className='font-normal text-black mb-[4px] cursor-pointer text-[12px] leading-[20px] lg:text-[16px] lg:leading-[24px]'
             onClick={onNavigate}
           >
-            {String(locale[product?.title] ?? product?.title)
-              .toString()
-              .replace(textBold, '')}
+            {product?.title.toString().replace(textBold, '')}
             {textBold && <strong> {product?.productType.match(regexBold)[1]}</strong>}
           </Title>
           {!product?.productType.includes(NO_PRICE) &&
@@ -143,7 +140,7 @@ const ProductItem = ({ product, className }) => {
                   ＜箱 入＞
                 </span>
               )}
-              {locale['product.price_TBA']}
+              価格未定
             </span>
           )}
         </div>

@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 
@@ -34,7 +36,7 @@ const getCollectionInMenu = (menus, collectionTitle) => {
 }
 
 const NovaCaviarSelection = () => {
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const menus = useSelector((state) => state.menus.sections)
 
   const collection = getCollectionInMenu(menus, 'NOVA Caviar')
@@ -43,11 +45,11 @@ const NovaCaviarSelection = () => {
   return (
     <BaseAnimation className='bg-white'>
       <div className=' w-full pb-[24px] pt-[44px]  flex flex-col items-center justify-center text-center text-[#000000]'>
-        <p className='text-[52px] font-meidum leading-[46px] max-md:text-[20px] max-md:leading-[28px] font-["Spectral"]'>
-          {locale['nova_caviar.title']}
+        <p className='text-[52px] font-medium leading-[46px] max-md:text-[20px] max-md:leading-[28px] font-["Spectral"]'>
+          {t('nova_caviar.title')}
         </p>
         <p className='text-[26px] leading-[28px] max-md:text-[14px] max-md:leading-[22px] font-semibold text-[#000000]'>
-          {locale['nova_caviar.description']}
+          {t('nova_caviar.description')}
         </p>
       </div>
 
@@ -66,19 +68,19 @@ const NovaCaviarSelection = () => {
       <div className=' flex font-["roboto"] flex-col justify-center items-center mt-[40px] max-md:mt-[30px] ml-[18px] mr-[15px] pb-[38px]  '>
         <div className='flex flex-col justify-center items-center gap-[15px] text-center'>
           <h2 className='font-["A_OTF_A1_Mincho_Std"] font-bold  text-[40px] leading-[48px] text-[#514F4E] max-md:text-[24px] max-md:leading-[32px] max-md:text-[#000000] '>
-            {locale['nova_caviar.heading_1']}
+            {t('nova_caviar.heading_1')}
           </h2>
           <h3
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.sub_heading_1'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.sub_heading_1') }}
             className='w-full max-w-[980px] tracking-normal gap-[11px]   text-center font-["A_OTF_A1_Mincho_Std"] font-bold  text-[21px] leading-[35px] text-[#514F4E] max-md:text-[16px] max-md:leading-[24px] max-md:text-[#000000D9] '
           />
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph1_heading_1'] }}
+          dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph1_heading_1') }}
           className='max-sm:hidden tracking-[1px] w-full max-w-[1274px]  mt-[35px] max-md:mt-[25px]  flex flex-col  text-center gap-[15px] max-md:gap-[10px] font-medium text-[18px] leading-[22px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]'
         />
         <div
-          dangerouslySetInnerHTML={{ __html: locale['nova_caviar.res_paragraph1_heading_1'] }}
+          dangerouslySetInnerHTML={{ __html: t('nova_caviar.res_paragraph1_heading_1') }}
           className='sm:hidden w-full max-w-[1274px] mb-[24px] mt-[35px] max-md:mt-[25px]  flex flex-col  text-center gap-[15px] max-md:gap-[10px] font-normal text-[16px] leading-[24px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]'
         />
         <div className='sm:hidden my-[10px]'>
@@ -97,21 +99,21 @@ const NovaCaviarSelection = () => {
         </div>
         <div className=' pt-[35px] max-md:pt-[30px] flex flex-col justify-center items-center text-center font-normal'>
           <h2
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.heading_2'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.heading_2') }}
             className='max-sm:hidden  font-["A_OTF_A1_Mincho_Std"] max-md:tracking-[0px] tracking-[1px] font-bold  mb-9 max-md:mb-[25px] text-[34px] leading-[40px] text-[#514F4E]  max-md:text-[24px] max-md:leading-[32px] max-md:text-[#000000]'
           />
 
           <h2
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.res_heading_2'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.res_heading_2') }}
             className='sm:hidden font-["A_OTF_A1_Mincho_Std"] max-md:tracking-[0px] tracking-[0px] font-semibold  mb-9 max-md:mb-[25px] text-[40px] leading-[48px] text-[#514F4E] max-md:text-[24px] max-md:leading-[32px] max-md:text-[#000000]'
           />
           <div
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph1_heading_2'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph1_heading_2') }}
             className='max-sm:hidden flex flex-col justify-center items-center gap-[15px] max-md:gap-[10px] tracking-[-1px] text-[16px] leading-[23px] font-medium text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9] '
           />
           <div
             className='sm:hidden flex flex-col justify-center items-center gap-[15px] max-md:gap-[10px] tracking-[-1px] text-[16px] leading-[23px] font-medium text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]'
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph1_heading_2_mobile'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph1_heading_2_mobile') }}
           />
         </div>
         <div className='sm:hidden my-[10px]'>
@@ -130,21 +132,21 @@ const NovaCaviarSelection = () => {
         </div>
         <div className=' mt-9 max-md:mt-[30px] text-center font-normal'>
           <h2 className='font-["A_OTF_A1_Mincho_Std"] font-semibold  mb-9 max-md:mb-[25px] text-[34px] leading-[48px] text-[#514F4E] tracking-[-2px] max-md:text-[24px] max-md:leading-[32px] max-md:text-[#000000]'>
-            {locale['nova_caviar.heading_3']}
+            {t('nova_caviar.heading_3')}
           </h2>
           <div
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph1_heading_3'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph1_heading_3') }}
             className='max-sm:hidden flex tracking-[1px] flex-col justify-center items-center gap-[15px] max-md:gap-[10px]  text-[18px] font-medium leading-[22px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]  '
           />
           <div
             className='sm:hidden flex flex-col justify-center items-center gap-[15px] max-md:gap-[10px] tracking-[-1px] text-[16px] leading-[23px] font-medium text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]'
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph1_heading_3_mobile'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph1_heading_3_mobile') }}
           />
         </div>
         <div className='sm:hidden my-[10px]'>
           <img src={ImgNova12} className='w-full min-w-[343px]' />
           <p className='mt-2 text-right text-[12px] leading-[20px] text-[#514F4E]'>
-            {locale['nova_caviar.heading_4_mobile']}
+            {t('nova_caviar.heading_4_mobile')}
           </p>
         </div>
         <div className='max-sm:hidden pt-[35px] pb-[10px] '>
@@ -152,15 +154,15 @@ const NovaCaviarSelection = () => {
         </div>
         <div className=' mt-9 max-md:mt-[30px] text-center font-normal'>
           <h2 className='font-["A_OTF_A1_Mincho_Std"] font-semibold  mb-9 max-md:mb-[25px] text-[40px]  leading-[48px] text-[#514F4E] tracking-[-1px] max-md:text-[24px] max-md:leading-[32px] max-md:text-[#000000]'>
-            {locale['nova_caviar.heading_4']}
+            {t('nova_caviar.heading_4')}
           </h2>
           <div
-            dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph1_heading_4'] }}
+            dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph1_heading_4') }}
             className='max-sm:hidden flex tracking-[1px] flex-col justify-center items-center gap-[15px] max-md:gap-[10px] font-medium text-[18px] leading-[22px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]  '
           />
         </div>
         <div className='sm:hidden flex text-center tracking-[1px] flex-col justify-center items-center gap-[15px] max-md:gap-[10px] font-medium text-[18px] leading-[22px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]  '>
-          {locale['nova_caviar.paragraph1_heading_4_mobile']}
+          {t('nova_caviar.paragraph1_heading_4_mobile')}
         </div>
         <div className='sm:hidden my-[10px]'>
           <img src={ImgNova16} className='w-full min-w-[343px]' />
@@ -177,12 +179,12 @@ const NovaCaviarSelection = () => {
           </div>
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph2_heading_4'] }}
+          dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph2_heading_4') }}
           className='max-sm:hidden mt-[35px] tracking-[1px] max-md:mt-[20px] text-center flex flex-col gap-[10px] max-md:gap-[8px] text-[18px] leading-[22px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9] '
         />
         <div
           className='sm:hidden mt-[35px] tracking-[1px] max-md:mt-[20px] text-center flex flex-col gap-[10px] max-md:gap-[8px] text-[18px] leading-[22px] text-[#514F4E] max-md:text-[14px] max-md:leading-[22px] max-md:text-[#000000D9]'
-          dangerouslySetInnerHTML={{ __html: locale['nova_caviar.paragraph2_heading_4_mobile'] }}
+          dangerouslySetInnerHTML={{ __html: t('nova_caviar.paragraph2_heading_4_mobile') }}
         />
 
         <div className='flex justify-center py-[24px] overflow-x-hidden w-full'>
@@ -193,7 +195,7 @@ const NovaCaviarSelection = () => {
           />
         </div>
         <p className='text-center  text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E]  font-["Spectral"]'>
-          {locale['nova_caviar.footer']}
+          {t('nova_caviar.footer')}
         </p>
         <div
           className='mx-auto  flex flex-col justify-end items-center  cursor-pointer h-[174px] w-[433px] max-md:w-[343px]  max-md:h-[140px] rounded-[4px] bg-cover border-[1px] border-solid border-[#ABABAB]'
@@ -203,7 +205,7 @@ const NovaCaviarSelection = () => {
           }}
         >
           <p className=' leading-[22px]  text-[14px] max-md:leading-[20px] max-md:text-[12px] mb-0 max-md:mb-[0px] text-[#514F4E]   font-semibold'>
-            {locale['nova_caviar.paragraph1_footer']}
+            {t('nova_caviar.paragraph1_footer')}
           </p>
         </div>
       </div>

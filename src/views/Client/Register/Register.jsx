@@ -4,7 +4,6 @@ import { useMutation } from '@tanstack/react-query'
 import { Form, Input, Typography, Checkbox } from 'antd'
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { FaLongArrowAltLeft } from 'react-icons/fa'
 import { IoArrowBackSharp } from 'react-icons/io5'
 
@@ -19,7 +18,6 @@ const { Text } = Typography
 const Register = (props) => {
   const { changeView, handleClose } = props
   const { t } = useTranslation()
-    const locale = useSelector((state) => state.user.locale)
   const [form] = Form.useForm()
   const [isAgree, setIsAgree] = useState(false)
   const { mutate: handleRegister } = useMutation((formData) => register(formData), {
@@ -61,7 +59,7 @@ const Register = (props) => {
             className='flex flex-col mr-4 lg:px-8'
             variants={CONSTANT.ANIMATION_VARIANT_STAGGER_ITEM}
           >
-            <h1 className='text-3xl text-primary leading-10 font-bold'>{locale['register.title']}</h1>
+            <h1 className='text-3xl text-primary leading-10 font-bold'>{t('register.title')}</h1>
             <Form
               form={form}
               size='large'

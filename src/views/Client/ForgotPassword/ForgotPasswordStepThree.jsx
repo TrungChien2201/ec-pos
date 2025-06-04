@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { Form, Typography, Input } from 'antd'
 import { m } from 'framer-motion'
-import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { FaLongArrowAltLeft } from 'react-icons/fa'
 
 import ForgotSectionContent from 'components/ForgotPassword'
@@ -16,14 +16,14 @@ const { Text } = Typography
 
 const ForgotPasswordStepThree = (props) => {
   const { changeView, value } = props
-  const locale = useSelector((state) => state.user.locale)
+  const { t } = useTranslation()
   const [form] = Form.useForm()
 
   const stepOneInfo = {
-    title: locale['forgotPassword.stepThree.title'],
-    descOne: locale['forgotPassword.stepThree.descOne'],
-    descTwo: locale['forgotPassword.stepThree.descTwo'],
-    subDesc: locale['forgotPassword.stepThree.sub_desc'],
+    title: t('forgotPassword.stepThree.title'),
+    descOne: t('forgotPassword.stepThree.descOne'),
+    descTwo: t('forgotPassword.stepThree.descTwo'),
+    subDesc: t('forgotPassword.stepThree.sub_desc'),
     logo: CONSTANT.FORGOTPASSWORD_LOGO,
     screen: '',
   }
@@ -76,25 +76,25 @@ const ForgotPasswordStepThree = (props) => {
             >
               <Form.Item
                 name='password'
-                label={locale['forgotPassword.stepThree.form.new_password']}
+                label={t('forgotPassword.stepThree.form.new_password')}
                 rules={[
                   {
                     required: true,
-                    message: locale['login.form.password_required'],
+                    message: t('login.form.password_required'),
                   },
                 ]}
               >
-                <Input.Password className='h-[48px]' placeholder={locale['login.password']} />
+                <Input.Password className='h-[48px]' placeholder={t('login.password')} />
               </Form.Item>
               <Form.Item
                 name='re_password'
                 className='mt-6'
                 dependencies={['password']}
-                label={locale['forgotPassword.stepThree.form.new_password_confirm']}
+                label={t('forgotPassword.stepThree.form.new_password_confirm')}
                 rules={[
                   {
                     required: true,
-                    message: locale['login.form.password_required'],
+                    message: t('login.form.password_required'),
                   },
                   ({ getFieldValue }) => ({
                     validator(_, formVal) {
@@ -102,7 +102,7 @@ const ForgotPasswordStepThree = (props) => {
                         return Promise.resolve()
                       }
                       return Promise.reject(
-                        new Error(locale['forgotPassword.stepThree.form.email_not_match']),
+                        new Error(t('forgotPassword.stepThree.form.email_not_match')),
                       )
                     },
                   }),
@@ -110,9 +110,7 @@ const ForgotPasswordStepThree = (props) => {
               >
                 <Input.Password
                   className='h-[48px]'
-                  placeholder={
-                    locale['forgotPassword.stepThree.form.new_password_confirm_placeholder']
-                  }
+                  placeholder={t('forgotPassword.stepThree.form.new_password_confirm_placeholder')}
                 />
               </Form.Item>
               <Form.Item className='text-center mb-[13px]'>
@@ -121,14 +119,14 @@ const ForgotPasswordStepThree = (props) => {
                   submit={() => form.submit()}
                   size='large'
                   type='primary'
-                  textButton={locale['forgotPassword.stepThree.form.button_text']}
+                  textButton={t('forgotPassword.stepThree.form.button_text')}
                 />
               </Form.Item>
               <m.div className='flex justify-center mb-8'>
                 <Text className='text-blue cursor-pointer relative' onClick={() => changeView(1)}>
                   <FaLongArrowAltLeft className='mt-0.5 mr-1 absolute top-[3px] left-[-20px]' />
                   <Text className='text-blue cursor-pointer'>
-                    {locale['forgotPassword.stepThree.form.back_text']}
+                    {t('forgotPassword.stepThree.form.back_text')}
                   </Text>
                 </Text>
               </m.div>

@@ -22,10 +22,9 @@ import Head from 'next/head'
 const { Header, Content } = Layout
 
 const CustomerMain = (props) => {
-  console.log('CustomerMain')
   const { children } = props
   const router = useRouter()
-  const bgHeader = router.pathname.includes('/[id]') ? '../images/bg-header.png' : 'images/bg-header.png'
+  const bgHeader = router.pathname.includes('/[id]') ? '../images/bg-header.png' : '/ec/images/bg-header.png'
   const isMountedRef = UTILITY.USE_IS_MOUNTED_REF()
   const [auth, setAuth] = useState(undefined)
   const [logo, setLogo] = useState(undefined)
@@ -47,8 +46,6 @@ const CustomerMain = (props) => {
   useLayoutEffect(() => {
     setIsOpenSideBar(false)
   }, [])
-
-  console.log('customer layout')
 
   useQuery([API.QUERY_KEY_ADMIN_AUTH], API.ADMIN_GET_AUTH, {
     onSuccess: (response) => {

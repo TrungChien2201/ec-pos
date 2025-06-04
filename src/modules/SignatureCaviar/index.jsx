@@ -32,7 +32,7 @@ const SignatureCaviar = () => {
               </div>
             </div>
             <div className='absolute -bottom-[15px] md:-bottom-6 w-full flex justify-center'>
-              <img src='/images/image-93.svg' className='max-sm:h-[31px]' />
+              <img src='images/image-93.svg' className='max-sm:h-[31px]' />
             </div>
           </div>
 
@@ -54,7 +54,7 @@ const SignatureCaviar = () => {
             </div>
 
             <div className='absolute -bottom-[0px] md:-bottom-6 w-full flex justify-center'>
-              <img src='/images/image-93.svg' className='max-sm:h-[31px]' />
+              <img src='images/image-93.svg' className='max-sm:h-[31px]' />
             </div>
           </div>
         </div>
