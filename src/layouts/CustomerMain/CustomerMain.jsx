@@ -22,9 +22,11 @@ import Head from 'next/head'
 const { Header, Content } = Layout
 
 const CustomerMain = (props) => {
-  const { children } = props
+  const { children, isFooterHomePage } = props
   const router = useRouter()
-  const bgHeader = router.pathname.includes('/[id]') ? '../images/bg-header.png' : '/ec/images/bg-header.png'
+  const bgHeader = router.pathname.includes('/[id]')
+    ? '../images/bg-header.png'
+    : '/ec/images/bg-header.png'
   const isMountedRef = UTILITY.USE_IS_MOUNTED_REF()
   const [auth, setAuth] = useState(undefined)
   const [logo, setLogo] = useState(undefined)
@@ -80,7 +82,7 @@ const CustomerMain = (props) => {
 
   const childrenWithProps = React.Children.map(children, (element) => {
     if (!React.isValidElement(element)) {
-      return element;
+      return element
     }
     return React.cloneElement(element, {
       publicSettings,
@@ -88,8 +90,8 @@ const CustomerMain = (props) => {
       auth,
       logo,
       favicon,
-    });
-  });
+    })
+  })
 
   useEffect(() => {
     let link = document.querySelector("link[rel~='icon']")
@@ -103,7 +105,7 @@ const CustomerMain = (props) => {
     if (publicSettings?.FAVICON_URL) {
       link.href = publicSettings?.FAVICON_URL
         ? `${API.SETTINGS_UPLOADS_URL}${publicSettings?.FAVICON_URL}`
-        : '/favicon.ico'
+        : '/ec/favicon.ico'
     }
   }, [publicSettings?.FAVICON_URL])
 
@@ -113,7 +115,9 @@ const CustomerMain = (props) => {
 
   return (
     <>
-      <Head><title>{publicSettings.TITLE ? <title>{publicSettings.TITLE}</title> : ''}</title></Head>
+      <Head>
+        <title>{publicSettings.TITLE ? <title>{publicSettings.TITLE}</title> : ''}</title>
+      </Head>
       <ConfigProvider
         theme={{
           token: {
@@ -144,14 +148,22 @@ const CustomerMain = (props) => {
               <HomeHeader setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} />
             ) : (
               <Header className='relative p-0 shadow w-full h-[145px] max-[640px]:h-[100px]'>
-                <img src={bgHeader} alt="Header background" className='w-full h-full hidden md:block' />
+                <img
+                  src={bgHeader}
+                  alt='Header background'
+                  className='w-full h-full hidden md:block'
+                />
                 <div className='absolute w-full h-full top-0 left-0 bg-blue-light-6 md:bg-transparent'>
                   <Topbar setIsOpenSideBar={setIsOpenSideBar} isHomePage={isHomePage} />
                 </div>
               </Header>
             )}
             <Content className='flex-1'>{childrenWithProps}</Content>
-            <CustomFooter isHomePage={isHomePage} />
+            <CustomFooter
+              isHomePage={isHomePage || isFooterHomePage}
+              isHiddenImage={isFooterHomePage}
+            />
+
             <SidebarMenu isOpen={isOpenSideBar} onClose={() => setIsOpenSideBar(false)} />
           </Layout>
         </BaseAnimation>

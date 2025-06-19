@@ -6,11 +6,13 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { Modal, Form, Input, Checkbox, Select } from 'antd'
 import classNames from 'classnames'
 import { useTranslation } from 'react-i18next'
+import cx from 'classnames'
 
 import ButtonComponent from 'components/Button'
 import ErrorMessage from 'components/ErrorMessage'
 
 import { createAddress, editAddress, getListProvinces } from 'services/address'
+import styles from './styles.module.scss'
 
 const { Option } = Select
 
@@ -99,7 +101,11 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
     <Modal
       open={isOpen}
       onCancel={onCancel}
-      className='md:p-0 md:w-[568px] md:rounded-4xl xl:rounded-6xl modal--add-new-address'
+      className={cx(
+        'md:p-0 md:w-[568px] md:rounded-4xl xl:rounded-6xl',
+        `${styles.antModal}`,
+        `${styles['modal--add-new-address']}`,
+      )}
       title={
         <div className='font-bold text-3xl text-primary px-6 py-4 pt-8'>
           {defaultValue ? t('modal.address.edit_address') : t('modal.address.add_new_address')}
@@ -241,6 +247,9 @@ const ModalAddress = ({ isOpen, onCancel, onSuccess, defaultValue, isFirstAddres
                 'border-solid border-[#ff4d4f] border': errorAddress,
               })}
             />
+          </Form.Item>
+          <Form.Item name='address2' label={t('modal.address.address2')}>
+            <Input placeholder={t('modal.address.address2_pld')} />
           </Form.Item>
         </div>
 

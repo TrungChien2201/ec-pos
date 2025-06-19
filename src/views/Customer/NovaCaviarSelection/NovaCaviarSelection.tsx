@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 
 // Use string paths instead of direct imports
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
@@ -40,7 +40,6 @@ const NovaCaviarSelection = () => {
   const menus = useSelector((state) => state.menus.sections)
 
   const collection = getCollectionInMenu(menus, 'NOVA Caviar')
-  const router = useRouter()
 
   return (
     <BaseAnimation className='bg-white'>
@@ -65,7 +64,7 @@ const NovaCaviarSelection = () => {
         </div>
       </div>
 
-      <div className=' flex font-["roboto"] flex-col justify-center items-center mt-[40px] max-md:mt-[30px] ml-[18px] mr-[15px] pb-[38px]  '>
+      <div className=' flex font-["roboto"] flex-col justify-center items-center mt-[40px] max-md:mt-[30px] ml-[18px] mr-[15px]'>
         <div className='flex flex-col justify-center items-center gap-[15px] text-center'>
           <h2 className='font-["A_OTF_A1_Mincho_Std"] font-bold  text-[40px] leading-[48px] text-[#514F4E] max-md:text-[24px] max-md:leading-[32px] max-md:text-[#000000] '>
             {t('nova_caviar.heading_1')}
@@ -194,20 +193,13 @@ const NovaCaviarSelection = () => {
             className='object-cover object-center w-full max-w-[1280px] h-[45px] max-md:h-[32px]'
           />
         </div>
-        <p className='text-center  text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E]  font-["Spectral"]'>
-          {t('nova_caviar.footer')}
-        </p>
-        <div
-          className='mx-auto  flex flex-col justify-end items-center  cursor-pointer h-[174px] w-[433px] max-md:w-[343px]  max-md:h-[140px] rounded-[4px] bg-cover border-[1px] border-solid border-[#ABABAB]'
-          onClick={() => collection?.id && router.push(`/products?collectionId=${collection?.id}`)}
-          style={{
-            backgroundImage: `url(${ImgNova17})`,
-          }}
-        >
-          <p className=' leading-[22px]  text-[14px] max-md:leading-[20px] max-md:text-[12px] mb-0 max-md:mb-[0px] text-[#514F4E]   font-semibold'>
-            {t('nova_caviar.paragraph1_footer')}
-          </p>
-        </div>
+        <BannerCollection
+          className='pb-10'
+          title={t('mushroom.title_footer')}
+          image={ImgNova17}
+          description={t('nova_caviar.paragraph1_footer')}
+          collectionId={collection?.id}
+        />
       </div>
     </BaseAnimation>
   )

@@ -98,7 +98,7 @@ const ClientMain = (props) => {
     if (publicSettings?.FAVICON_URL) {
       link.href = publicSettings?.FAVICON_URL
         ? `${API.SETTINGS_UPLOADS_URL}${publicSettings?.FAVICON_URL}`
-        : '/favicon.ico'
+        : '/ec/favicon.ico'
     }
   }, [publicSettings?.FAVICON_URL])
   useEffect(() => {

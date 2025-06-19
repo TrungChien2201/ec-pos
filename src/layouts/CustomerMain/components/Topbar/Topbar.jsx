@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import { useQuery } from '@tanstack/react-query'
-import { Col, Row, Select } from 'antd'
+import { Col, Row } from 'antd'
 import { LuUserCircle } from 'react-icons/lu'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -17,13 +17,14 @@ import { QUERY_KEY_CLIENT_PERSONAL_INFO } from 'common/api'
 
 import SearchInput from './components/SearchInput'
 import { closeModalLogin, showModalLogin } from 'store/user'
+import { INSTAGRRAM_LINK } from 'common/constant'
+import { InstagramOutlined } from '@ant-design/icons'
 import { useRouter } from 'next/router'
 
 const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
   const dispatch = useDispatch()
   const router = useRouter()
-  const isDetailPage = router.pathname.includes('/[id]')
-  const StoreLogo = isDetailPage ? '../images/logo-2x.png' : '/ec/images/logo-2x.png'
+  const StoreLogo = '/ec/images/logo-2x.png'
 
   const menus = useSelector((state) => state.menus.menus)
   const UserFEInfo = useSelector((state) => state.user)
@@ -60,18 +61,9 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
           />
         </Col>
         {!searchActive && (
-          <Col className='flex justify-center items-center gap-x-3 2xl:gap-x-6'>
-            {renderMenus}
-            <div className='flex justify-between hover:text-orange cursor-pointer'>
-              <span
-                className='text-[16px] leading-6 font-medium'
-                onClick={() => router.push('/contact')}
-              >
-                Contact
-              </span>
-            </div>
-          </Col>
+          <Col className='flex justify-center items-center gap-x-3 2xl:gap-x-6'>{renderMenus}</Col>
         )}
+
         <Col className='flex justify-end items-center gap-x-3'>
           <SearchInput expand={searchActive} setExpand={setSearchActive} />
           {UserInfo?.user?.id ? (
@@ -94,6 +86,8 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
               </div>
             )}
           </div>
+
+          <InstagramOutlined className='text-[28px]' onClick={() => window.open(INSTAGRRAM_LINK)} />
         </Col>
       </Row>
       <Row className='h-[100px] min-[1161px]:hidden' wrap={false}>
@@ -121,6 +115,8 @@ const Topbar = ({ setIsOpenSideBar, isHomePage, txtColor = '#FFFFFF' }) => {
               </div>
             ) : null}
           </div>
+
+          <InstagramOutlined className='text-[28px]' onClick={() => window.open(INSTAGRRAM_LINK)} />
         </Col>
       </Row>
       <AccountModal

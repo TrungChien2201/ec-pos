@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import collectionReducer from './collections'
 import countCartReducer from './countCart'
+import idRedirectReducer from './idRedirect'
 import menuReducer from './menus'
 import userReducer from './user'
 import warningReducer from './warning'
@@ -13,5 +14,6 @@ export const store = configureStore({
     user: userReducer,
     countCart: countCartReducer,
     warning: warningReducer,
+    idRedirect: idRedirectReducer,
   },
 })

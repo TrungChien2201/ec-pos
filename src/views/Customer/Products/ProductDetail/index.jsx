@@ -191,7 +191,6 @@ const ProductDetail = ({ productData }) => {
         window.dataLayer = window.dataLayer || []
         window.dataLayer.push(dataLayerItem)
       }
-      console.log('dataLayer', window.dataLayer)
       if (product?.variants?.length) {
         setVariantProduct(product?.variants[0])
       }
@@ -401,13 +400,13 @@ const ProductDetail = ({ productData }) => {
   if (loading) return <Spin size='large' fullscreen />
   return (
     <>
-      <div className={`bg-[#FBFBFB] 'product-detail'}`}>
+      <div className='bg-[#FBFBFB] product-detail'>
         <div className='container content-wrapper mx-auto pb-[15px] lg:pb-[40px]'>
           <div className='p-[0.8rem] lg:pt-5 lg:pl-0'>
             <button
               type='button'
               className='bg-[#00000040] rounded-[15px] text-[#fff] border-none flex items-center gap-[7px] text-[16px] cursor-pointer h-[34px]'
-              onClick={() => router.push(-1)}
+              onClick={() => router.back()}
             >
               <IconArrowLefV2 />
               {t('common.back')}

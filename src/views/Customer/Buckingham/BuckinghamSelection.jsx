@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
+import BannerCollection from 'components/BannerCollection'
 
 const Img1 = 'images/bucking-ham/baner.png'
 const Img2 = 'images/bucking-ham/baner-mb.png'
@@ -16,7 +17,7 @@ const Img11 = 'images/bucking-ham/1.webp'
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
 
 const BuckinghamSelection = () => {
-  const router = useRouter()
+  const { t } = useTranslation()
   const menus = useSelector((state) => state.menus.menus)
   const menuCollection = menus.find((menu) => menu.title === 'Royal Collection')
 
@@ -155,7 +156,7 @@ const BuckinghamSelection = () => {
           </div>
         </div>
 
-        <div className='mt-[12px] max-md:mt-[24px] pb-[39px]'>
+        <div className='mt-[12px] max-md:mt-[24px]'>
           <h2 className='text-[32px] leading-[38px] font-medium text-[#575757] max-md:text-[24px] max-md:leading-[28px]'>
             “バッキンガム・パレス・ジン”
           </h2>
@@ -189,22 +190,13 @@ const BuckinghamSelection = () => {
               className='object-cover object-center max-w-[1076px] h-[45px] max-md:h-[32px]'
             />
           </div>
-
-          <p className='text-center font-["Spectral"] text-[32px] max-md:text-[24px] font-medium leading-[27px] text-[#514f4e]'>
-            購入ページ
-          </p>
-
-          <div
-            onClick={() => {
-              router.push(`/products?collectionId=${collection?.id}`)
-            }}
-            className='mx-auto mt-[8px]  overflow-hidden flex flex-col justify-between items-center  cursor-pointer h-[164px] w-[433px] max-md:w-[343px] max-md:h-[140px] rounded-[4px] bg-cover border-[1px] border-solid border-[#ABABAB]'
-          >
-            <img src={Img11} alt='' className=' w-full' />
-            <p className=' leading-[22px] max-md:leading-[24px]  text-[14px] text-[#514f4e] max-md:text-[12px]  font-semibold '>
-              バッキンガム・パレス・ロイヤルコレクション
-            </p>
-          </div>
+          <BannerCollection
+            className='pb-10'
+            title='購入ページ'
+            image={Img11}
+            description={t('buckingham.description')}
+            collectionId={collection?.id}
+          />
         </div>
       </div>
     </div>

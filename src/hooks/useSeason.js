@@ -5,6 +5,7 @@ import moment from 'moment'
 import { getSeason } from 'services/season'
 
 import { APP_MEDIA_URL } from 'common/constant'
+import { useRouter } from 'next/router'
 
 const seasonFetched = {
   banner: [],
@@ -15,6 +16,7 @@ const useSeason = () => {
   const [loading, setLoading] = useState(true)
   const [banners, setBanners] = useState(seasonFetched.banner)
   const [seasons, setSeasons] = useState(seasonFetched.seasons)
+  const router = useRouter()
 
   const handleGetSeason = async () => {
     const response = await getSeason()
@@ -43,9 +45,11 @@ const useSeason = () => {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    const exception = ['/home']
+    if (!exception.includes(router?.pathname)) {
+      window.scrollTo(0, 0)
+    }
   }, [loading])
-
   useEffect(() => {
     handleGetSeason()
   }, [])

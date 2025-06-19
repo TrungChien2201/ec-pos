@@ -26,6 +26,12 @@ import isEmpty from 'lodash/isEmpty'
 import 'utils/dayjs'
 import { store } from '../store'
 import 'assets/tailwind.css'
+import '../components/Button/styles.scss'
+import '../modules/SignatureCaviar/styles.scss'
+import '../views/Customer/Products/ProductDetail/styles.scss'
+import '../views/Customer/Products/ProductDetail/ImageSlider/styles.scss'
+import '../views/Customer/Products/ProductDetail/ImageSlider/Gallery.scss'
+import '../components/SlickSlider/styles.scss'
 import 'utils/i18n'
 // Global styles for SlickSlider
 import 'slick-carousel/slick/slick.css'
@@ -175,7 +181,7 @@ function MyApp({ Component, pageProps }) {
                     },
                   }}
                 >
-                  <ScrollToTop>
+                  <ScrollToTop pageProps={pageProps}>
                     <AppContent />
                   </ScrollToTop>
                 </ConfigProvider>

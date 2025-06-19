@@ -447,18 +447,6 @@ h6 {
   }
 }
 
-.image--rosey-footer {
-  &:before {
-    padding-bottom: calc(117 / 341 * 100%);
-  }
-
-  @media (min-width: 768px) {
-    &:before {
-      padding-bottom: calc(118 / 341 * 100%);
-    }
-  }
-}
-
 .delicacy-selection {
   .image--two-col {
     &:before {
@@ -477,4 +465,14 @@ h6 {
 
 .select-language .ant-select-selector .ant-select-selection-item span {
   @apply text-white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }

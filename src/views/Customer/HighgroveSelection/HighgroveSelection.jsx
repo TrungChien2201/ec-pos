@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 const Img1 = 'images/highgrova_1.png'
 const Img10 = 'images/highgrova_10.png'
 const Img11 = 'images/highgrova_11.png'
@@ -33,7 +33,6 @@ const HighgroveSelection = () => {
   const menus = useSelector((state) => state.menus.menus)
 
   const collection = getCollectionInMenu(menus, 'Highgrove Selection')
-  const router = useRouter()
   return (
     <BaseAnimation className='bg-white font-["Roboto"] '>
       <div className='text-center pt-[44px] pb-[24px] '>
@@ -212,23 +211,13 @@ const HighgroveSelection = () => {
             className='object-cover object-center  max-w-[1076px] w-[1076px] mx-auto max-md:w-[100%] h-[32px]'
           />
         </div>
-
-        <div className='text-center font-["spectral"] pb-[38px]'>
-          <p className='text-center  text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E]  font-["Spectral"]'>
-            購入ページ
-          </p>
-          <div
-            onClick={() =>
-              collection?.id && router.push(`/products?collectionId=${collection?.id}`)
-            }
-            className='cursor-pointer flex flex-col  items-center mx-auto w-[433px] h-[174px] max-md:w-[343px] max-md:h-[140px] border-[1px] border-solid border-[#ABABAB] rounded-[4px]'
-          >
-            <img src={Img15} alt='' className='w-full h-full' />
-            <p className=' leading-[24px] font-roboto  text-[14px] max-md:leading-[20px] max-md:text-[12px]  text-[#514F4E]   font-semibold'>
-              ハイグローブセレクション
-            </p>
-          </div>
-        </div>
+        <BannerCollection
+          className='pb-10'
+          title='購入ページ'
+          image={Img15}
+          description='ハイグローブセレクション'
+          collectionId={collection?.id}
+        />
       </div>
     </BaseAnimation>
   )

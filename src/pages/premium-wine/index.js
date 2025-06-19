@@ -1,7 +1,7 @@
-import PremiumWineView from 'views/Customer/RoyalCollection'
+import PremiumWinesView from '@/src/views/Customer/AboutPremiumWines'
 
-const PremiumWinePage = () => {
-  return <PremiumWineView />
+const PremiumWinesPage = () => {
+  return <PremiumWinesView />
 }
 
 // Force server-side rendering to avoid Html import issues
@@ -11,4 +11,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default PremiumWinePage
+export default PremiumWinesPage

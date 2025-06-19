@@ -230,7 +230,7 @@ const ConditionRender = () => {
 
 const SeasonRecommends = () => {
   return (
-    <section className='md:rounded-none relative z-1 bg-[#ffffff] pt-8 md:pt-14 max-[640px]:mt-0'>
+    <section className='rounded-t-3xl md:rounded-none relative z-1 bg-[#ffffff] pt-8 md:pt-14 max-[640px]:mt-[-1rem]'>
       <div className='w-full container container--home mx-auto'>
         <div className='text-center'>
           <p className='font-light lg:text-[38px] lg:leading-[46px] text-[#514F4E] text-[20px] leading-[28px] md:text-[28px] md:leading-[32px]'>

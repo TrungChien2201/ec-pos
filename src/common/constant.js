@@ -31,6 +31,7 @@ export const NOT_FOUND_ROUTE = '/404'
 export const PERMISSION_ERROR_ROUTE = '/401'
 
 export const USER_PROFILE = '/user-profile'
+export const LEGAL_NOTICE_ROUTE = '/legalnotice'
 
 export const ROUTES_MINIMAL_LAYOUT = ['/404', '/401', '/line-friend', '/line-access', '/liff/login']
 export const ROUTES_CLIENT_LAYOUT = ['liff/profile']
@@ -449,6 +450,22 @@ export const getMenu = (locale) => [
       },
     ],
   },
+  {
+    title: 'Contact',
+    showTopBar: true,
+    childs: [
+      {
+        title: 'Contact',
+        key: 'Contact',
+        navigateTo: '/contact',
+      },
+      {
+        title: 'Legal Notice',
+        key: 'Legal Noticer',
+        navigateTo: `${LEGAL_NOTICE_ROUTE}`,
+      },
+    ],
+  },
 ]
 
 export const HOME_SECTION = [
@@ -580,14 +597,14 @@ export const HOME_SECTION = [
       },
       {
         title: 'ゴリラスピリッツについて ',
-        image: 'images/home/gorilla/3.webp',
+        image: 'images/home/gorilla/img3.png',
         sizeSmall: true,
         id: '/about-gorilla',
         className: 'order-2',
       },
       {
         title: 'マラバについて',
-        image: 'images/home/gorilla/4.webp',
+        image: 'images/home/gorilla/img4.png',
         sizeSmall: true,
         className: 'order-4',
         id: '/about-maraba',
@@ -600,7 +617,7 @@ export const HOME_SECTION = [
       },
       {
         title: 'エシカルスピリッツについて',
-        image: 'images/home/gorilla/6.webp',
+        image: 'images/home/gorilla/img6.png',
         sizeSmall: true,
         className: 'order-6 md:col-start-1',
         isComingSoon: true,
@@ -793,3 +810,6 @@ export const getLanguage = (isDetailPage) => {
     }
   })
 }
+
+// instagram link
+export const INSTAGRRAM_LINK = 'https://www.instagram.com/signature_ginza/'

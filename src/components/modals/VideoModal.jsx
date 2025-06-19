@@ -1,13 +1,18 @@
 import { Modal } from 'antd'
+import { useState } from 'react'
 import ReactPlayer from 'react-player'
 
 const VideoModal = (props) => {
   const { open, handleCancel, className, linkVideo } = props
+  const [isPlaying, setIsPlaying] = useState(true)
   return (
     <Modal
       open={open}
       destroyOnClose
-      onCancel={() => handleCancel()}
+      onCancel={() => {
+        handleCancel()
+        setIsPlaying(true)
+      }}
       width={520}
       className={className}
       centered
@@ -17,14 +22,16 @@ const VideoModal = (props) => {
           url={linkVideo}
           width={'100%'}
           height={'100%'}
-          playing={true}
+          playing={isPlaying}
+          onPause={() => setIsPlaying(false)}
+          onPlay={() => setIsPlaying(true)}
           controls={true}
           config={{
             file: {
               attributes: {
-                crossOrigin: 'anonymous'
-              }
-            }
+                crossOrigin: 'anonymous',
+              },
+            },
           }}
         />
       </div>

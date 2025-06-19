@@ -1,15 +1,19 @@
 import cx from 'classnames'
 import { classSizeLargeImg, classSizeSmallImg } from 'modules/Gorilla'
-import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import { setPageId } from '../../store/idRedirect'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Foods = () => {
   const router = useRouter()
   const menus = useSelector((state) => state.menus.sections)
+  const dispatch = useDispatch()
+
   const handleRedirect = (child) => {
     if (!child?.id || child?.isComingSoon) return
     if (child?.id) {
       const { id } = child
+      dispatch(setPageId(id))
       router.push(String(id).includes('/') ? `${id}` : `/products?collectionId=${id}`)
     }
   }
@@ -17,7 +21,7 @@ const Foods = () => {
   const leftItems = foodMenu?.childs
     .filter((item) => item.isLeft)
     .map((child, childsIndex) => (
-      <div className='w-full cursor-pointer relative' key={childsIndex}>
+      <div className='w-full cursor-pointer relative' id={child?.id} key={childsIndex}>
         <div
           className={cx(
             'bg-white rounded-[6px] h-full',
@@ -58,7 +62,7 @@ const Foods = () => {
   const rightItems = foodMenu?.childs
     .filter((item) => !item.isLeft)
     .map((child, childsIndex) => (
-      <div className='w-full cursor-pointer relative' key={childsIndex}>
+      <div className='w-full cursor-pointer relative' id={child?.id} key={childsIndex}>
         <div
           className={cx(
             'bg-white rounded-[6px] h-full',

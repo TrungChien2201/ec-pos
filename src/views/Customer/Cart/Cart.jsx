@@ -334,7 +334,7 @@ const Cart = () => {
             deliveryAddress: {
               address1: "${addressSelected.address1}"
               city: "${addressSelected.city}"
-              company: "${addressSelected.company}"
+              company: "${addressSelected.company || ''}"
               country: "Japan"
               firstName: "${addressSelected.last_name}"
               lastName: "${addressSelected.first_name}"

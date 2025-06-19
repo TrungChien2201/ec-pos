@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 import useWindowSize from 'hooks/useWindowSize'
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
 const ImgMushroom1 = 'images/mushroom-1.png'
@@ -57,9 +58,9 @@ const MushroomSelection = () => {
   }
 
   return (
-    <BaseAnimation className='bg-white text-basic font-roboto '>
+    <BaseAnimation className='bg-white text-basic font-roboto'>
       <div className='p-[24px] pt-[44px]  flex flex-col items-center justify-center text-center'>
-        <p className='text-[52px] font-medium leading-[46px] max-md:text-[20px] max-md:leading-[28px] font-["Spectral"]'>
+        <p className='text-[52px] leading-[46px] max-md:text-[20px] max-md:leading-[28px] font-["Spectral"]'>
           {t('mushroom.title')}
         </p>
         <p className='mt-2 max-md:mt-0 text-[26px] leading-[28px] max-md:text-[14px] max-md:leading-[22px] font-semibold text-[#000000]'>
@@ -125,7 +126,7 @@ const MushroomSelection = () => {
           />
         </div>
       </div>
-      <div className='1bg-[url("/images/mushroom-5.png")] py-5  max-md:py-0 mt-[32px] bg-cover bg-center max-md:bg-right 1max-md:bg-[url("/images/mushroom-23.png")]  bg-no-repeat'>
+      <div className='bg-[url("/ec/images/mushroom-5.png")] py-5  max-md:py-0 mt-[32px] bg-cover bg-center max-md:bg-right max-md:bg-[url("/ec/images/mushroom-23.png")]  bg-no-repeat'>
         <div className='  flex flex-col justify-center items-center'>
           <div className='text-center mb-[56px] mt-[34px] max-md:mb-[30px]'>
             <h4
@@ -398,24 +399,13 @@ const MushroomSelection = () => {
           />
         </div>
       </div>
-      <div className='pb-[38px]'>
-        <p className='text-center font-medium text-[24px] lg:text-[32px] leading-[40px] text-[#535253]  font-["Spectral"]'>
-          {t('mushroom.title_footer')}
-        </p>
-        <div
-          className='flex flex-col justify-between items-center mx-auto h-[174px] w-[433px] max-md:w-[343px] max-md:h-[140px] rounded-[4px] bg-cover border-[1px] border-solid border-[#ABABAB] cursor-pointer'
-          onClick={() => collection?.id && router.push(`/products?collectionId=${collection?.id}`)}
-        >
-          <img
-            src={ImgMushroom19}
-            alt='footer-banner'
-            className='w-full h-[145px] max-md:h-[120px] rounded-t'
-          />
-          <p className='leading-[22px] text-[14px] max-md:leading-[20px] max-md:text-[12px] mb-0 text-[#514F4E] font-semibold'>
-            {t('mushroom.paragraph_footer')}
-          </p>
-        </div>
-      </div>
+      <BannerCollection
+        className='pb-10'
+        title={t('mushroom.title_footer')}
+        image={ImgMushroom19}
+        description={t('mushroom.paragraph_footer')}
+        collectionId={collection?.id}
+      />
     </BaseAnimation>
   )
 }

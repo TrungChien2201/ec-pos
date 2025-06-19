@@ -22,7 +22,8 @@
     "buy_now": "すぐ購入",
     "here": "こちら",
     "sold_out": "売り切れ",
-    "description": "説明"
+    "description": "説明",
+    "register": "登録"
   },
   "home": {
     "gorilla": {
@@ -181,8 +182,10 @@
       "phone_pld": "08000000000",
       "post_code": "郵便番号",
       "post_code_pld": "1040000",
-      "address1": "番地・マンション名等",
-      "address1_pld": "1-1-1",
+      "address1": "丁目・番地・号",
+      "address1_pld": "36892",
+      "address2": "マンション名・部屋番号",
+      "address2_pld": "36892",
       "prefectures": "都道府県",
       "prefectures_pld": "選択してください",
       "default_address": "デフォルトにする"
@@ -198,6 +201,48 @@
     "content": "コメント",
     "submit_btn": "送 信",
     "success_message": "お問い合わせいただき\nありがとうございます。"
+  },
+  "legalnotice": {
+    "title": "特定商取引法に基づく表記",
+    "distributor": {
+      "label": "販売業者",
+      "value": "金子コード株式会社"
+    },
+    "representativeperson": {
+      "label": "代表責任者",
+      "value": "金子智樹"
+    },
+    "location": {
+      "label": "所在地",
+      "value": "<p>〒1430026</p><p>Tokyo大田区西馬込2－1－5</p>"
+    },
+    "inquiry": {
+      "label": "お問い合わせ"
+    },
+    "info": {
+      "label": "営業時間・ショップ情報",
+      "value": "<p>営業時間: 10:00-17:00</p><p>定休日：土日祝日（夏季・年末年始）</p>"
+    },
+    "price": {
+      "label": "販売価格について",
+      "value": "<p>販売価格は、税込み表記となっております。</p><p>また、別途配送料が掛かる場合もございます。配送料に関しては商</p><p>品詳細ページをご確認ください。</p>"
+    },
+    "payment": {
+      "label": "お支払い方法・時期",
+      "value": "<p>支払方法：クレジットカードによる決済がご利用いただけます。</p><p>支払時期：商品注文確定時にお支払いが確定いたします。</p>"
+    },
+    "deferredPayment": {
+      "label": "後払い決済",
+      "value": "<p>・コンビニ支払い：購入の翌月10日までにお支払い<br />　決済手数料：350円（税込）</p><p>・口座振替：翌月27日に引き落とし<br />　決済手数料：無料</p>"
+    },
+    "deliveryTime": {
+      "label": "商品の引き渡し時期",
+      "value": "<p>キャビアを除き、代金のお支払い確定後、7日以内の発送を予定しています。</p><p>後払い決済の場合は注文確定後、7日以内に発送いたします。</p><p>キャビアにつきましては、配送日設定フォームより日時をご指定下さい。</p>"
+    },
+    "returnAndRefund": {
+      "label": "返品・返金について",
+      "value": "商品に欠陥がある場合をのぞき、基本的には返品には応じません。"
+    }
   },
   "mushroom": {
     "title": "Bhutan Premium 7 Matsutake",
@@ -329,7 +374,7 @@
     "two_col_desc": "南アフリカ、ステレンボッシュ",
     "heading_2": "The Jewel of the Cape Winelands",
     "section1_col1_line1": "最高水準の証である、英国女王賞＊を持つ、グ ラフダイヤモンド。 輝かしい功績とクラシカル な気品、モダンで精緻なムードが昇華した 詩情 あふれるクリエイティビティそのままに ドゥレ ア グラフ エステートのワイナリーは作られま した。アダムとイヴの楽園のような世界で太陽 と風の恵みを余すところなく受けてつくられた ワインは、 地上に生を受けた、私たちへの輝く 贈り物と言えます。 くつろぎのひと時、ドゥレ アグラフ ワインをお楽しみください。 ドゥレ ア グラフワインは数々の受賞歴があり 南半球 で一流のランク付けがされています。",
-    "section1_col1_line2": "＊The Queen's Awards for Enterprise：1973、1977、 1994、2006、2014年、5回の受賞 英国企業に対する英国の最高の公式賞として、これら の受賞は最高の栄誉であり 企業の競争力、繁栄、評判において「最高水準の品 質」を達成したことの証となります。",
+    "section1_col1_line2": "＊The Queen's Awards for Enterprise：1973、1977、 1994、2006、2014年、5回の受賞 \n英国企業に対する英国の最高の公式賞として、これら の受賞は最高の栄誉であり \n企業の競争力、繁栄、評判において「最高水準の品 質」を達成したことの証となります。",
     "section1_col2_line1": "Graff holds the Queen's Award for Enterprise*, a \nhallmark of the highest standards. \nThe Delaire Graff Estate winery was established with \nbrilliant achievements, classical elegance, and the \nsame poetic creativity that sublimates a sense of \nmodern precision.\nIn a world like Adam and Eve's paradise, these wines \nmade with the full blessings of the sun and wind are a \nshining gift to us.",
     "section1_col2_line2": "Delaire Graff wines have won numerous awards and \nare ranked among the best in the southern hemisphere.",
     "section1_col2_line3": "＊The Queen's Awards for Enterprise: 5 times in 1973, 1977, \n1994, 2006 and 2014.",
@@ -344,7 +389,7 @@
     "heading_3": "Van Biljon Cinq",
     "sub_heading_3": "ドゥレア グラフ ワイン",
     "section3_name": "Anton and Julia van Biljon",
-    "section3_col1_line1": "０２０年、南アフリカワインの権威ある評価ガイド 「プラッターズ・南アフリカ・ワインガイド」（1980年に始まった独立系ガイドブック）にて プラッターズアワード5つ星97/100受賞 レッド・ブレンド・オブ・ザ・イヤー受賞 プラッターズガイドより4.5 星 93/100受賞",
+    "section3_col1_line1": "２０２０年、南アフリカワインの権威ある評価ガイド\n「プラッターズ・南アフリカ・ワインガイド」（1980年に始まった独立系ガイドブック）にて\nプラッターズアワード5つ星97/100受賞\nレッド・ブレンド・オブ・ザ・イヤー受賞\nプラッターズガイドより4.5 星 93/100受賞",
     "section3_col1_line2": "（ブラインド・テイスティングにより評価される。5つ星は95点以上。）",
     "section3_col1_line3": "世界的に有名なワインジャーナリストでマスター・オブ・ワイ ンの称号を持つ ティム・アトキン氏より92/100",
     "section3_col1_line4": "（100 点満点での評価）",
@@ -354,11 +399,11 @@
     "section3_col2_line4": "4.5 Stars 93/100 from Platter's Guide",
     "section3_col2_line5": "(Rated by blind tasting; 5 stars is 95+ points)",
     "section3_col2_line6": "92/100 (on a 100-point scale) from world-renowned wine journalist and Master of Wine Tim Atkin.",
-    "section4_col1_line1": "り良いワインを作るために、大量生産をせず、我が 子のように愛をこめて、一粒一粒の葡萄に気を配り 時 間をかけ丁寧に手作りする事が出来たワインです。こ の事から限定数での販売となりますので なくなり次第 終了とさせていただきます。",
+    "section4_col1_line1": "より良いワインを作るために、大量生産をせず、我が 子のように愛をこめて、一粒一粒\nの葡萄に気を配り 時 間をかけ丁寧に手作りする事が出来たワインです。こ の事から限\n定数での販売となりますので なくなり次第 終了とさせていただきます。",
     "section4_col2_line1": "In order to make a better wine, we do not mass-produce, but rather take the time to carefully handcraft each grape with love and care, as if it were our own child.",
     "section4_col2_line2": "And for this reason, the number of the products sold will be limited therefore no new orders will be taken once they are sold out.",
     "section5_name": "Anton and Julia van Biljon",
-    "section5_col1": "ヴァン・ビルジョンのワイナリーはステレンボッシュ、ポルカドライ丘陵の南斜面の 肥沃な真砂土が広がる理想的な場所にある小さな農園です。 葡萄はフォールズ湾から来る涼しい潮風を受けるため この地域の標準よりも2〜4週間遅れて収穫します。 十分時間をかけた栽培により、鮮やかな色合い、フルーツのフレーバーが 凝縮され、しっかりしたタンニンが味わえる葡萄を収穫できます。 収穫は最高級の房のみが手摘みされ、プレミアムな品質が最優先されます。 セラーでは、発酵中の機械的介入を最小限に抑えて可能な限り手動で行います。 穏やかにプレスした後、ワインはオーク樽で18〜24ヶ月熟成させます。 オーダーメイドのブレンドは品質に重点を置き、最高のバレルから選択されています。",
+    "section5_col1": "ヴァン・ビルジョンのワイナリーはステレンボッシュ、ポルカドライ丘陵の南斜面の\n肥沃な真砂土が広がる理想的な場所にある小さな農園です。\n葡萄はフォールズ湾から来る涼しい潮風を受けるため\nこの地域の標準よりも2〜4週間遅れて収穫します。\n十分時間をかけた栽培により、鮮やかな色合い、フルーツのフレーバーが\n凝縮され、しっかりしたタンニンが味わえる葡萄を収穫できます。\n収穫は最高級の房のみが手摘みされ、プレミアムな品質が最優先されます。\nセラーでは、発酵中の機械的介入を最小限に抑えて可能な限り手動で行います。\n穏やかにプレスした後、ワインはオーク樽で18〜24ヶ月熟成させます。\nオーダーメイドのブレンドは品質に重点を置き、最高のバレルから選択されています。",
     "section5_col2_line1": "Van Biljon Cinq’s boutique winery is ideally situated in Stellenbosch, on the southern slope of the Polkadraai Hills in decomposed granite soil. Since the area is exposed to a cooling sea breeze, harvest is 2-4 weeks later than the norm for this area. Thus, the grapes have ample time to develop character and complex flavours, yielding fruit with intense colour, concentrated fruit flavors and firm tannins.",
     "section5_col2_line2": "Harvesting is done by hand and only the finest bunches are picked to ensure quality over quantity.",
     "section5_col2_line3": "In the cellar as much as possible is done manually with minimal mechanical intervention during fermentation. After a gentle press the wine is allowed to mature in oak barrels for between 18-24 months.",

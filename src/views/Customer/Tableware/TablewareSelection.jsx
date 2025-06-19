@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
+import BannerCollection from 'components/BannerCollection'
 
 // Use string paths for images
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
@@ -27,7 +28,7 @@ const TablewareSelection = () => {
   const router = useRouter()
 
   return (
-    <div className='bg-white text-center pb-[36px] max-md:pb-[29px]'>
+    <div className='bg-white text-center'>
       <div className='container mx-auto text-center font-roboto pt-[44px] max-md:pt-[40px]'>
         <h1 className='font-["Spectral"] text-[#000] text-[52px] leading-[46px]  font-normal max-md:text-[20px] max-md:leading-[20px] '>
           Signature’s Original Tableware{' '}
@@ -118,22 +119,13 @@ const TablewareSelection = () => {
           className='object-cover object-center max-w-[1076px] h-[45px] max-md:h-[32px] '
         />
       </div>
-
-      <p className='text-center font-["Spectral"] text-[32px] max-md:text-[24px] font-medium leading-[27px] text-[#514f4e]  '>
-        購入ページ
-      </p>
-
-      <div
-        onClick={() => {
-          router.push(`/products?collectionId=${collection?.id}`)
-        }}
-        className='mx-auto mt-[8px]  overflow-hidden flex flex-col justify-between items-center  cursor-pointer h-[174px] w-[433px] max-md:w-[343px] max-md:h-[140px] rounded-[4px] bg-cover border-[1px] border-solid border-[#ABABAB]'
-      >
-        <img src={Img9} alt='' className='w-full h-[145px]' />
-        <p className=' leading-[22px] max-md:leading-[22px]  text-[14px] text-[#514f4e] max-md:text-[12px]  font-semibold '>
-          シグニチャー・オリジナルのテーブルウエア
-        </p>
-      </div>
+      <BannerCollection
+        className='pb-10'
+        title='購入ページ'
+        image={Img9}
+        description='シグニチャー・オリジナルのテーブルウエア'
+        collectionId={collection?.id}
+      />
     </div>
   )
 }

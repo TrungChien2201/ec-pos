@@ -85,7 +85,7 @@ const getSortStatus = (status) => {
 
 const ItemList = ({ collection, infoCollection }) => {
   const router = useRouter()
-  const {title, collectionId} = router.query
+  const { title, collectionId } = router.query
   const [type, setType] = useState(null)
   const [status, setStatus] = useState(null)
   const [minPrice, setMinPrice] = useState('')
@@ -172,6 +172,13 @@ const ItemList = ({ collection, infoCollection }) => {
 
   useEffect(() => {
     getMaxPrice()
+    const savedScrollY = sessionStorage.getItem('scrollPosition')
+    if (savedScrollY) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScrollY, 10))
+        sessionStorage.removeItem('scrollPosition')
+      }, 0)
+    }
   }, [productList])
 
   return (

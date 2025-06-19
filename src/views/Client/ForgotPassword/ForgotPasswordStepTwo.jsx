@@ -28,7 +28,9 @@ const ForgotPasswordStepTwo = (props) => {
   const [resend, setResend] = useState(false)
   const stepOneInfo = {
     title: t('forgotPassword.stepTwo.title'),
-    descOne: hideEmail(value) + t('forgotPassword.stepTwo.descOne'),
+    descOne: t('forgotPassword.stepTwo.descOne', {
+      email: hideEmail(value),
+    }),
     descTwo: t('forgotPassword.stepTwo.descTwo'),
     subDesc: t('forgotPassword.stepTwo.sub_desc'),
     logo: CONSTANT.FORGOTPASSWORD_LOGO,

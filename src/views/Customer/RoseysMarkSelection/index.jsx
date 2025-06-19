@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 
 // Use string paths instead of direct imports
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
@@ -31,7 +31,6 @@ const RoseysMarkSelection = () => {
   const { t } = useTranslation()
   const menus = useSelector((state) => state.menus.sections)
   const collection = getCollectionInMenu(menus, 'Rosey’s Mark')
-  const router = useRouter()
 
   return (
     <BaseAnimation className='bg-white text-black-light-5 font-roboto'>
@@ -46,7 +45,7 @@ const RoseysMarkSelection = () => {
       <div className='mt-6'>
         <img src={imgBanner} className='w-full h-auto' />
       </div>
-      <div className='flex justify-center bg-white mt-5 md:mt-7 pb-[38px]'>
+      <div className='flex justify-center bg-white mt-5 md:mt-7'>
         <div className='container container--small-desktop'>
           <div className='w-full flex flex-col items-center text-center max-md:text-[#000000] '>
             <div
@@ -167,23 +166,13 @@ const RoseysMarkSelection = () => {
               className='w-full h-[32px] lg:h-[45px] object-cover object-center'
             />
           </div>
-
-          <p className='text-center text-2xl md:text-[32px] leading-[40px] text-[#514F4E] font-spectral'>
-            {t('roses_mark.title_footer')}
-          </p>
-          <div
-            className='flex flex-col items-center justify-center max-w-[343px] md:max-w-[433px] mx-auto bg-white border-[1px] border-solid border-[#ABABAB] rounded-[4px] text-xs font-medium cursor-pointer'
-            onClick={() =>
-              collection?.id && router.push(`/products?collectionId=${collection?.id}`)
-            }
-          >
-            <div className='w-full image--banner image--rosey-footer'>
-              <img className='rounded-t-[4px]' src={imgFooter} />
-            </div>
-            <p className='pt-[1px] text-xs leading-[20px] md:text-sm md:leading-[22px] text-[#514F4E] font-semibold'>
-              {t('roses_mark.description')}
-            </p>
-          </div>
+          <BannerCollection
+            className='pb-10'
+            title={t('roses_mark.title_footer')}
+            image={imgFooter}
+            description={t('roses_mark.description')}
+            collectionId={collection?.id}
+          />
         </div>
       </div>
     </BaseAnimation>

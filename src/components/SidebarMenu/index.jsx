@@ -8,7 +8,9 @@ import { useSelector } from 'react-redux'
 import IconArrowDown from 'resourse/svg/IconArrowDown'
 import IconArrowUp from 'resourse/svg/IconArrowUp'
 
-import { HOME_PAGE_ROUTE } from 'common/constant'
+import { HOME_PAGE_ROUTE, INSTAGRRAM_LINK } from 'common/constant'
+import { InstagramOutlined } from '@ant-design/icons'
+
 import { useRouter } from 'next/router'
 
 const SidebarMenu = ({ isOpen, onClose }) => {
@@ -28,6 +30,11 @@ const SidebarMenu = ({ isOpen, onClose }) => {
   }
 
   const handleNavigate = (child) => {
+    if (child?.navigateTo) {
+      child?.navigateTo?.includes('https')
+        ? window.open(child?.navigateTo)
+        : navigate(child?.navigateTo)
+    }
     if (child.id) {
       router.push(`/products?collectionId=${child.id}`)
     }
@@ -106,16 +113,14 @@ const SidebarMenu = ({ isOpen, onClose }) => {
           background: 'transparent',
         }}
         className='main-menu'
-        items={[
-          ...menuItems,
-          {
-            key: '1000',
-            label: <div onClick={() => handleNavigate({ href: '/contact' })}>Contact</div>,
-          },
-        ]}
+        items={[...menuItems]}
         expandIcon={({ isOpen: isOpenMenu }) => {
           return isOpenMenu ? <IconArrowUp /> : <IconArrowDown />
         }}
+      />
+      <InstagramOutlined
+        className='text-[42px] ml-[12px] mt-[32px]'
+        onClick={() => window.open(INSTAGRRAM_LINK)}
       />
     </Drawer>
   )

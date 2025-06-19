@@ -13,6 +13,8 @@ import RemoveModal from 'components/modals/RemoveModal'
 import IconPencilSimpleLine from 'resourse/svg/IconPencilSimpleLine'
 import IconTrash from 'resourse/svg/IconTrash'
 import { getListAddress, getListProvinces, removeAddress } from 'services/address'
+import cx from 'classnames'
+import styles from '../styles.module.scss'
 
 import ModalAddress from '../ModalAddress'
 
@@ -84,7 +86,7 @@ const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }
   }
 
   return (
-    <div className='flex-1 h-full py-4 bg-white border sm:rounded-2xl'>
+    <div className={cx('flex-1 h-full py-4 bg-white border sm:rounded-2xl', styles.userProfile)}>
       <div className='flex justify-between items-center px-4'>
         <div className='font-medium text-xl text-black'>{t('user_profile.shipping_address')}</div>
         <ButtonComponent
@@ -94,11 +96,11 @@ const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }
           onClick={actionAddAddress}
         />
       </div>
-      <Divider orientationMargin1='0.05' />
+      <Divider className={styles['ant-divider-horizontal']} orientationMargin1='0.05' />
       {address && address.length > 0 ? (
         <div className='px-4 flex flex-col gap-6'>
           <div className='text-base font-normal text-black'>{t('user_profile.choosing')}</div>
-          <div className={`md:max-h-[510px] scroll-custom`}>
+          <div className={cx('md:max-h-[510px]', styles.addressForm, styles['scroll-custom'])}>
             <Radio.Group
               className='w-full'
               value={valueDefault}
@@ -141,7 +143,7 @@ const UserProfileAddress = ({ hasRemove = true, getAddSelected, setIsOpenModal }
                         </div>
                       </div>
                     </Radio>
-                    <Divider />
+                    <Divider className={styles['ant-divider-horizontal']} />
                   </div>
                 ))}
               </Space>

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 
 // Use string paths for images
 const banner = 'images/gorilla/banner.webp'
@@ -34,7 +34,6 @@ const AboutGorilla = () => {
   const menus = useSelector((state) => state.menus.menus)
   const collection = getCollectionInMenu(menus, 'Gorilla Spirits Co.')
 
-  const router = useRouter()
   return (
     <BaseAnimation className='bg-white font-["Roboto"] text-black-light-7 text-justify'>
       <div className='text-center pt-[44px] pb-[24px] '>
@@ -142,21 +141,13 @@ const AboutGorilla = () => {
             className='object-cover object-center h-[45px] max-md:h-[32px] w-full'
           />
         </div>
-
-        <div className='text-center font-["spectral"] pb-[38px]'>
-          <p className='text-center text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E] font-["Spectral"]'>
-            {t('nova_caviar.footer')}
-          </p>
-          <div
-            onClick={() => collection?.id && router.push(`/products?collectionId=${collection?.id}`)}
-            className='cursor-pointer flex flex-col items-center mx-auto w-[433px] h-[166px] max-md:w-[343px] max-md:h-[135px] border-[1px] border-solid border-[#ABABAB] rounded-[4px]'
-          >
-            <img src={ImgFooter} alt='img footer' className='w-full h-full' />
-            <p className=' leading-[24px] font-roboto text-[14px] max-md:leading-[20px] max-md:text-[12px] text-[#514F4E] font-semibold'>
-              {t('gorilla.description')}
-            </p>
-          </div>
-        </div>
+        <BannerCollection
+          className='pb-10'
+          title={t('mushroom.title_footer')}
+          image={ImgFooter}
+          description={t('gorilla.description')}
+          collectionId={collection?.id}
+        />
       </div>
     </BaseAnimation>
   )

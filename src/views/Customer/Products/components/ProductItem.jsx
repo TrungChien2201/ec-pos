@@ -26,6 +26,7 @@ const ProductItem = ({ product, className }) => {
   const { data: productGifts } = useQuery(['getProductsGift'], getProductsGift)
 
   const onNavigate = (url) => {
+    sessionStorage.setItem('scrollPosition', window.scrollY)
     if (
       (product?.title &&
         !product?.title.toString().includes('ワイン') &&

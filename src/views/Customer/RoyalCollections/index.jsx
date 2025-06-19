@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 import useResponsive from 'hooks/useResponsive'
 import { useRouter } from 'next/router'
 

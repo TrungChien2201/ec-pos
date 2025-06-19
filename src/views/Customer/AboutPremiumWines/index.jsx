@@ -1,22 +1,21 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 
 // Use string paths instead of direct imports
 const ImgHorizontalDivide = 'images/horizontal-divide.png'
 const Img1 = 'images/royal/1.webp'
-import BuyOnline from '../RoyalCollection/components/BuyOnline'
+import BuyOnline from './components/BuyOnline'
 
 const RoyalCollection = () => {
-  const router = useRouter()
   const { t } = useTranslation()
   const menus = useSelector((state) => state.menus.menus)
 
   const collectionId = useMemo(() => {
-    const premiumWines = menus.find((item) => item.title === t('menu.premium_wines.value'))
+    const premiumWines = menus.find((item) => item.title === 'Premium Wines')
 
     if (!premiumWines?.childs) return ''
     const wine = premiumWines?.childs.find((item) => item.title === 'Van Biljon Cinq Wines')
@@ -207,7 +206,7 @@ const RoyalCollection = () => {
           </div>
 
           <div className='max-w-[1280px] mx-auto h-auto flex flex-wrap lg:flex-nowrap px-[16px] xl:px-[unset] text-[16px] leading-[32px] lg:gap-x-[20px]'>
-            <div className='lg:basis-1/2 w-full h-auto max-[650px]:whitespace-pre-line max-[650px]:text-[0.875rem]'>
+            <div className='lg:basis-1/2 w-full h-auto max-[650px]:text-[0.875rem]'>
               <p>{t('premium_wines.section4_col1_line1')}</p>
             </div>
 
@@ -264,18 +263,13 @@ const RoyalCollection = () => {
                 className='object-cover object-center w-full max-w-[1280px] h-[45px] max-md:h-[32px]'
               />
             </div>
-            <p className='text-center  text-[24px] lg:text-[32px] leading-[40px] text-[#514F4E]  font-["Spectral"]'>
-              {t('hal_caviar.title_footer')}
-            </p>
-            <div
-              className='flex flex-col items-center justify-end mx-auto mb-[38px] w-full max-w-[343px] md:max-w-[433px] h-[140px] md:h-[174px] rounded-[4px] bg-cover border-[1px] border-solid border-[#ABABAB] cursor-pointer'
-              onClick={() => collectionId && router.push(`/products?collectionId=${collectionId}`)}
-            >
-              <img src={Img1} alt='' className='w-full h-full rounded-t' />
-              <p className=' leading-[22px]  text-[14px] max-md:leading-[20px] max-md:text-[12px] mb-0 max-md:mb-[0px] text-[#514F4E]   font-semibold'>
-                {t('premium_wines.footer')}
-              </p>
-            </div>
+            <BannerCollection
+              className='pb-10'
+              title={t('hal_caviar.title_footer')}
+              image={Img1}
+              description={t('premium_wines.footer')}
+              collectionId={collectionId}
+            />
           </div>
         </div>
       </div>

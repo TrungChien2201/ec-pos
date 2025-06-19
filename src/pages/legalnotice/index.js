@@ -1,7 +1,7 @@
-import ContactView from 'views/Customer/Contact/Contact'
+import LegalnoticeView from 'views/Customer/LegalNotice/LegalNotice'
 
-const ContactPage = () => {
-  return <ContactView />
+const LegalnoticePage = () => {
+  return <LegalnoticeView />
 }
 
 // Force server-side rendering to avoid Html import issues
@@ -13,4 +13,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default ContactPage
+export default LegalnoticePage

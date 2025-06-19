@@ -1,14 +1,18 @@
 import { classSizeLargeImg, classSizeSmallImg } from 'modules/Gorilla'
-import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import { setPageId } from '../../store/idRedirect'
+import { useSelector, useDispatch } from 'react-redux'
 
 const PremiumWines = () => {
   const router = useRouter()
   const menus = useSelector((state) => state.menus.sections)
+  const dispatch = useDispatch()
+
   const handleRedirect = (child) => {
     if (!child?.id || child?.isComingSoon) return
     if (child?.id) {
       const { id } = child
+      dispatch(setPageId(id))
       router.push(String(id).includes('/') ? `${id}` : `/products?collectionId=${id}`)
     }
   }
@@ -16,7 +20,7 @@ const PremiumWines = () => {
   const renderItems = menus
     ?.find((i) => i.title === 'Premium Wines')
     ?.childs.map((child, childsIndex) => (
-      <div className='w-full md:w1-[50%] cursor-pointer relative' key={childsIndex}>
+      <div className='w-full md:w1-[50%] cursor-pointer relative' id={child?.id} key={childsIndex}>
         <div
           className='bg-white border-[1px] border-solid border-[#ABABAB] rounded-[6px] h-full'
           onClick={() => handleRedirect(child)}

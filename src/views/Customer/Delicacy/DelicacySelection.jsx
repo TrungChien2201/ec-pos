@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 
 import BaseAnimation from 'components/common/BaseAnimation/BaseAnimation'
+import BannerCollection from 'components/BannerCollection'
 const imgBanner = 'images/delicacy/banner.png'
 const imgFooter = 'images/delicacy/5.webp'
 const imgLogo = 'images/delicacy/logo.png'
@@ -26,7 +26,6 @@ const DelicacySelection = () => {
   const { t } = useTranslation()
   const menus = useSelector((state) => state.menus.sections)
   const collection = getCollectionInMenu(menus, 'Delicacy')
-  const router = useRouter()
 
   return (
     <BaseAnimation className='bg-white text-black-light-5 font-roboto delicacy-selection'>
@@ -41,7 +40,7 @@ const DelicacySelection = () => {
       <div className='mt-6'>
         <img src={imgBanner} className='w-full h-auto' />
       </div>
-      <div className='flex justify-center bg-white mt-5 md:mt-7 pb-[38px]'>
+      <div className='flex justify-center bg-white mt-5 md:mt-7'>
         <div className='container container--small-desktop'>
           <div className='w-full flex flex-col items-center text-center max-md:text-[#000000] '>
             <div
@@ -91,7 +90,7 @@ const DelicacySelection = () => {
 
           <div
             dangerouslySetInnerHTML={{ __html: t('delicacy.two_col_footer') }}
-            className='text-center flex flex-col justify-center items-center mt-[25px] text-sm leading-[22px] md:text-lg md:leading-[30px]'
+            className='text-center flex flex-col justify-center items-center mt-10 text-sm leading-[22px] md:text-lg md:leading-[30px]'
           />
           <div className='flex justify-center py-[24px] overflow-x-hidden'>
             <img
@@ -100,23 +99,13 @@ const DelicacySelection = () => {
               className='w-full h-[32px] lg:h-[45px] object-cover object-center'
             />
           </div>
-
-          <p className='text-center text-2xl md:text-[32px] leading-[40px] text-[#514F4E] font-spectral'>
-            {t('delicacy.title_footer')}
-          </p>
-          <div
-            className='flex flex-col items-center justify-center max-w-[343px] md:max-w-[433px] mx-auto bg-white border-[1px] border-solid border-[#ABABAB] rounded-[4px] text-xs font-medium cursor-pointer'
-            onClick={() =>
-              collection?.id && router.push(`/products?collectionId=${collection?.id}`)
-            }
-          >
-            <div className='w-full image--banner image--rosey-footer'>
-              <img className='rounded-t-[4px]' src={imgFooter} />
-            </div>
-            <p className='pt-[1px] text-xs leading-[20px] md:text-sm md:leading-[22px] text-[#514F4E] font-semibold'>
-              {t('delicacy.description')}
-            </p>
-          </div>
+          <BannerCollection
+            className='pb-10'
+            title={t('mushroom.title_footer')}
+            image={imgFooter}
+            description={t('delicacy.description')}
+            collectionId={collection?.id}
+          />
         </div>
       </div>
     </BaseAnimation>

@@ -1,14 +1,19 @@
 import { classSizeLargeImg, classSizeSmallImg } from 'modules/Gorilla'
-import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import { setPageId } from '../../store/idRedirect'
+import { useSelector, useDispatch } from 'react-redux'
 
 const ModCaviar = () => {
   const router = useRouter()
   const menus = useSelector((state) => state.menus.sections)
+
+  const dispatch = useDispatch()
+
   const handleRedirect = (child) => {
     if (!child?.id || child?.isComingSoon) return
     if (child?.id) {
       const { id } = child
+      dispatch(setPageId(id))
       router.push(String(id).includes('/') ? `${id}` : `/products?collectionId=${id}`)
     }
   }
@@ -21,6 +26,7 @@ const ModCaviar = () => {
           child?.order ? `order-${child?.order} md:order-none` : ''
         }`}
         key={index}
+        id={child?.id}
       >
         <div
           className='bg-white border-[1px] border-solid border-[#ABABAB] rounded-[8px] h-full'

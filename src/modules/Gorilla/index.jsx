@@ -1,19 +1,25 @@
 import cx from 'classnames'
-import { useSelector } from 'react-redux'
+
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
-export const classSizeSmallImg = 'h-[53.94px] size414:h-auto size1440:h-[99.42px]'
-export const classSizeLargeImg = 'h-[107.89px] size414:h-auto size1440:h-[197.68px]'
+import { setPageId } from '../../store/idRedirect'
+import { useSelector, useDispatch } from 'react-redux'
+
+export const classSizeSmallImg = 'h-[53.79px] size414:h-auto size1440:h-[99.32px]'
+export const classSizeLargeImg = 'h-[107.57px] size414:h-auto size1440:h-[197.47px]'
 
 const Gorilla = () => {
   const { t } = useTranslation()
   const router = useRouter()
   const menus = useSelector((state) => state.menus.sections)
+  const dispatch = useDispatch()
+
   const handleRedirect = (child) => {
     if (!child?.id || child?.isComingSoon) return
     if (child?.id) {
       const { id } = child
+      dispatch(setPageId(id))
       router.push(String(id).includes('/') ? `${id}` : `/products?collectionId=${id}`)
     }
   }
@@ -27,6 +33,7 @@ const Gorilla = () => {
           child?.className,
         )}
         key={childsIndex}
+        id={child?.id}
       >
         <div
           className='bg-white border-[1px] border-solid border-[#ABABAB] rounded-[6px] h-full'

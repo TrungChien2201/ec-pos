@@ -10,6 +10,7 @@ const ProductItemSlider = ({ type, product }) => {
   const dispatch = useDispatch()
 
   const onNavigate = (url) => {
+    sessionStorage.setItem('scrollPosition', window.scrollY)
     if (
       (product?.title &&
         !product?.title.toString().includes('ワイン') &&

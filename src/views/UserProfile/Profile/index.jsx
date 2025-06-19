@@ -17,10 +17,14 @@ import { useMutation } from '@tanstack/react-query'
 import { getMe, getToken } from 'services/auth'
 import { editProfile } from 'services/profile'
 import { initUser, initCountOrder, logoutUser } from 'store/user'
+import cx from 'classnames'
+import styles from '../styles.module.scss'
 
 import * as CONSTANT from 'common/constant'
 
 import liff from '@line/liff'
+
+const AvatarDefault = 'images/avatar-user.png'
 
 const UserInformation = () => {
   const dispatch = useDispatch()
@@ -129,10 +133,15 @@ const UserInformation = () => {
         <div className='font-medium text-xl text-black'>{t('user_profile.profile')}</div>
       </div>
 
-      <Divider />
+      <Divider className={styles['ant-divider-horizontal']} />
 
       <div className='flex flex-col md:flex-row pt-[20px] pb-[66px]'>
-        <div className='w-full md:w-8/12 md:px-4 lg:px-12 order-2 md:order-1 border-form-profile'>
+        <div
+          className={cx(
+            'w-full md:w-8/12 md:px-4 lg:px-12 order-2 md:order-1',
+            styles['border-form-profile'],
+          )}
+        >
           <Form
             className='p-[20px] lg:p-8 md:p-0'
             layout='vertical'
@@ -194,7 +203,7 @@ const UserInformation = () => {
         </div>
 
         <div className='flex flex-col gap-4 w-full md:w-4/12 order-1 md:order-2 px-12'>
-          <div className='w-fit mx-auto uploadAvata'>
+          <div className={cx('w-fit mx-auto', styles.uploadAvatar)}>
             <Avatar
               className='border-[#A5A58D] border-2'
               style={{ verticalAlign: 'middle' }}
@@ -203,7 +212,7 @@ const UserInformation = () => {
                 imgPreview ??
                 (UserInfo.user?.avatar_url
                   ? `${NEXT_PUBLIC_API_URL}/${UserInfo?.user?.avatar_url}`
-                  : '/images/avatar-user.png')
+                  : AvatarDefault)
               }
               crossOrigin='anonymous'
             />
@@ -240,7 +249,7 @@ const UserInformation = () => {
       <Modal
         open={openModal}
         onCancel={handleCancel}
-        className='modalSuccess'
+        className={cx('ant-modal--user-profile', styles.modalSuccess)}
         closable={false}
         centered
         style={{

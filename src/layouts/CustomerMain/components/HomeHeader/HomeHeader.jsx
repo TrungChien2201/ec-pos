@@ -20,6 +20,13 @@ const { Header } = Layout
 const HomeHeader = ({ setIsOpenSideBar, isHomePage }) => {
   const { loading, banners } = useSeason()
 
+  const handleClickToBanner = () => {
+    window.open(
+      'https://inline.app/booking/-NaZib6nlNaBQQUg90NR:inline-live-3/-NaZibJ37pXzzBECLweJ?language=ja',
+      '_blank',
+    )
+  }
+
   return (
     <Header className='p-0 shadow bg-primary h-auto z-0'>
       <div className='h-full w-full relative'>
@@ -38,13 +45,19 @@ const HomeHeader = ({ setIsOpenSideBar, isHomePage }) => {
                     crossOrigin='anonymous'
                     alt='wine'
                     src={APP_MEDIA_URL + item.image_url}
-                    className='w-full h-auto'
+                    className='w-full h-auto cursor-pointer'
+                    onClick={handleClickToBanner}
                   />
                 </SwiperSlide>
               ))
             : !loading && (
                 <SwiperSlide>
-                  <img alt='wine' src={DefaultBG} className='w-full h-auto' />
+                  <img
+                    alt='wine'
+                    src={DefaultBG}
+                    className='w-full h-auto cursor-pointer'
+                    onClick={handleClickToBanner}
+                  />
                 </SwiperSlide>
               )}
         </Swiper>

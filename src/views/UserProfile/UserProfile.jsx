@@ -12,6 +12,10 @@ import { USER_PROFILE } from 'common/constant'
 import UserProfileAddress from './Address'
 import OrderHistory from './OrderHistory'
 import UserInformation from './Profile'
+import cx from 'classnames'
+import styles from './styles.module.scss'
+
+const AvatarDefault = 'images/avatar-user.png'
 
 const getItem = (label, key, icon, children, type) => {
   return {
@@ -75,7 +79,7 @@ const UserProfile = () => {
       <div className='flex flex-col md:flex-row gap-4 sm:gap-6 md:py-8 lg:py-16'>
         <div className='border md:rounded-2xl bg-white p-4 w-full md:w-[246px]'>
           <div className='flex flex-col gap-4'>
-            <div className='flex justify-between border-name-user'>
+            <div className={cx('flex justify-between', styles['border-name-user'])}>
               <div className='flex gap-2 items-center py-2 md:py-0'>
                 <Avatar
                   className='border-[#A5A58D] border-2'
@@ -84,7 +88,7 @@ const UserProfile = () => {
                   src={
                     UserInfo.user?.avatar_url
                       ? `${NEXT_PUBLIC_API_URL}/${UserInfo.user?.avatar_url}`
-                      : '/images/avatar-user.png'
+                      : AvatarDefault
                   }
                   crossOrigin='anonymous'
                 />
@@ -92,7 +96,7 @@ const UserProfile = () => {
               </div>
             </div>
             <Menu
-              className='border-none menuProfile'
+              className={cx('border-none', styles.menuProfile)}
               mode='inline'
               openKeys={openKeys}
               onOpenChange={onOpenChange}

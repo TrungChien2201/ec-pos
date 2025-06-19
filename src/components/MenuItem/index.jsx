@@ -13,11 +13,17 @@ const MenuItem = ({ menu }) => {
       <div
         key={childsIndex}
         className='px-2 py-3 bg-white text-body-14-22 whitespace-nowrap border-bottom border-[#C7C7C7] hover:bg-[#9FD8F4] hover:border-[#666] hover:text-[#00476A] text-black/50'
-        onClick={() =>
-          child.id && child?.active !== false
-            ? router.push(`/products?collectionId=${child.id}`)
-            : ''
-        }
+        onClick={() => {
+          if (child?.navigateTo) {
+            child?.navigateTo?.includes('https')
+              ? window.open(child?.navigateTo)
+              : router.push(child?.navigateTo)
+          } else {
+            child.id && child?.active !== false
+              ? router.push(`/products?collectionId=${child.id}`)
+              : ''
+          }
+        }}
       >
         {child.title === 'Bhutan Premium 7 Matsutake'
           ? 'Matsutake'
